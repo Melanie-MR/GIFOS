@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c1d53aba1c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style/mygifs.css">
+    <title>Mis GIFOS</title>
+</head>
+<body class="body">
+    <header>
+    <hr>
+    <!--navbar-->
+        <div class="nav">
+            <a class="link-home" href="index.html"><img id="logo" class="logo" src="assets/logo-desktop.svg" alt="logo"></a> 
+            <input type="checkbox" id="toggle" value="flag"/>
+            <div class="menu">
+                <ul class="menu__list">
+                    <li><a class="menu__list--" href=""><span>Modo Nocturno</span></a></li>
+                    <li><a class="menu__list--" href="pages_favorites.html">Favoritos</a></li>
+                    <li><a class="menu__list--" href="#">Mis GIFOS</a></li>
+                    <li><a class="menu__list--" href="pages_creategif.html"><input type="image" id="botton__gifo--disappear" name="botton" src="assets/button-crear-gifo.svg" alt="Crear GIF"></a></li>
+                </ul>
+            </div>
+            <label id="hamburger" for="toggle" class="menu2">
+                    <span class="bar"></span>
+                    <span class="exs"></span>
+            </label>
+        </div>
+        <div class="title-favoritos">
+            <img src="assets/icon-favoritos.svg" alt="">
+            <h1>Mis GIFOS</h1>
+        </div>
+    </header>
+    <main>
+
+        <!--Favorites-->
+        <section id="section-favoritos" class="galeria-favoritos"></section>
+        <section id="favoritos_empty" class="sin-favoritos">
+            <div class="fav-empty-container">
+                <img src="assets/icon-mis-gifos-sin-contenido.svg" alt="Favoritos sin contenido">
+                <h2>"¡Guarda tu primer GIFO en Favoritos
+                    para que se muestre aquí!"</h2>
+            </div>
+        </section>
+        <!--Uncaught ReferenceError: sliderMovement is not defined
+        at HTMLButtonElement.onclick (VM22 pages_mygifs.html:85)-->
+        <!--Popup-->
+        <div class="overlay" id="overlay">
+            <div class="popup">
+                <img class="close-popup" id="close_popup" src="assets/close.svg" alt="Close">
+                <section class="gif-max">ho
+                    <button onclick="slideMaximizedGif(-1)" class="button__back">
+                        &#60;
+                    </button>
+                    <img id="giphy__image" src="#" alt="#">
+                    <button onclick="slideMaximizedGif(+1)" class="button__forward">
+                        &#62;
+                    </button>
+                    <div class="inline-description">
+                        <div class="text-container">
+                            <h3 id="user_giphy_title">User</h3>
+                            <h2 id="giphy_title">Título GIFO</h2>
+                        </div>
+                        <div class="icon-giphy-container">
+                            <a href="" id="like"><img src="assets/icon-fav-active.svg" alt="Like"></a>
+                            <a target="_blank" href="" id="download" download><img src="assets/icon-download.svg" alt="Download"></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!--Trending-->
+        <div class="trending">
+            <h3>Trending:</h3>
+            <h4>Reactions, Entertainment, Sports, Stickers, Artists</h4>
+        </div>
+
+        <!--Trending and slider-->
+        <section class="trending__gifs">
+            <h2 id="title__margin">Trending GIFOS</h2>
+            <h5 id="trending__description">Mira los últimos GIFO de nuestra comunidad.</h5>
+            <div class="slide__container" id="gif__container">
+                <button onclick="sliderMovement(-1)" class="button__back">&#60;</button>
+                <button onclick="sliderMovement(1)" class="button__forward">&#62;</button>
+        
+    </main>
+    
+    <!--footer-->
+    <footer>
+        <section class="footer-container">
+            <div class="share-container">
+                <h5> Compartir en:</h5>
+                <div class="icon-container"></div>
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f" style="color:grey"></i></a>
+                <a href="https://twitter.com/?lang=es"><i class="fab fa-twitter" style="color:grey"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram" style="color:grey"></i></a>
+                </div>
+            </div> 
+            <p id="copyright"></p>    
+        <div class="bar"></div>   
+      <!--  <div class="footer"><h5 id="copyright">© GIFOS 2020 All Rights Reserved.</h5></div>
+    -->
+    </footer>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="js/darkmode.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/copyright.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>

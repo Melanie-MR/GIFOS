@@ -1,0 +1,60 @@
+
+body{
+    display: inline;
+    max-width: 1440px;
+    min-width: 375px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+h1{
+    font-family: $font-montserrat;
+    font-weight: bold;
+    font-size: 35px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 50px;
+    
+}
+
+h2{
+    font-family: $font-montserrat;
+    font-weight: 600;
+    font-size: 25px;
+    color: $purple-color;
+    text-align: center;
+    line-height: 30px;
+
+}
+h3{
+    font-family: $font-montserrat;
+    font-weight: 600;
+    font-size: 18px;
+    color: $purple-color;
+    text-align: center;
+    line-height: 25px;
+    margin-top: 20px;
+
+}
+h4{
+    font-family: $font-montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    color: $purple-color;
+    text-align: center;
+    line-height: 25px;
+    margin-top:0;
+
+}
+h5{
+    font-family: $font-roboto;
+    font-weight: 400;
+    color: $black-font-color;
+    text-align: center;
+
+}
+
+@media only screen and (max-width: 480px) {
+
+}

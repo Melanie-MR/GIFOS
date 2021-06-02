@@ -1,0 +1,44 @@
+footer{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 156px;
+    margin-right: 158px;
+    font-size: 13px;
+    :hover{
+      color: $purple-color;
+    }
+    
+  }
+  #icons { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: FontAwesome5Brands-Regular;
+    color:grey;
+    letter-spacing: 0;
+    width: 15%;
+    
+  }
+  /*#icon__color{
+    color:grey
+  }
+  #icon__color:hover{
+    color: $purple-color;
+  }*/
+
+  @media only screen and (max-width: 480px) {
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      }
+    #icons { 
+      display: flex;
+      justify-content: space-around;
+      font-size: 16px;
+      width: 100%;
+      padding-top: 0;
+      padding-bottom: 31px;
+    }
+  }  
+  

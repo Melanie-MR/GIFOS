@@ -1,0 +1,86 @@
+//Container
+.trending{
+    background-color:#F3F5F8;
+    height: 640px;
+    width: 1440px;
+    margin-top: 50px;
+}
+
+//#title__margin{
+   // margin-top: 67px;
+//}
+#trending__description{
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.trending__gifs{
+    margin-top: 4%;
+}
+.trending__header{
+    margin-top: 30px;
+    position: center;
+}
+//Slideshow
+.slideshow-container {
+    max-width: 1127px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+//Hide the images by default
+//.mySlydes {
+    //display: none;
+//}
+
+//Next and previous buttons
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 8px;
+    color: $purple-color;
+    border-style: solid;
+    border-width: 2px;
+    font-size: 14px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+//Position the "next button" to the right 
+.next {
+    right: 0;
+  }
+
+//On hover, add a black background color with a little bit see-through
+.prev:hover, .next:hover {
+    background-color:$purple-color;
+    color: white;
+    border-color: $purple-color;
+  }
+
+//Fading animation
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+  
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
