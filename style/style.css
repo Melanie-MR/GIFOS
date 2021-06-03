@@ -11,17 +11,13 @@ body {
 h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
-  font-size: 35px;
-  text-align: center;
-  line-height: 50px;
-  margin-top: 50px;
+  font-size: 25px;
 }
 
 h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 25px;
-  color: #572EE5;
   text-align: center;
   line-height: 30px;
 }
@@ -222,6 +218,10 @@ label {
 
 #title__color {
   color: #572EE5;
+  font-size: 35px;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 50px;
 }
 
 .change__color {
@@ -315,6 +315,10 @@ label {
 .trending__header {
   margin-top: 30px;
   position: center;
+}
+
+#title__trending {
+  color: #572EE5;
 }
 
 .slideshow-container {

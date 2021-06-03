@@ -22,3 +22,24 @@
 //Footer 
 @import "_footer.scss";
 
+.title-favoritos {
+    color: $purple-color;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 2px;
+}
+#default-msg{
+    font-size: 22px;
+    color:$aqua-font-color;
+}
+.fav-empty-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+#icon-fav-sin-contenido{
+    width: 151px;
+    height: 150px;
+    margin-left: 45%;//mejorar esto para responsive
+}
