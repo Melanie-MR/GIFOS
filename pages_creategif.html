@@ -63,34 +63,19 @@
             </div>
             
     </section>
-
+     
             <!--Recording-->
             <div class="numbers-container">
-                <div class="video-container">
-                    <div class="loading">
-                        <img src="assets/loader.svg" alt="Loader">
-                        <h3>Estamos subiendo tu GIFO</h3>
-                    </div>
-                    <div class="checkload-overlay">
-                        <div class="btn-load-container">
-                            <button><img src="assets/icon-download.svg" alt="Download"></button>
-                            <button><img src="assets/icon-link.svg" alt="Link"></button>
-                        </div>
-                        <img src="assets/check.svg" alt="Check">
-                        <h3>GIFO subido con éxito</h3>
-                    </div>
-                    <video id="video" class="gif-recorder" src="#"></video>
-                </div>
-
                 <!--Capture-->
                 <div class="bottom-camera-display">
                     <div id="num-bar-container">
-                        <div class="numbers-container">
-                            <button id="button-number"><h5 class="button-number-font">1</h5></button>
-                            <button id="button-number"><h5 class="button-number-font">2</h5></button>
-                            <button id="button-number"><h5 class="button-number-font">3</h5></button>
-                            <h3 id="timer"></h3>
-                            <h3 id="repeatGif">REPETIR CAPTURA</h3>
+                        <div class="num-repeat-container">
+                            <div class="numbers-container">
+                                <button id="button-number"><h5 class="button-number-font">1</h5></button>
+                                <button id="button-number"><h5 class="button-number-font">2</h5></button>
+                                <button id="button-number"><h5 class="button-number-font">3</h5></button>
+                            </div>
+                            <h3 id="repeat-gif">REPETIR CAPTURA<span id="timer"></span></h3> 
                         </div>
                         <div class="bottom-bar"></div>
                     </div>
@@ -102,7 +87,22 @@
                 </div>
             </div>
             
-        
+        <!--To save/dowload GIF-->
+    <div class="video-container">
+        <div class="loading">
+            <img src="assets/loader.svg" alt="Loader">
+            <h3>Estamos subiendo tu GIFO</h3>
+        </div>
+        <div class="checkload-overlay">
+            <div class="btn-load-container">
+                <button><img src="assets/icon-download.svg" alt="Download"></button>
+                <button><img src="assets/icon-link.svg" alt="Link"></button>
+            </div>
+            <img src="assets/check.svg" alt="Check">
+            <h3>GIFO subido con éxito</h3>
+        </div>
+        <video id="video" class="gif-recorder" src="#"></video>
+    </div>
 
         <!--Control section-->
         <section class="control-section">

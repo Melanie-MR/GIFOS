@@ -75,12 +75,26 @@
 #num-bar-container{
     display: flex;
     flex-direction: column;
+    margin-left: 10%;
+    
 } 
 .numbers-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    //justify-content: space-between;
+
+    width: 45%;
+    margin-left: 15%;
+
+
 }
+.num-repeat-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 30%;
+}
+
 #button-number{
     color: $purple-color;
     border-radius: 50%;
@@ -88,6 +102,7 @@
     height: 32px;
     border: 1px solid $purple-color;
     background: none;
+    margin-left: 5%;
     
 }
 .button-number-font{
@@ -98,10 +113,18 @@
 .bottom-camera-display{
     display: flex;
     flex-direction: row;
+    margin-top: 5%;
 }
 .bottom-bar{
     width: 795.9px;
     height: 6.9px;
     background-color: $purple-color;
     border-radius: 30px;
+}
+#tape{
+    margin-top: -20%;
+}
+#repeat-gif{
+    font-size: 13px;
+    letter-spacing: 0;
 }

@@ -25,11 +25,8 @@ h2 {
 h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 18px;
   color: #572EE5;
   text-align: center;
-  line-height: 25px;
-  margin-top: 20px;
 }
 
 h4 {
@@ -321,6 +318,12 @@ label {
   color: #572EE5;
 }
 
+#trending-font {
+  font-size: 18px;
+  line-height: 25px;
+  margin-top: 20px;
+}
+
 .slideshow-container {
   max-width: 1127px;
   position: relative;
@@ -480,12 +483,21 @@ footer :hover {
 #num-bar-container {
   display: flex;
   flex-direction: column;
+  margin-left: 10%;
 }
 
 .numbers-container {
   display: flex;
   flex-direction: row;
+  width: 45%;
+  margin-left: 15%;
+}
+
+.num-repeat-container {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  margin-left: 30%;
 }
 
 #button-number {
@@ -495,6 +507,7 @@ footer :hover {
   height: 32px;
   border: 1px solid #572EE5;
   background: none;
+  margin-left: 5%;
 }
 
 .button-number-font {
@@ -506,6 +519,7 @@ footer :hover {
 .bottom-camera-display {
   display: flex;
   flex-direction: row;
+  margin-top: 5%;
 }
 
 .bottom-bar {
@@ -513,5 +527,14 @@ footer :hover {
   height: 6.9px;
   background-color: #572EE5;
   border-radius: 30px;
+}
+
+#tape {
+  margin-top: -20%;
+}
+
+#repeat-gif {
+  font-size: 13px;
+  letter-spacing: 0;
 }
 /*# sourceMappingURL=create_gifo.css.map */
