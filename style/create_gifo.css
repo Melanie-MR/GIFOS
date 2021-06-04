@@ -417,4 +417,42 @@ footer :hover {
     padding-bottom: 31px;
   }
 }
+
+.camera-display {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-left: 10.8%;
+}
+
+.create-gifo-container {
+  border: 1px solid #572EE5;
+  width: 688px;
+  height: 390px;
+}
+
+.tapes-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -8%;
+  margin-left: 5%;
+  border-collapse: collapse;
+  position: relative;
+}
+
+.tapes-cam-container {
+  display: flex;
+  flex-direction: column;
+  width: 123px;
+  height: 162px;
+}
+
+#tape-animation1 {
+  width: 30%;
+  margin-top: 20%;
+}
+
+#tape-animation2 {
+  width: 50%;
+}
 /*# sourceMappingURL=create_gifo.css.map */
