@@ -22,7 +22,7 @@
 //Footer 
 @import "_footer.scss";
 
-.title-favoritos {
+.title-mygifs {
     color: $purple-color;
     font-size: 15px;
     text-align: center;
@@ -38,7 +38,7 @@
     flex-direction: column;
     margin-bottom: 5%;
 }
-#icon-fav-sin-contenido{
+#icon-mygifs-sin-contenido{
     width: 151px;
     height: 150px;
     margin-left: 45%;//mejorar esto para responsive

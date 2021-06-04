@@ -418,7 +418,7 @@ footer :hover {
   }
 }
 
-.title-favoritos {
+.title-mygifs {
   color: #572EE5;
   font-size: 15px;
   text-align: center;
@@ -437,9 +437,9 @@ footer :hover {
   margin-bottom: 5%;
 }
 
-#icon-fav-sin-contenido {
+#icon-mygifs-sin-contenido {
   width: 151px;
   height: 150px;
   margin-left: 45%;
 }
-/*# sourceMappingURL=favorites.css.map */
+/*# sourceMappingURL=my-gifs.css.map */
