@@ -44,9 +44,6 @@ h4 {
 
 h5 {
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  color: black;
-  text-align: center;
 }
 
 hr {
@@ -306,6 +303,9 @@ label {
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: 50px;
+  font-weight: 400;
+  color: black;
+  text-align: center;
 }
 
 .trending__gifs {
@@ -396,6 +396,12 @@ footer :hover {
   width: 15%;
 }
 
+.footer-font {
+  font-weight: 400;
+  color: black;
+  text-align: center;
+}
+
 /*#icon__color{
     color:grey
   }
@@ -426,7 +432,7 @@ footer :hover {
 }
 
 .create-gifo-container {
-  border: 1px solid #572EE5;
+  border: 1.5px solid #572EE5;
   width: 688px;
   height: 390px;
 }
@@ -440,6 +446,12 @@ footer :hover {
   position: relative;
 }
 
+.camera-container {
+  margin-top: 8%;
+  display: flex;
+  flex-direction: row;
+}
+
 .tapes-cam-container {
   display: flex;
   flex-direction: column;
@@ -450,9 +462,56 @@ footer :hover {
 #tape-animation1 {
   width: 30%;
   margin-top: 20%;
+  opacity: 100%;
 }
 
 #tape-animation2 {
   width: 50%;
+  opacity: 100%;
+}
+
+.light {
+  margin-top: 15%;
+  opacity: 50%;
+  width: 91px;
+  height: 151px;
+}
+
+#num-bar-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.numbers-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#button-number {
+  color: #572EE5;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #572EE5;
+  background: none;
+}
+
+.button-number-font {
+  color: #572EE5;
+  font-size: 18px;
+  margin: 0;
+}
+
+.bottom-camera-display {
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom-bar {
+  width: 795.9px;
+  height: 6.9px;
+  background-color: #572EE5;
+  border-radius: 30px;
 }
 /*# sourceMappingURL=create_gifo.css.map */

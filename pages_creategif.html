@@ -48,7 +48,7 @@
                     </div>  
                 </div>
             </div>
-
+        
             <!--Video Recording Rectangle-->
             <div class="create-gifo-container">
                 <div class="text-gifo-container active">
@@ -61,6 +61,7 @@
                     <p>El acceso a tu cámara será válido sólo por el tiempo en el que estés creando el GIFO</p>
                 </div>
             </div>
+            
     </section>
 
             <!--Recording-->
@@ -82,18 +83,25 @@
                 </div>
 
                 <!--Capture-->
-                <div class="icon-numbers">
-                    <h4 class="button-number">1</h4>
-                    <h4 class="button-number">2</h4>
-                    <h4 class="button-number">3</h4>
-                    <h4 id="timer"></h4>
-                    <h4 id="repeatGif">REPETIR CAPTURA</h4>
+                <div class="bottom-camera-display">
+                    <div id="num-bar-container">
+                        <div class="numbers-container">
+                            <button id="button-number"><h5 class="button-number-font">1</h5></button>
+                            <button id="button-number"><h5 class="button-number-font">2</h5></button>
+                            <button id="button-number"><h5 class="button-number-font">3</h5></button>
+                            <h3 id="timer"></h3>
+                            <h3 id="repeatGif">REPETIR CAPTURA</h3>
+                        </div>
+                        <div class="bottom-bar"></div>
+                    </div>
+                    
+                    <div class="tape3-container">
+                        <img id="tape" src="assets/pelicula.svg" alt="Rollo de película">
+                    </div>
+                    
                 </div>
-                <div class="bottom-bar"></div>
             </div>
-            <div class="cinta-container">
-                <img id="tape" src="assets/pelicula.svg" alt="Rollo de película">
-            </div>
+            
         
 
         <!--Control section-->
@@ -109,7 +117,7 @@
     <footer>
         <section class="footer-container">
             <div class="share-container">
-                <h5> Compartir en:</h5>
+                <h5 class="footer-font"> Compartir en:</h5>
                 <div class="icon-container"></div>
                 <a href="https://www.facebook.com/"><i class="fab fa-facebook-f" style="color:grey"></i></a>
                 <a href="https://twitter.com/?lang=es"><i class="fab fa-twitter" style="color:grey"></i></a>
