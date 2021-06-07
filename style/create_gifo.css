@@ -19,7 +19,6 @@ h2 {
   font-weight: 600;
   font-size: 25px;
   text-align: center;
-  line-height: 30px;
 }
 
 h3 {
@@ -289,6 +288,27 @@ label {
   width: calc(200px*4 + 3em);
 }
 
+.gral-button {
+  display: none;
+  position: absolute;
+  margin-left: 25%;
+  margin-top: 2%;
+}
+
+.gral-button :hover {
+  background-color: #572EE5;
+  color: #FFFFFFFF;
+}
+
+.button-format {
+  background: none;
+  color: none;
+  border-radius: 50px;
+  border: 0.5px solid #572EE5;
+  height: 50px;
+  width: 127px;
+}
+
 .trending {
   background-color: #F3F5F8;
   height: 640px;
@@ -316,6 +336,7 @@ label {
 
 #title__trending {
   color: #572EE5;
+  line-height: 30px;
 }
 
 #trending-font {
@@ -491,6 +512,7 @@ footer :hover {
   flex-direction: row;
   width: 45%;
   margin-left: 15%;
+  margin-bottom: 5%;
 }
 
 .num-repeat-container {
@@ -536,5 +558,31 @@ footer :hover {
 #repeat-gif {
   font-size: 13px;
   letter-spacing: 0;
+  display: none;
+}
+
+.text-gifo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-gifo-container-recording {
+  display: none;
+}
+
+#main-msg {
+  color: #572EE5;
+  line-height: 35px;
+  margin-top: 134px;
+  margin-bottom: 3px;
+}
+
+#create-subtitle {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  line-height: 29px;
+  margin-top: 0%;
 }
 /*# sourceMappingURL=create_gifo.css.map */

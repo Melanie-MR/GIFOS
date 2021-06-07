@@ -89,6 +89,28 @@
    width: calc(200px*4 + 3em);
 }
 
+.gral-button{
+    display: none; //should be block when the search appear.
+    position: absolute;
+    margin-left: 25%;
+    margin-top: 2%;
+    
+    :hover{
+        background-color:$purple-color;
+        color:$background-color;
+    }
+    
+}
+.button-format{ // this can be in general style
+    background: none;
+    color: none;
+    border-radius: 50px;
+    border: 0.5px solid $purple-color;
+    height: 50px;
+    width: 127px;
+}
+
+
 //Responsive//
 @media only screen and (max-width: 480px) {
     

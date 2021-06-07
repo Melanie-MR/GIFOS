@@ -81,10 +81,9 @@
 .numbers-container{
     display: flex;
     flex-direction: row;
-    //justify-content: space-between;
-
     width: 45%;
     margin-left: 15%;
+    margin-bottom: 5%;
 
 
 }
@@ -124,7 +123,31 @@
 #tape{
     margin-top: -20%;
 }
-#repeat-gif{
+#repeat-gif {
     font-size: 13px;
     letter-spacing: 0;
+    display: none; //hidden repetir captura.Should be showed in create gifo 2.
+    //Also hidden timer. Should be showed in crear gifo 3, after stop capture.
+}
+.text-gifo-container{ 
+    display: flex;
+    flex-direction: column;
+
+}
+.text-gifo-container-recording{ //Hidden in crear gifo 1. 
+    display: none;
+}
+#main-msg{
+    color: $purple-color;
+    line-height: 35px;
+    margin-top: 134px;
+    margin-bottom: 3px;
+}
+#create-subtitle{
+    font-family: $font-roboto;
+    font-size: 16px;
+    color: $black-font-color;
+    text-align: center;
+    line-height: 29px;
+    margin-top: 0%;
 }
