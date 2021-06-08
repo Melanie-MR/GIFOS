@@ -89,7 +89,7 @@ searchForm.addEventListener('submit',function(e) {
 
 function search(query) {
    
-    const path_search = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=12&q=${query}`
+    const path_search = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=15&q=${query}`
 
     fetch (path_search).then(function (res) { 
         return res.json()
