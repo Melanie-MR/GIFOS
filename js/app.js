@@ -88,6 +88,7 @@ function clickLike(url) {
     myLikes.push(url)
     
     localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
+    
 }
 
 //API Conection Search
