@@ -58,20 +58,36 @@ function trending(num) {
             //To add strings
             
             resultsTrending += `<div class="mySlides fade">
-                    <img src="${url}"  style= "width: 357px; height: 275px" alt="${title}">
-                </div>`;
+                                    <img src="${url}"  style= "width: 357px; height: 275px" alt="${title}">
+                                    <button class="download" onclick="clickDownload()"><h3>D</h3></button>
+                                    <button class="like" onclick="clickLike('${url}')"><h3>L</h3></button>
+                                    <button class="broden" onclick="clickBroden()"><h3>S</h3></button>
+                                </div>`;
             slideButtons = `<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class ="next" onclick="plusSlides(1)">&#10095;</a>`;
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>`;
         });
             
         console.log(resultsTrending);
-        trendingEl.innerHTML = resultsTrending + slideButtons; //to introduce in html
+        trendingEl.innerHTML = resultsTrending + slideButtons; //to introduce it in html
  
         showTrending(slideIndex);
 
     }).catch(function(err) {
         console.log(err.message);
     });
+}
+
+// Comprobar si myLikesKey no existe → IF localStorage.getItem('myLikesKey') es null
+const emptyLikes = [];
+localStorage.setItem('myLikesKey', JSON.stringify(emptyLikes));
+
+//Like Function
+function clickLike(url) {
+    // Usar esta linea para mostrar las liked gifs. Tip: usar myLikes.forEach igual que en la función trending();
+    let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
+    myLikes.push(url)
+    
+    localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
 }
 
 //API Conection Search
