@@ -94,7 +94,7 @@
     margin-left: 30%;
 }
 
-#button-number{
+.button-number{
     color: $purple-color;
     border-radius: 50%;
     width: 32px;
@@ -102,13 +102,12 @@
     border: 1px solid $purple-color;
     background: none;
     margin-left: 5%;
-    
-}
-.button-number-font{
+    font-family: $font-roboto;
     color: $purple-color;
     font-size: 18px;
-    margin: 0;
+    
 }
+
 .bottom-camera-display{
     display: flex;
     flex-direction: row;
@@ -143,7 +142,7 @@
     margin-top: 134px;
     margin-bottom: 3px;
 }
-#create-subtitle{
+.create-subtitle{
     font-family: $font-roboto;
     font-size: 16px;
     color: $black-font-color;
