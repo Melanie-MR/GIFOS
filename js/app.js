@@ -8,7 +8,7 @@ trending(numSlides);
 
 //Slider
 function showTrending(slideIndex) {
-    let trendingGif = document.getElementsByClassName("mySlides");
+    let trendingGif = document.querySelectorAll(".mySlides");
     
     for (let i = 0; i < trendingGif.length; i++) {
         trendingGif[i].style.display = "none";
@@ -23,7 +23,7 @@ function showTrending(slideIndex) {
 
 //Arrows function
 function plusSlides(steps) {
-    let trendingGif = document.getElementsByClassName("mySlides");
+    let trendingGif = document.querySelectorAll(".mySlides");
     slideIndex += steps; // => slideIndex = slideIndex + n;
     if (slideIndex > (trendingGif.length - 3)) {
         slideIndex = 0;
@@ -39,7 +39,7 @@ function plusSlides(steps) {
 
 function trending(num) {
 
-    const trendingElements = document.getElementsByClassName('slideshow-container');
+    const trendingElements = document.querySelectorAll('.slideshow-container');
     const trendingEl = trendingElements[0]; 
     const path_trending = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${num}`; 
 
@@ -93,9 +93,9 @@ function clickLike(url) {
 
 //API Conection Search
 
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
-const resultsEl = document.getElementById('results');
+const searchForm = document.querySelector('#search-form');
+const searchInput = document.querySelector('#search-input');
+const resultsEl = document.querySelector('#results');
 
 //Event Listener to submit
 searchForm.addEventListener('submit',function(e) {
