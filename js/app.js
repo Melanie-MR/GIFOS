@@ -59,9 +59,9 @@ function trending(num) {
             
             resultsTrending += `<div class="mySlides fade">
                                     <img src="${url}"  style= "width: 357px; height: 275px" alt="${title}">
-                                    <button class="download" onclick="clickDownload()"><h3>D</h3></button>
-                                    <button class="like" onclick="clickLike('${url}')"><h3>L</h3></button>
-                                    <button class="broden" onclick="clickBroden()"><h3>S</h3></button>
+                                    <button class="download" onclick="clickDownload()">D</button>
+                                    <button class="like" onclick="clickLike('${url}')">L</button>
+                                    <button class="enlarge" onclick="clickEnlarge()">E</button>
                                 </div>`;
             slideButtons = `<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>`;
