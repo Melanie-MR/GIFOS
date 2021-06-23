@@ -398,6 +398,12 @@ label {
   }
 }
 
+.buttons-container {
+  position: absolute;
+  margin-left: 20%;
+  margin-top: 1%;
+}
+
 footer {
   display: flex;
   justify-content: space-between;

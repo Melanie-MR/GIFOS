@@ -8,7 +8,7 @@ trending(numSlides);
 
 //Slider
 function showTrending(slideIndex) {
-    let trendingGif = document.querySelectorAll(".mySlides");
+    let trendingGif = document.getElementsByClassName("mySlides");
     
     for (let i = 0; i < trendingGif.length; i++) {
         trendingGif[i].style.display = "none";
@@ -23,7 +23,7 @@ function showTrending(slideIndex) {
 
 //Arrows function
 function plusSlides(steps) {
-    let trendingGif = document.querySelectorAll(".mySlides");
+    let trendingGif = document.getElementsByClassName("mySlides");
     slideIndex += steps; // => slideIndex = slideIndex + n;
     if (slideIndex > (trendingGif.length - 3)) {
         slideIndex = 0;
@@ -39,7 +39,7 @@ function plusSlides(steps) {
 
 function trending(num) {
 
-    const trendingElements = document.querySelectorAll('.slideshow-container');
+    const trendingElements = document.getElementsByClassName('slideshow-container');
     const trendingEl = trendingElements[0]; 
     const path_trending = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${num}`; 
 
@@ -59,9 +59,11 @@ function trending(num) {
             
             resultsTrending += `<div class="mySlides fade">
                                     <img src="${url}"  style= "width: 357px; height: 275px" alt="${title}">
-                                    <button class="download" onclick="clickDownload()">D</button>
-                                    <button class="like" onclick="clickLike('${url}')">L</button>
-                                    <button class="enlarge" onclick="clickEnlarge()">E</button>
+                                    <div class="buttons-container" style= "display:flex">
+                                        <button class="download" onclick="clickDownload()" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                                        <button class="like" onclick="clickLike('${url}')" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                                        <button class="enlarge" onclick="clickEnlarge()" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                    </div>
                                 </div>`;
             slideButtons = `<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>`;
@@ -88,14 +90,13 @@ function clickLike(url) {
     myLikes.push(url)
     
     localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
-    
 }
 
 //API Conection Search
 
-const searchForm = document.querySelector('#search-form');
-const searchInput = document.querySelector('#search-input');
-const resultsEl = document.querySelector('#results');
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+const resultsEl = document.getElementById('results');
 
 //Event Listener to submit
 searchForm.addEventListener('submit',function(e) {
@@ -137,4 +138,3 @@ function search(query) {
         console.log(err.message);
     });
 }
-
