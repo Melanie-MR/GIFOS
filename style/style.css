@@ -300,7 +300,7 @@ label {
   color: #FFFFFFFF;
 }
 
-.button-format {
+#button-format {
   background: none;
   color: none;
   border-radius: 50px;
