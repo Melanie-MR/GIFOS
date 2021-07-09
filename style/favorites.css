@@ -478,4 +478,8 @@ footer :hover {
   height: 150px;
   margin-left: 45%;
 }
+
+.hide {
+  display: none;
+}
 /*# sourceMappingURL=favorites.css.map */
