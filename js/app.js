@@ -141,7 +141,8 @@ function clickLike(url) {
 }
 
 
-/* ESTA BIEN ESTO, SOLO ESTOY SOLUC FAV
+/* ESTA BIEN ESTO, SOLO ESTOY SOLUcionando FAV. El problema es que se esta ejecutando search en la pagina de fav
+//y no esta ahi. Hay que separar los JS.
 
 //API Conection Search
 
