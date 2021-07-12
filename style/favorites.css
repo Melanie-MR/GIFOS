@@ -342,7 +342,7 @@ label {
 #trending-font {
   font-size: 18px;
   line-height: 25px;
-  margin-top: 20px;
+  margin-top: 5%;
 }
 
 .slideshow-container {
@@ -481,5 +481,16 @@ footer :hover {
 
 .hide {
   display: none;
+}
+
+.galery {
+  columns: 4;
+}
+
+.favorites-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 /*# sourceMappingURL=favorites.css.map */

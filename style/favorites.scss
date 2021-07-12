@@ -47,3 +47,17 @@
 .hide {
     display: none;
 }
+.galery{
+    columns: 4;
+    //row-gap: 10px ;
+  //  column-gap: 10px;
+}
+
+.favorites-container{
+    //max-width: 1127px;
+    position: relative;
+   // margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
