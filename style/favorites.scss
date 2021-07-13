@@ -48,7 +48,22 @@
     display: none;
 }
 .galery{
-    columns: 4;
+
+   
+    //columns: 4;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 200px 200px 200px 200px;
+        grid-template-rows: 260px 260px 260px 260px;
+   // grid-template-columns:repeat(4, 200px);
+   // grid-template-rows: 260px;
+    //height: 250px;
+    //width: 200px;
+    //grid-template-columns: 200px 100px 200px;
+    //grid-template-rows: 250px auto 250px; 
+    //column-gap: 10px;
+  //  row-gap: 15px;
+    //justify-content: space-between;
     //row-gap: 10px ;
   //  column-gap: 10px;
 }
