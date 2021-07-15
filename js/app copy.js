@@ -102,8 +102,7 @@ function favorites(num) {
     let resultsLikes = '';
     
         myLikes.forEach(function(fav) {
-            
-            const id = fav.id;
+        
             const url = fav.url;
             const title = fav.title;
             const width = fav.width;
@@ -112,55 +111,24 @@ function favorites(num) {
             
             //To add strings
             
-            resultsLikes += `
-                            
+            resultsLikes += `<div class="favorites-container">
                             <img 
-                            class="item"
-                            src="${url}" 
-                            alt="${title}"
-                            style= "width: 260px; height: 200px"
-                            > 
-                            <div class="img-layer">
-                                <div id= "icons-layer">
-                                    <button class="icons-layer" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                    <button class="icons-layer" onclick="clickDelete('${url}')"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
-                                    <button class="icons-layer" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
-                                </div>
-                            </div>
-                            
-                            `;
-
-
-        });
-            
-/////!!!!!!!!!1
-/*<img src="${url}"  style= "width: 357px; height: 275px" id="${id}"  alt="${title}">
-                                    <div class="img-layer">
-                                        <ul>
-                                            <li><button class="download" onclick="clickDownload()" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-download.svg" alt="Descargar"></button></li>
-                                            <li><button class="like" onclick="clickLike('${url}', '${width}', '${title}', '${height}')" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-fav.svg" alt="Me Gusta"></button></li>
-                                            <li><button class="enlarge" onclick="clickEnlarge()" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button></li>
-                                        </ul>
-                                    <p>Titulo: ${title}</p>
-                                    </div>`;
-
-
-                                    /////el mio
-
-                                    <div class="buttons-container" style= "display:flex">
+                                class="item"
+                                src="${url}" 
+                                alt="${title}"
+                                width="${width}"
+                                height= "${height}"
+                            >
+                            <div class="buttons-container" style= "display:flex">
                                 <button class="download" onclick="clickDownload()" style= "background: none; border:none; margin-top: 1.5rem; margin-left: 2rem;  display: flex; justify-content: flex-end"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                 <button class="delete" onclick="clickDelete('${url}')" style= "background: none; border:none; margin-top: 1.5rem; display: flex; justify-content: flex-end"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
                                 <button class="enlarge" onclick="clickEnlarge()" style= "background: none; border:none;  margin-top: 1.5rem; display: flex; justify-content: flex-end"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                             </div>
+                            </div>`;
 
 
-                            ////
-
-                             44  class="download" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar">
-                                    <li class="like" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></li>
-                                    <li class="enlarge" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></li>
-                                </ul>
-//////*/
+        });
+            
         //console.log(resultsLikes);
         galeryEl.innerHTML = resultsLikes; //to introduce it in html
        

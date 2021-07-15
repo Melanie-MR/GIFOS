@@ -1,6 +1,5 @@
 
-// ESTA BIEN ESTO, SOLO ESTOY SOLUcionando FAV. El problema es que se esta ejecutando search en la pagina de fav
-//y no esta ahi. Hay que separar los JS.
+///importar app.js
 
 //API Conection Search
 
@@ -22,24 +21,33 @@ function search(query) {
     fetch (path_search).then(function (res) { 
         return res.json();
     }).then(function(json){
-        console.log(json.data[0].images.fixed_width.url);
+        //console.log(json.data[0].images.fixed_width.url);
         let resultsHTML = '';
     
         json.data.forEach(function(obj) {
-            console.log(obj);
+            //console.log(obj);
 
             const url = obj.images.fixed_width.url;
             const width = obj.images.fixed_width.width;
             const height = obj.images.fixed_height.height;
             const title = obj.title;
     
-            resultsHTML += `<img 
-                class="item"
-                src="${url}" 
-                width="${width}" 
-                height="${height}"
-                alt="${title}"
-                >`;
+            resultsHTML += 
+
+                `<div class="search-container">
+                    <img 
+                        class="item"
+                        src="${url}" 
+                        alt="${title}"
+                        width="${width}"
+                        height= "${height}"
+                    >
+                    <div style= "display:flex">
+                        <button class="download" onclick="clickDownload()" style= "background: none; border:none; margin-top: 1.5rem; margin-left: 2rem;  display: flex; justify-content: flex-end"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                        <button class="delete" onclick="clickDelete('${url}')" style= "background: none; border:none; margin-top: 1.5rem; display: flex; justify-content: flex-end"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
+                        <button class="enlarge" onclick="clickEnlarge()" style= "background: none; border:none;  margin-top: 1.5rem; display: flex; justify-content: flex-end"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                    </div>
+                </div>`;
         });
     
         resultsEl.innerHTML = resultsHTML; //to add to html
