@@ -3,9 +3,9 @@
 
 //API Conection Search
 
-const searchForm = document.getElementById('search-form');
-const searchInput = document.getElementById('search-input');
-const resultsEl = document.getElementById('results');
+const searchForm = document.querySelector('#search-form');
+const searchInput = document.querySelector('#search-input');
+const resultsEl = document.querySelector('#results');
 
 //Event Listener to submit
 searchForm.addEventListener('submit', function(e) {
