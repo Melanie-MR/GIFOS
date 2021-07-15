@@ -34,20 +34,21 @@ function search(query) {
     
             resultsHTML += 
 
-                `<div class="search-container">
+                `
                     <img 
                         class="item"
                         src="${url}" 
                         alt="${title}"
-                        width="${width}"
-                        height= "${height}"
+                        style= "width: 260px; height: 200px"
                     >
-                    <div style= "display:flex">
-                        <button class="download" onclick="clickDownload()" style= "background: none; border:none; margin-top: 1.5rem; margin-left: 2rem;  display: flex; justify-content: flex-end"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                        <button class="delete" onclick="clickDelete('${url}')" style= "background: none; border:none; margin-top: 1.5rem; display: flex; justify-content: flex-end"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
-                        <button class="enlarge" onclick="clickEnlarge()" style= "background: none; border:none;  margin-top: 1.5rem; display: flex; justify-content: flex-end"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                    <div class="img-layer">
+                        <div id= "icons-layer">
+                            <button class="icons-layer" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                            <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                            <button class="icons-layer" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                        </div>
                     </div>
-                </div>`;
+               `;
         });
     
         resultsEl.innerHTML = resultsHTML; //to add to html

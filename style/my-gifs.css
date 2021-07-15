@@ -236,13 +236,12 @@ label {
 .search {
   display: flex;
   align-items: center;
-  position: relative;
   top: 66.6%;
   background-color: #FFFFFFFF;
   padding: 10px;
   height: 30px;
   width: 551px;
-  margin-left: 15%;
+  margin-left: 10%;
   border-radius: 50px;
   border: 1px solid #572EE5;
 }
@@ -275,18 +274,17 @@ label {
 }
 
 .results {
-  columns: 4;
-  column-gap: 1em;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 70%;
+  margin-left: 10%;
 }
 
 /*.item { comentado por prueba en favoritos
     margin-bottom: 1em;
     margin-top: 1em;
 }*/
-#results {
-  width: calc(200px*4 + 3em);
-}
-
 .gral-button {
   display: none;
   position: absolute;
@@ -306,6 +304,47 @@ label {
   border: 0.5px solid #572EE5;
   height: 50px;
   width: 127px;
+}
+
+.img-layer {
+  width: 260px;
+  height: 200px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -260px;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+
+.img-layer:hover {
+  background-color: #572EE5;
+  opacity: 0.7;
+  width: 260px;
+  height: 200px;
+}
+
+#icons-layer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 2%;
+}
+
+.icons-layer {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  margin-right: 4%;
+  margin-top: 5%;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 .trending {
@@ -401,6 +440,47 @@ label {
   position: absolute;
   margin-left: 20%;
   margin-top: 1%;
+}
+
+.img-layer-trending {
+  width: 357px;
+  height: 275px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -357px;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+}
+
+.img-layer-trending:hover {
+  background-color: #572EE5;
+  opacity: 0.7;
+  width: 357px;
+  height: 275px;
+}
+
+#icons-layer-trending {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 2%;
+}
+
+.icons-layer-trending {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  margin-right: 4%;
+  margin-top: 5%;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 footer {

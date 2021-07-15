@@ -62,12 +62,17 @@ function trending(num) {
             
             resultsTrending += `<div class="mySlides fade">
                                     <img src="${url}"  style= "width: 357px; height: 275px" alt="${title}">
-                                    <div class="buttons-container" style= "display:flex">
-                                        <button class="download" onclick="clickDownload()" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                        <button class="like" onclick="clickLike('${url}', '${width}', '${title}', '${height}')" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
-                                        <button class="enlarge" onclick="clickEnlarge()" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                    
+                                    <div class="img-layer-trending">
+                                        <div id= "icons-layer-trending">
+                                            <button class="icons-layer-trending" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                                            <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                                            <button class="icons-layer-trending" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                        </div>
                                     </div>
+                                    
                                 </div>`;
+
             slideButtons = `<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>`;
         });
