@@ -50,8 +50,6 @@ function plusSlides(steps) {
     showTrending(slideIndex);
 }
 
-
-
 ////API CONNECTION TRENDING
 
 //Trending Function---> to connect API and introduce content in html.
@@ -82,7 +80,7 @@ function trending(num) {
                                     
                                     <div class="img-layer-trending">
                                         <div id= "icons-layer-trending">
-                                            <button class="icons-layer-trending" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                                            <button class="icons-layer-trending" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                             <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
                                             <button class="icons-layer-trending enlarge-button" onclick="clickEnlarge(${numSlides},${index})"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                         </div>
@@ -145,7 +143,7 @@ function favorites(num) {
                             > 
                             <div class="img-layer">
                                 <div id= "icons-layer">
-                                    <button class="icons-layer" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                                    <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                     <button class="icons-layer" onclick="clickDelete('${url}')"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
                                     <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                 </div>
@@ -237,7 +235,7 @@ function clickEnlarge(num, index) {
                                     
                                     <div class="img-layer-trending">
                                         <div id= "icons-layer-trending">
-                                            <button class="icons-layer-trending" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                                            <button class="icons-layer-trending" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                             <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
                                             <button class="icons-layer-trending enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                         </div>
@@ -271,3 +269,21 @@ function plusSlidesModal(steps) {
     }
     showTrendingModal(indexModal);
 }
+
+// Download Gif
+async function clickDownload(imageUrl) {
+
+    const downloadUrl = imageUrl;
+    const fetchedGif = fetch(downloadUrl);
+    const blobGif = (await fetchedGif).blob();
+    const urlGif = URL.createObjectURL(await blobGif);
+    const saveImg = document.createElement("a");
+    saveImg.href = urlGif;
+    saveImg.download = "downloaded-giphy.gif";
+    saveImg.style = 'display: "none"';
+    document.body.appendChild(saveImg);
+    saveImg.click();
+    document.body.removeChild(saveImg);
+    showAlert('Descarga exitosa!');
+};
+

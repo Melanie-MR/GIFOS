@@ -43,7 +43,7 @@ function search(query) {
                     >
                     <div class="img-layer">
                         <div id= "icons-layer">
-                            <button class="icons-layer" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                            <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                             <button class="icons-layer" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
                             <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                         </div>
