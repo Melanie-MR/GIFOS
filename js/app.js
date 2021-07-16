@@ -3,6 +3,7 @@
 //Global
 const apiKey = "MvRLWWPVxBixgOKhwiLvh8EyVwl2lBKz";
 let slideIndex = 0;
+let indexModal = 0;
 const numSlides = 60;
 trending(numSlides);
 
@@ -20,6 +21,18 @@ function showTrending(slideIndex) {
     trendingGif[slideIndex].style.display = "flex";
     slideIndex++; 
     trendingGif[slideIndex].style.display = "flex"; 
+}
+
+//Slider
+function showTrendingModal(slideIndex) {
+    let trendingGif = document.querySelectorAll(".mySlidesModal");
+    
+    for (let i = 0; i < trendingGif.length; i++) {
+        trendingGif[i].style.display = "none";
+    }
+    //To show 3 gif at a time
+    trendingGif[slideIndex].style.display = "flex"; 
+    slideIndex++;
 }
 
 //Arrows function
@@ -50,7 +63,7 @@ function trending(num) {
         //console.log(json.data[0].images.fixed_width.url);
         let resultsTrending = '';
     
-        json.data.forEach(function(obj) {
+        json.data.forEach(function(obj, index) {
             //console.log(obj);
 
             const url = obj.images.fixed_width.url;
@@ -67,7 +80,7 @@ function trending(num) {
                                         <div id= "icons-layer-trending">
                                             <button class="icons-layer-trending" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                             <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
-                                            <button class="icons-layer-trending" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                            <button class="icons-layer-trending enlarge-button" onclick="clickEnlarge(${numSlides},${index})"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                         </div>
                                     </div>
                                     
@@ -129,7 +142,7 @@ function favorites(num) {
                                 <div id= "icons-layer">
                                     <button class="icons-layer" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                     <button class="icons-layer" onclick="clickDelete('${url}')"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
-                                    <button class="icons-layer" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                    <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                 </div>
                             </div>
                             
@@ -167,16 +180,19 @@ function favorites(num) {
                                 </ul>
 //////*/
         //console.log(resultsLikes);
-        galeryEl.innerHTML = resultsLikes; //to introduce it in html
+        if (galeryEl!=null){
+            galeryEl.innerHTML = resultsLikes; //to introduce it in html
        
-        if (localStorage.getItem('myLikesKey') === '[]') {
-        
-            fav_empty.classList.remove("hide");
-         //   galeryEl.classList.add("hide");
-            return
-        }  
-        fav_empty.classList.add("hide")
-        //galeryEl.classList.remove("hide");
+            if (localStorage.getItem('myLikesKey') === '[]') {
+            
+                fav_empty.classList.remove("hide");
+             //   galeryEl.classList.add("hide");
+                return
+            }  
+            fav_empty.classList.add("hide")
+            //galeryEl.classList.remove("hide");
+        }
+
  
     //////
 }
@@ -212,3 +228,65 @@ function clickDelete(url) {
     favorites();
 }
 
+function clickEnlarge(num, index) {
+    indexModal = index; 
+    
+    const trendingModal = document.querySelectorAll('.modal-container');
+    const trendingModalEl = trendingModal[0]; 
+    const path_trending = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${num}`; 
+
+    fetch (path_trending).then(function (res) { 
+        return res.json();
+    }).then(function(json){
+        //console.log(json.data[0].images.fixed_width.url);
+        let resultsTrending = '';
+    
+        json.data.forEach(function(obj) {
+            //console.log(obj);
+
+            const url = obj.images.fixed_width.url;
+            const width = obj.images.fixed_width.width;
+            const title = obj.title;
+            const height= obj.images.fixed_height.height;
+            
+            //To add strings
+            
+            resultsTrending += `<div class="mySlidesModal">
+                                    <img src="${url}"  style= "width: 357px; height: 275px" alt="${title}">
+                                    
+                                    <div class="img-layer-trending">
+                                        <div id= "icons-layer-trending">
+                                            <button class="icons-layer-trending" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                                            <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                                            <button class="icons-layer-trending enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                        </div>
+                                    </div>
+                                </div>`;
+
+            slideButtons = `<a class="prev" onclick="plusSlidesModal(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlidesModal(1)">&#10095;</a>`;
+        });
+            
+        //console.log(resultsTrending);
+        trendingModalEl.innerHTML = resultsTrending + slideButtons; //to introduce it in html
+ 
+        showTrendingModal(indexModal);
+
+    }).catch(function(err) {
+        console.log(err.message);
+    });
+
+    showModal();
+}
+
+function plusSlidesModal(steps) {
+    let trendingGif = document.querySelectorAll(".mySlidesModal");
+    indexModal += steps; // => slideIndex = slideIndex + n;
+    if (indexModal > (trendingGif.length - 3)) {
+        indexModal = 0;
+    }
+    if (indexModal < 0) {
+        indexModal = trendingGif.length - 3;
+    }
+    showTrendingModal(indexModal);
+}
