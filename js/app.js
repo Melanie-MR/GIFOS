@@ -1,6 +1,6 @@
 //API KEY MEL: MvRLWWPVxBixgOKhwiLvh8EyVwl2lBKz//
 
-//Global
+////GLOBAL
 const apiKey = "MvRLWWPVxBixgOKhwiLvh8EyVwl2lBKz";
 let slideIndex = 0;
 let indexModal = 0;
@@ -8,7 +8,9 @@ const numSlides = 60;
 trending(numSlides);
 
 
-//Slider
+////SLIDERS
+
+//ShowTrending Function---> to display 3 gif in trending Slider
 function showTrending(slideIndex) {
     let trendingGif = document.querySelectorAll(".mySlides");
     
@@ -23,19 +25,19 @@ function showTrending(slideIndex) {
     trendingGif[slideIndex].style.display = "flex"; 
 }
 
-//Slider
+//ShowTrendingModal---> to display 1 gif in Modal Slider
 function showTrendingModal(slideIndex) {
     let trendingGif = document.querySelectorAll(".mySlidesModal");
     
     for (let i = 0; i < trendingGif.length; i++) {
         trendingGif[i].style.display = "none";
     }
-    //To show 3 gif at a time
+    //To show 1 gif at a time
     trendingGif[slideIndex].style.display = "flex"; 
     slideIndex++;
 }
 
-//Arrows function
+//PlusSlides function---> Arrows buttons of Trending Slider.
 function plusSlides(steps) {
     let trendingGif = document.querySelectorAll(".mySlides");
     slideIndex += steps; // => slideIndex = slideIndex + n;
@@ -49,8 +51,10 @@ function plusSlides(steps) {
 }
 
 
-//API Conection Trendings
 
+////API CONNECTION TRENDING
+
+//Trending Function---> to connect API and introduce content in html.
 function trending(num) {
 
     const trendingElements = document.querySelectorAll('.slideshow-container');
@@ -60,7 +64,7 @@ function trending(num) {
     fetch (path_trending).then(function (res) { 
         return res.json();
     }).then(function(json){
-        //console.log(json.data[0].images.fixed_width.url);
+
         let resultsTrending = '';
     
         json.data.forEach(function(obj, index) {
@@ -99,7 +103,10 @@ function trending(num) {
         console.log(err.message);
     });
 }
-////////likes///////
+
+////FAVORITES
+
+//GET and SET likes (Local Storage)
 
 if (localStorage.getItem('myLikesKey') === null) {
     const emptyLikes = [];
@@ -107,13 +114,12 @@ if (localStorage.getItem('myLikesKey') === null) {
 }
 favorites();
 
+//Favorites Function ---> GET Favorites and introduce it in favorites page (html). 
+
 function favorites(num) {
 
     const fav_empty = document.getElementById('fav-mygifs_empty');
   
-    
-
-/////
     const galery = document.querySelectorAll('.galery');
     const galeryEl = galery[0]; 
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey')); //guarda los fav
@@ -127,7 +133,6 @@ function favorites(num) {
             const width = fav.width;
             const height = fav.height;
 
-            
             //To add strings
             
             resultsLikes += `
@@ -151,53 +156,24 @@ function favorites(num) {
 
         });
             
-/////!!!!!!!!!1
-/*<img src="${url}"  style= "width: 357px; height: 275px" id="${id}"  alt="${title}">
-                                    <div class="img-layer">
-                                        <ul>
-                                            <li><button class="download" onclick="clickDownload()" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-download.svg" alt="Descargar"></button></li>
-                                            <li><button class="like" onclick="clickLike('${url}', '${width}', '${title}', '${height}')" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-fav.svg" alt="Me Gusta"></button></li>
-                                            <li><button class="enlarge" onclick="clickEnlarge()" style= "background: none; border:none; display: flex; justify-content: flex-end"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button></li>
-                                        </ul>
-                                    <p>Titulo: ${title}</p>
-                                    </div>`;
+        //This is for avoid Error in Index.html and for hide class with default message in favorites
 
-
-                                    /////el mio
-
-                                    <div class="buttons-container" style= "display:flex">
-                                <button class="download" onclick="clickDownload()" style= "background: none; border:none; margin-top: 1.5rem; margin-left: 2rem;  display: flex; justify-content: flex-end"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                <button class="delete" onclick="clickDelete('${url}')" style= "background: none; border:none; margin-top: 1.5rem; display: flex; justify-content: flex-end"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
-                                <button class="enlarge" onclick="clickEnlarge()" style= "background: none; border:none;  margin-top: 1.5rem; display: flex; justify-content: flex-end"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
-                            </div>
-
-
-                            ////
-
-                             44  class="download" onclick="clickDownload()"><img src="assets/icon-download.svg" alt="Descargar">
-                                    <li class="like" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></li>
-                                    <li class="enlarge" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></li>
-                                </ul>
-//////*/
-        //console.log(resultsLikes);
         if (galeryEl!=null){
             galeryEl.innerHTML = resultsLikes; //to introduce it in html
        
             if (localStorage.getItem('myLikesKey') === '[]') {
             
                 fav_empty.classList.remove("hide");
-             //   galeryEl.classList.add("hide");
+     
                 return
             }  
             fav_empty.classList.add("hide")
-            //galeryEl.classList.remove("hide");
-        }
 
- 
-    //////
+        }
 }
 
-//Like Function--- aca guardo la url y width cuando doy click en LE
+//ClickLike Function ---> This is for save in LocalStorage fav object when user click.
+
 function clickLike(url, width, title, height) {
     //console.log(width)
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
@@ -213,21 +189,26 @@ function clickLike(url, width, title, height) {
     favorites();
 }
 
+//Delete Favorites Function ---> to remove item from Local Storage.
 function clickDelete(url) {
-    //Funcion que encuentra la posicion segun url
+    //This part find the position of the url 
     const isElementUrl = (fav) => fav.url === url;
 
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
-    //Posicion del elemento en el array
+    //Variable with the position of the element in the array. 
     let x = myLikes.findIndex(isElementUrl)
 
-    //Borra el elemento en la pos x
+    //Remove element in X position.
     myLikes.splice(x,1)
     
+    //To update the array after delete elements
     localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
     favorites();
 }
 
+////MODAL TRENDING
+
+//Click modal function for TRENDINGS!
 function clickEnlarge(num, index) {
     indexModal = index; 
     
@@ -278,7 +259,7 @@ function clickEnlarge(num, index) {
 
     showModal();
 }
-
+//PlusSlides Modal function---> Arrows buttons of Modal Slider.
 function plusSlidesModal(steps) {
     let trendingGif = document.querySelectorAll(".mySlidesModal");
     indexModal += steps; // => slideIndex = slideIndex + n;

@@ -1,8 +1,8 @@
 // Get the modal
-var modal = document.getElementById("myModal");
+let modal = document.querySelector("#myModal");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.querySelectorAll(".close")[0];
 
 // When the user calls this function. The modal opens up
 function showModal() {
