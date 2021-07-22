@@ -60,6 +60,8 @@
                     <h2 >¿Nos das acceso a tu cámara?</h2>
                     <p class="create-subtitle">El acceso a tu cámara será válido sólo por el tiempo en el que estés creando el GIFO</p>
                 </div>
+                <video></video>
+                <img class="video-preview hide" id="preview"/>
             </div>
             
         </section>
@@ -71,9 +73,9 @@
                     <div id="num-bar-container">
                         <div class="num-repeat-container">
                             <div class="numbers-container">
-                                <button class="button-number">1</button>
-                                <button class="button-number">2</button>
-                                <button class="button-number">3</button>
+                                <button class="button-number" id="one">1</button>
+                                <button class="button-number" id="two">2</button>
+                                <button class="button-number" id="three">3</button>
                             </div>
                             <h3 id="repeat-gif">REPETIR CAPTURA<span id="timer"></span></h3> 
                         </div>
@@ -106,8 +108,8 @@
 
         <!--Control section-->
         <div class="control-section">
-            <button id="camera-iniciar">COMENZAR</button>
-            <button id="camera-grabar">GRABAR</button>
+            <button id="start">COMENZAR</button>
+            <button id="record">GRABAR</button>
             <button id="camera-finalizar">FINALIZAR</button>
             <button id="gif-upload">SUBIR GIFO</button>
         </div>
@@ -128,7 +130,7 @@
       <!--  <div class="footer"><h5 id="copyright">© GIFOS 2020 All Rights Reserved.</h5></div>-->
         </section>
     </footer>
-    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-    <script src="js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
+    <script src="js/creategif.js"></script>
 </body>
 </html>

@@ -95,7 +95,6 @@
 }
 
 .button-number{
-    color: $purple-color;
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -104,6 +103,19 @@
     margin-left: 5%;
     font-family: $font-roboto;
     color: $purple-color;
+    font-size: 18px;
+    
+}
+
+.button-number-selected{
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $purple-color;
+    background: $purple-color;
+    margin-left: 5%;
+    font-family: $font-roboto;
+    color: $background-color;
     font-size: 18px;
     
 }

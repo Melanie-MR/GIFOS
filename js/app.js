@@ -284,6 +284,6 @@ async function clickDownload(imageUrl) {
     document.body.appendChild(saveImg);
     saveImg.click();
     document.body.removeChild(saveImg);
-    showAlert('Descarga exitosa!');
+    //showAlert('Descarga exitosa!');
 };
 

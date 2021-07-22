@@ -42,6 +42,10 @@ h5 {
   font-family: "Roboto", sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
 hr {
   display: flex;
   align-items: center;
@@ -347,6 +351,7 @@ label {
   outline: inherit;
 }
 
+/* The Modal (background) */
 .modal {
   display: none;
   /* Hidden by default */
@@ -355,47 +360,42 @@ label {
   z-index: 1;
   /* Sit on top */
   left: 0;
-  top: 1;
-  width: 50%;
+  top: 0;
+  width: 100%;
   /* Full width */
-  height: 50%;
+  height: 100%;
   /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
   background-color: black;
   /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
+/* Modal Content/Box */
 .modal-container {
-  background-color: #685050;
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
   border: 1px solid #888;
-  height: 100%;
-  width: 100%;
+  width: 80%;
   /* Could be more or less, depending on screen size */
 }
 
-.modal-container .close {
-  color: black;
+.close {
+  color: #aaa;
   float: right;
-  font-size: 200px;
+  font-size: 28px;
   font-weight: bold;
-  display: flex;
-  justify-content: flex-start;
 }
 
-.close:hover {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
+.close:hover,
 .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-
-.mySlidesModal {
-  display: flex;
-  justify-content: center;
 }
 
 .trending {
@@ -659,7 +659,6 @@ footer :hover {
 }
 
 .button-number {
-  color: #572EE5;
   border-radius: 50%;
   width: 32px;
   height: 32px;
@@ -668,6 +667,18 @@ footer :hover {
   margin-left: 5%;
   font-family: "Roboto", sans-serif;
   color: #572EE5;
+  font-size: 18px;
+}
+
+.button-number-selected {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #572EE5;
+  background: #572EE5;
+  margin-left: 5%;
+  font-family: "Roboto", sans-serif;
+  color: #FFFFFFFF;
   font-size: 18px;
 }
 
