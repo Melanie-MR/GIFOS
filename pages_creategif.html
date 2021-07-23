@@ -53,17 +53,32 @@
             <!--Video Recording Rectangle-->
             <div class="create-gifo-container">
                 <div class="text-gifo-container">
-                    <h2 id="main-msg">Aquí podrás <br>crear tus propios <span class="change__color">GIFOS</span></h2>
+                    <h2 class="main-msg">Aquí podrás <br>crear tus propios <span class="change__color">GIFOS</span></h2>
                     <p class="create-subtitle">¡Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</p>
                 </div>
                 <div class="text-gifo-container-recording">
-                    <h2 >¿Nos das acceso a tu cámara?</h2>
-                    <p class="create-subtitle">El acceso a tu cámara será válido sólo por el tiempo en el que estés creando el GIFO</p>
+                    <h2 class="main-msg">¿Nos das acceso <br>a tu cámara?</h2>
+                    <p class="create-subtitle">El acceso a tu cámara será válido sólo <br>por el tiempo en el que estés creando el GIFO</p>
                 </div>
                 <video></video>
                 <img class="video-preview hide" id="preview"/>
+                
             </div>
             
+            <!--Upload message-->
+        <div class="uploadMessage hide">
+            <div class="progress-icon"><img src="assets/loader.svg" alt="Loader"></div>
+            <h2 class="upload-msg">Estamos subiendo tu GIFO</h2>    
+        </div>
+        <div class="upload-message-done">
+            <div id= "icons-layer-gifo">
+                <button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                <button class="icons-layer-gifo" link-button" onclick="clickLink()"><img src="assets/icon-link-normal.svg" alt="Link"></button>
+            </div> 
+                <div class="progress-icon"><img src="assets/check.svg" alt="Listo"></div>
+                <h2 class="upload-msg">GIFO Subido con éxito.</h2>
+            
+        </div> 
         </section>
      
             <!--Recording-->
@@ -77,7 +92,8 @@
                                 <button class="button-number" id="two">2</button>
                                 <button class="button-number" id="three">3</button>
                             </div>
-                            <h3 id="repeat-gif">REPETIR CAPTURA<span id="timer"></span></h3> 
+                            <div id="timer" class="timer-container"></div>
+                            <h3 id="repeat-gif">REPETIR CAPTURA<span id="repeat"></span></h3> 
                         </div>
                         <div class="bottom-bar"></div>
                     </div>
@@ -89,30 +105,15 @@
                 </div>
             </div>
             
-        <!--To save/dowload GIF-->
-    <div class="video-container">
-        <div class="loading">
-            <img src="assets/loader.svg" alt="Loader">
-            <h3>Estamos subiendo tu GIFO</h3>
-        </div>
-        <div class="checkload-overlay">
-            <div class="btn-load-container">
-                <button><img src="assets/icon-download.svg" alt="Download"></button>
-                <button><img src="assets/icon-link.svg" alt="Link"></button>
-            </div>
-            <img src="assets/check.svg" alt="Check">
-            <h3>GIFO subido con éxito</h3>
-        </div>
-        <video id="video" class="gif-recorder" src="#"></video>
-    </div>
+    <!--Control section-->
+    <div class="control-section">
+        <button class="control-button" id="start">COMENZAR</button>
+        <button class="control-button" id="record">GRABAR</button>
+        <button class="control-button" id="upload">SUBIR GIFO</button>
+    </div>        
+         
 
-        <!--Control section-->
-        <div class="control-section">
-            <button id="start">COMENZAR</button>
-            <button id="record">GRABAR</button>
-            <button id="camera-finalizar">FINALIZAR</button>
-            <button id="gif-upload">SUBIR GIFO</button>
-        </div>
+        
     </main>
 
     <!--footer-->

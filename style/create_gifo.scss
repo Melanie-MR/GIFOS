@@ -32,6 +32,7 @@
     border: 1.5px solid $purple-color;
     width: 688px;
     height: 390px;
+   
 }
 
 .tapes-container{
@@ -94,6 +95,7 @@
     margin-left: 30%;
 }
 
+
 .button-number{
     border-radius: 50%;
     width: 32px;
@@ -147,8 +149,9 @@
 }
 .text-gifo-container-recording{ //Hidden in crear gifo 1. 
     display: none;
+    
 }
-#main-msg{
+.main-msg{
     color: $purple-color;
     line-height: 35px;
     margin-top: 134px;
@@ -161,4 +164,110 @@
     text-align: center;
     line-height: 29px;
     margin-top: 0%;
+}
+
+.control-button{
+    display: block; //should be block when the search appear.
+    margin-left: 43%;
+    margin-top: -4%;
+    
+    :hover{
+        background-color:$purple-color;
+        color:$background-color;
+    }
+    
+}
+
+#start {
+        background: none;
+        color: none;
+        border-radius: 50px;
+        border: 0.5px solid $purple-color;
+        height: 50px;
+        width: 127px;
+}
+
+#record{
+    display: none;
+    background: none;
+    color: none;
+    border-radius: 50px;
+    border: 0.5px solid $purple-color;
+    height: 50px;
+    width: 127px;  
+}
+
+#upload{
+    display: none;
+    background: none;
+    color: none;
+    border-radius: 50px;
+    border: 0.5px solid $purple-color;
+    height: 50px;
+    width: 127px;  
+    
+}
+
+.uploadMessage{
+   display: none;
+    width: 688px;
+    height: 390px;
+   // display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #572EE5;
+    opacity: 0.7;
+    margin-left: -691px;
+    
+}
+.progress-icon{
+    display: flex;
+    justify-content: center;
+}
+
+.upload-message-done{
+    display: none;
+    width: 688px;
+    height: 390px;
+   // display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #572EE5;
+    opacity: 0.7;
+    margin-left: -691px;
+}
+
+.progress-icon{
+    display: flex;
+    justify-content: center;
+}
+.upload-msg{
+    color: $background-color;
+    display: flex;
+    justify-content: center;
+}
+#icons-layer-gifo{
+   display: flex;
+   justify-content: flex-end;
+   margin-left: 85%;
+}
+.icons-layer-gifo{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-right: 4%;
+    margin-top: 5%;
+    border:none;
+    border-radius: 6px;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }

@@ -714,7 +714,7 @@ footer :hover {
   display: none;
 }
 
-#main-msg {
+.main-msg {
   color: #572EE5;
   line-height: 35px;
   margin-top: 134px;
@@ -728,5 +728,110 @@ footer :hover {
   text-align: center;
   line-height: 29px;
   margin-top: 0%;
+}
+
+.control-button {
+  display: block;
+  margin-left: 43%;
+  margin-top: -4%;
+}
+
+.control-button :hover {
+  background-color: #572EE5;
+  color: #FFFFFFFF;
+}
+
+#start {
+  background: none;
+  color: none;
+  border-radius: 50px;
+  border: 0.5px solid #572EE5;
+  height: 50px;
+  width: 127px;
+}
+
+#record {
+  display: none;
+  background: none;
+  color: none;
+  border-radius: 50px;
+  border: 0.5px solid #572EE5;
+  height: 50px;
+  width: 127px;
+}
+
+#upload {
+  display: none;
+  background: none;
+  color: none;
+  border-radius: 50px;
+  border: 0.5px solid #572EE5;
+  height: 50px;
+  width: 127px;
+}
+
+.uploadMessage {
+  display: none;
+  width: 688px;
+  height: 390px;
+  justify-content: center;
+  align-items: center;
+  background-color: #572EE5;
+  opacity: 0.7;
+  margin-left: -691px;
+}
+
+.progress-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.upload-message-done {
+  display: none;
+  width: 688px;
+  height: 390px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #572EE5;
+  opacity: 0.7;
+  margin-left: -691px;
+}
+
+.progress-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.upload-msg {
+  color: #FFFFFFFF;
+  display: flex;
+  justify-content: center;
+}
+
+#icons-layer-gifo {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 85%;
+}
+
+.icons-layer-gifo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  margin-right: 4%;
+  margin-top: 5%;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 /*# sourceMappingURL=create_gifo.css.map */
