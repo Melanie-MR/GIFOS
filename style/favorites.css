@@ -6,6 +6,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #FFFFFFFF;
+  transition: .3s ease all;
+}
+
+body.dark {
+  background-color: #37383C;
 }
 
 h1 {
@@ -40,6 +46,14 @@ h4 {
 
 h5 {
   font-family: "Roboto", sans-serif;
+}
+
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: #FFFFFFFF;
+  text-align: center;
 }
 
 .hide {

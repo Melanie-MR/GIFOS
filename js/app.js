@@ -284,6 +284,11 @@ async function clickDownload(imageUrl) {
     document.body.appendChild(saveImg);
     saveImg.click();
     document.body.removeChild(saveImg);
-    //showAlert('Descarga exitosa!');
+    //showAlert('¡Descarga exitosa!');
 };
 
+const switchMode = document.querySelector('#switch');
+switchMode.addEventListener('click', () =>{
+    document.body.classList.toggle('dark');
+    switchMode.classList.toggle('active');
+});

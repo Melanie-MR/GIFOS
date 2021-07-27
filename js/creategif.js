@@ -3,6 +3,7 @@
 const apiKey = "MvRLWWPVxBixgOKhwiLvh8EyVwl2lBKz";
 const apiBaseUrl = "https://api.giphy.com/v1/gifs/";
 
+
 // Subir gifs
 
 // Elementos del HTML con los que vamos a interactuar
@@ -38,7 +39,7 @@ function getStreamAndRecord() {
         video.srcObject = stream;
         video.play();
         document.querySelector(".text-gifo-container-recording").style = 'display: none';
-        record.style = 'display: flex';
+        record.style = 'display: block';
         one.classList.remove("button-number-selected");
         one.classList.add("button-number");
         two.classList.remove("button-number");
@@ -124,7 +125,7 @@ function stopRecordingCallback() {
     timer.style = 'display: none';
     record.style = 'display: none';
     repeat.style = 'display: flex';
-    upload.style = 'display: flex';
+    upload.style = 'display: block';
     // le damos el formato requerido a la data que vamos a enviar como body de nuestro
     // POST request
     let form = new FormData();
@@ -183,7 +184,7 @@ function stopRecordingCallback() {
       //uploadMessage.classList.add('hidden');
       const gifId = data.data.id
       uploadMessage.style.display = 'none';
-      uploadMessageDone.style.display = 'flex';
+      uploadMessageDone.style.display = 'block';
       getGifDetails(gifId)
   
     })
@@ -213,3 +214,33 @@ function stopRecordingCallback() {
             return error
         })
   }
+
+  // Download Gif
+  
+
+  async function clickDownload(imageUrl) {
+
+  const downloadUrl = imageUrl;
+  const fetchedGif = fetch(downloadUrl);
+  const blobGif = (await fetchedGif).blob();
+  const urlGif = URL.createObjectURL(await blobGif);
+  const saveImg = document.createElement("a");
+  saveImg.href = urlGif;
+  saveImg.download = "downloaded-giphy.gif";
+  saveImg.style = 'display: "none"';
+  document.body.appendChild(saveImg);
+  saveImg.click();
+  document.body.removeChild(saveImg);
+};
+
+function copyToClipboard(url) {
+
+  var inputc = document.body.appendChild(document.createElement("input"));
+  inputc.value = window.location.href;
+  inputc.focus();
+  inputc.select();
+  document.execCommand('copy');
+  inputc.parentNode.removeChild(inputc);
+  alert("Enlace copiado.");
+  }
+
