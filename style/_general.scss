@@ -6,6 +6,13 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: $background-color;
+    transition: .3s ease all;
+   
+    //Night mode
+    &.dark {
+        background-color: $night-background-color;
+    }
 
 }
 h1{
@@ -44,6 +51,13 @@ h5{
 
 }
 
+h6{
+    font-family: $font-montserrat;
+    font-weight: bold;
+    font-size: 15px;
+    color: $background-color;
+    text-align: center;
+}
 .hide {
     display: none;
 }

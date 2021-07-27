@@ -104,9 +104,9 @@
     background: none;
     margin-left: 5%;
     font-family: $font-roboto;
+    font-weight: medium;
     color: $purple-color;
     font-size: 18px;
-    
 }
 
 .button-number-selected{
@@ -117,6 +117,7 @@
     background: $purple-color;
     margin-left: 5%;
     font-family: $font-roboto;
+    font-weight: medium;
     color: $background-color;
     font-size: 18px;
     
@@ -136,11 +137,24 @@
 #tape{
     margin-top: -20%;
 }
+
+.timer-container {
+    display: block; 
+    font-size: 15px;
+    letter-spacing: 0;
+    margin-right: 10%;
+    font-family: $font-montserrat;
+    font-weight: bold;
+    color:$purple-color;
+}
 #repeat-gif {
     font-size: 13px;
     letter-spacing: 0;
-    display: none; //hidden repetir captura.Should be showed in create gifo 2.
-    //Also hidden timer. Should be showed in crear gifo 3, after stop capture.
+    display: none; 
+    margin-right: 10%;
+    &:hover{
+        text-decoration: underline $aqua-font-color 3px;
+    }
 }
 .text-gifo-container{ 
     display: flex;
@@ -166,35 +180,44 @@
     margin-top: 0%;
 }
 
-.control-button{
-    display: block; //should be block when the search appear.
-    margin-left: 43%;
-    margin-top: -4%;
-    
-    :hover{
-        background-color:$purple-color;
-        color:$background-color;
-    }
-    
-}
 
 #start {
-        background: none;
-        color: none;
-        border-radius: 50px;
-        border: 0.5px solid $purple-color;
-        height: 50px;
-        width: 127px;
+    display: block; 
+    margin-left: 43%;
+    margin-top: -4%;
+    background: none;
+    border-radius: 50px;
+    border: 1px solid $purple-color;
+    height: 50px;
+    width: 127px;
+    font-size: 13px;
+    font-family: $font-montserrat;
+    font-weight: bold;
+    color:$purple-color;
+    &:hover{
+        background-color: $purple-color;
+        color: $background-color;
+    }
 }
 
-#record{
+#record {
     display: none;
+    //justify-content: center; 
+    margin-left: 43%;
+    margin-top: -4%;
     background: none;
-    color: none;
     border-radius: 50px;
-    border: 0.5px solid $purple-color;
+    border:  1px solid $purple-color;
     height: 50px;
     width: 127px;  
+    font-size: 13px;
+    font-family: $font-montserrat;
+    font-weight: bold;
+    color:$purple-color;
+        &:hover{
+            background-color: $purple-color;
+            color: $background-color;
+     }
 }
 
 #upload{
@@ -202,17 +225,27 @@
     background: none;
     color: none;
     border-radius: 50px;
-    border: 0.5px solid $purple-color;
+    border:  1px solid $purple-color;
     height: 50px;
     width: 127px;  
+    margin-left: 43%;
+    margin-top: -4%;
     
+    font-size: 13px;
+    font-family: $font-montserrat;
+    font-weight: bold;
+    color:$purple-color;
+        &:hover{
+            background-color: $purple-color;
+            color: $background-color;
+     }
 }
 
 .uploadMessage{
-   display: none;
+    display: none;
+    flex-direction: column;
     width: 688px;
     height: 390px;
-   // display: flex;
     justify-content: center;
     align-items: center;
     background-color: #572EE5;
@@ -229,10 +262,9 @@
     display: none;
     width: 688px;
     height: 390px;
-   // display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    //justify-content: center;
+  //  flex-direction: column;
+  //  align-items: center;
     background-color: #572EE5;
     opacity: 0.7;
     margin-left: -691px;
@@ -251,6 +283,8 @@
    display: flex;
    justify-content: flex-end;
    margin-left: 85%;
+   margin-bottom: 20%;
+   margin-top: 3px;
 }
 .icons-layer-gifo{
     display: flex;
