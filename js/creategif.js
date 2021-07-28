@@ -27,6 +27,13 @@ let recorder;
 // También una variable recording para manejar el timer
 let recording = false;
 
+//GET and SET my gifs (Local Storage)
+
+if (localStorage.getItem('myGifs') === null) {
+  const emptyLikes = [];
+  localStorage.setItem('myGifs', JSON.stringify(emptyLikes));
+}
+
 
 function getStreamAndRecord() {
     // empieza a correr la cámara
@@ -182,7 +189,7 @@ function stopRecordingCallback() {
       return res.json();  
     }).then(data => {  
       //uploadMessage.classList.add('hidden');
-      const gifId = data.data.id
+      const gifId = data.data.id;
       uploadMessage.style.display = 'none';
       uploadMessageDone.style.display = 'block';
       getGifDetails(gifId)
@@ -200,8 +207,30 @@ function stopRecordingCallback() {
         .then((response) => {
            return response.json()
         }).then(data => {
-            const gifUrl = data.data.url
-            console.log(gifUrl);
+            const url = data.data.images.original.url;
+            const width = data.data.images.fixed_width.width;
+            const height = data.data.images.fixed_height.height;
+            const title = data.data.title;
+            
+            let buttonEl = document.getElementById("icons-layer-gifo");
+            let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                           <button class="icons-layer-gifo" link-button" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Link"></button>`;
+
+            buttonEl.innerHTML = buttons;
+
+            ///Save in localStore
+            let myGifs = JSON.parse(localStorage.getItem('myGifs'));
+            const myGif = {
+                url: url,
+                width: width,
+                title: title,
+                height: height
+            }
+            myGifs.push(myGif)
+            
+            localStorage.setItem('myGifs', JSON.stringify(myGifs)); 
+    
+
             //Acá con la URL de la imagen subida puedes guardar en localStore tus gifos 
             //basandote en la funcion clicklike
             //Y consultarlos en app.js con una funcion similar a favorites
@@ -218,7 +247,7 @@ function stopRecordingCallback() {
   // Download Gif
   
 
-  async function clickDownload(imageUrl) {
+async function clickDownload(imageUrl) {
 
   const downloadUrl = imageUrl;
   const fetchedGif = fetch(downloadUrl);
@@ -244,3 +273,8 @@ function copyToClipboard(url) {
   alert("Enlace copiado.");
   }
 
+  const switchMode = document.querySelector('#switch');
+  switchMode.addEventListener('click', () =>{
+      document.body.classList.toggle('dark');
+      switchMode.classList.toggle('active');
+  });

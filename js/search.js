@@ -21,13 +21,13 @@ function search(query) {
     fetch (path_search).then(function (res) { 
         return res.json();
     }).then(function(json){
-        //console.log(json.data[0].images.fixed_width.url);
+        //console.log(json.data[0].images.original.url);
         let resultsHTML = '';
     
         json.data.forEach(function(obj) {
             //console.log(obj);
 
-            const url = obj.images.fixed_width.url;
+            const url = obj.images.original.url;
             const width = obj.images.fixed_width.width;
             const height = obj.images.fixed_height.height;
             const title = obj.title;

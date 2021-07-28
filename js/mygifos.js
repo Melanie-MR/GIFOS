@@ -66,7 +66,7 @@ function trending(num) {
         json.data.forEach(function(obj, index) {
             //console.log(obj);
 
-            const url = obj.images.fixed_width.url;
+            const url = obj.images.original.url;
             const width = obj.images.fixed_width.width;
             const title = obj.title;
             const height= obj.images.fixed_height.height;
@@ -99,7 +99,6 @@ function trending(num) {
         console.log(err.message);
     });
 }
-
 
 // Download Gif
 async function clickDownload(imageUrl) {

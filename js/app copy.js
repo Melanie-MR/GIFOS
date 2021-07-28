@@ -47,13 +47,13 @@ function trending(num) {
     fetch (path_trending).then(function (res) { 
         return res.json();
     }).then(function(json){
-        //console.log(json.data[0].images.fixed_width.url);
+        //console.log(json.data[0].images.original.url);
         let resultsTrending = '';
     
         json.data.forEach(function(obj) {
             //console.log(obj);
 
-            const url = obj.images.fixed_width.url;
+            const url = obj.images.original.url;
             const width = obj.images.fixed_width.width;
             const title = obj.title;
             const height= obj.images.fixed_height.height;
