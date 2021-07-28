@@ -48,14 +48,6 @@ h5 {
   font-family: "Roboto", sans-serif;
 }
 
-h6 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-  font-size: 15px;
-  color: #FFFFFFFF;
-  text-align: center;
-}
-
 .hide {
   display: none;
 }
@@ -227,12 +219,16 @@ label {
   display: block;
 }
 
-#title__color {
+.title__color {
   color: #572EE5;
   font-size: 35px;
   text-align: center;
   line-height: 50px;
   margin-top: 50px;
+}
+
+.title__color.dark {
+  color: red;
 }
 
 .change__color {
