@@ -844,13 +844,14 @@ video {
 .uploadMessage {
   display: none;
   flex-direction: column;
-  width: 688px;
-  height: 390px;
+  width: 480px;
+  height: 320px;
   justify-content: center;
   align-items: center;
   background-color: #572EE5;
   opacity: 0.7;
-  margin-left: -900px;
+  margin-left: -796px;
+  margin-top: 2.8%;
 }
 
 .progress-icon {
@@ -860,11 +861,12 @@ video {
 
 .upload-message-done {
   display: none;
-  width: 688px;
-  height: 390px;
+  width: 480px;
+  height: 320px;
   background-color: #572EE5;
   opacity: 0.7;
-  margin-left: -900px;
+  margin-left: -796px;
+  margin-top: 2.8%;
 }
 
 .progress-icon {
