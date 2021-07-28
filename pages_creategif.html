@@ -31,7 +31,7 @@
     </header>
 
     <!--Main-->
-    <main>
+    <main id="main-container">
         <section class="camera-display">
             <!--Camera Icon-->
             <div class="camera-container">
@@ -64,7 +64,9 @@
                 <img class="video-preview hide" id="preview"/>
                 
             </div>
-            
+            <div class="tape3-container">
+                <img id="tape" src="assets/pelicula.svg" alt="Rollo de película">
+            </div>
             <!--Upload message-->
         <div class="uploadMessage hide">
             <div class="progress-icon"><img src="assets/loader.svg" alt="Loader"></div>
@@ -94,21 +96,20 @@
                             <h3 id="repeat-gif">REPETIR CAPTURA<span id="repeat"></span></h3> 
                         </div>
                         <div class="bottom-bar"></div>
+                        <!--Control section-->
+                        <div class="control-section">
+                            <button class="control-button" id="start">COMENZAR</button>
+                            <button class="control-button" id="record">GRABAR</button>
+                            <button class="control-button" id="upload">SUBIR GIFO</button>
+                        </div>   
                     </div>
                     
-                    <div class="tape3-container">
-                        <img id="tape" src="assets/pelicula.svg" alt="Rollo de película">
-                    </div>
+                    
                     
                 </div>
             </div>
             
-    <!--Control section-->
-    <div class="control-section">
-        <button class="control-button" id="start">COMENZAR</button>
-        <button class="control-button" id="record">GRABAR</button>
-        <button class="control-button" id="upload">SUBIR GIFO</button>
-    </div>        
+         
          
 
         
@@ -117,18 +118,20 @@
     <!--footer-->
     <footer>
         <section class="footer-container">
-            <div class="share-container">
-                <h5 class="footer-font"> Compartir en:</h5>
-                <div class="icon-container"></div>
-                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f" style="color:grey"></i></a>
-                <a href="https://twitter.com/?lang=es"><i class="fab fa-twitter" style="color:grey"></i></a>
-                <a href="https://www.instagram.com/"><i class="fab fa-instagram" style="color:grey"></i></a>
-            </div> 
-            <p id="copyright"></p>    
-            <div class="bar"></div>   
-      <!--  <div class="footer"><h5 id="copyright">© GIFOS 2020 All Rights Reserved.</h5></div>-->
+            <div class="media-container">
+                <div class="icon-container">
+                    <h5 class="footer-font"> Compartir en:</h5>
+                    <div id="icons">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f social-media"></i></a>
+                        <a href="https://twitter.com/?lang=es"><i class="fab fa-twitter social-media"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram social-media"></i></a>
+                    </div>
+                </div> 
+            <div class="copyright"><h5 class="footer-font" id="copyright">© GIFOS 2021 All Rights Reserved.</h5></div>
         </section>
     </footer>
+
+    <hr>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js" type="text/javascript"></script>
     <script src="js/creategif.js"></script>
 </body>
