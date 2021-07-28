@@ -39,7 +39,7 @@ function getStreamAndRecord() {
     // empieza a correr la cámara
     navigator.mediaDevices.getUserMedia({
         audio: false,
-        video: { height: 390, width: 688 } 
+        video: { height: 320, width: 480 } 
 
     }).then(function (stream) {
         // Usamos el stream de la cámara como source de nuestra tag <video> en el html
@@ -136,8 +136,9 @@ function stopRecordingCallback() {
     // le damos el formato requerido a la data que vamos a enviar como body de nuestro
     // POST request
     let form = new FormData();
-    form.append("file", recorder.getBlob(), "test.gif");
-  
+    form.append("file", recorder.getBlob(), "myGif.gif");
+    console.log(form.get('file'))
+      
     upload.addEventListener("click", () => {
    
       upload.style = 'display: none';
@@ -228,7 +229,7 @@ function stopRecordingCallback() {
             }
             myGifs.push(myGif)
             
-            localStorage.setItem('myGifs', JSON.stringify(myGifs)); 
+            localStorage.setItem('myGifs', JSON.stringify(myLikes)); 
     
 
             //Acá con la URL de la imagen subida puedes guardar en localStore tus gifos 
@@ -276,5 +277,5 @@ function copyToClipboard(url) {
   const switchMode = document.querySelector('#switch');
   switchMode.addEventListener('click', () =>{
       document.body.classList.toggle('dark');
-      switchMode.classList.toggle('active');
+     
   });

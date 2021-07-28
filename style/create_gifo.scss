@@ -22,11 +22,18 @@
 //Footer 
 @import "_footer.scss";
 
+
+#main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5.8%;
+}
 .camera-display{
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    margin-left: 10.8%;
+    margin-left: 8%;
 }
 .create-gifo-container{
     border: 1.5px solid $purple-color;
@@ -45,10 +52,21 @@
     
 }
 .camera-container{
-    margin-top: 8%;
+    margin-top: 6%;
     display: flex;
     flex-direction: row;
 }
+.video-preview{
+    width: 480px;
+    height: 320px;
+    margin-left: 15%;
+    margin-top: 5%;
+}
+video{
+    margin-left: 15%;
+    margin-top: 5%;
+}
+
 .tapes-cam-container{
     display: flex;
     flex-direction: column;
@@ -76,15 +94,16 @@
 #num-bar-container{
     display: flex;
     flex-direction: column;
-    margin-left: 10%;
+    margin-left: 40px;
     
 } 
 .numbers-container{
     display: flex;
     flex-direction: row;
     width: 45%;
-    margin-left: 15%;
+    margin-left: 16%;
     margin-bottom: 5%;
+    margin-top: -3%;
 
 
 }
@@ -135,7 +154,8 @@
     border-radius: 30px;
 }
 #tape{
-    margin-top: -20%;
+    margin-top: 383px;
+    margin-left: 67px;
 }
 
 .timer-container {
@@ -183,8 +203,8 @@
 
 #start {
     display: block; 
-    margin-left: 43%;
-    margin-top: -4%;
+    margin-left: 41.5%;
+    margin-top: 3%;
     background: none;
     border-radius: 50px;
     border: 1px solid $purple-color;
@@ -202,9 +222,8 @@
 
 #record {
     display: none;
-    //justify-content: center; 
-    margin-left: 43%;
-    margin-top: -4%;
+    margin-left: 41.5%;
+    margin-top: 3%;
     background: none;
     border-radius: 50px;
     border:  1px solid $purple-color;
@@ -228,9 +247,8 @@
     border:  1px solid $purple-color;
     height: 50px;
     width: 127px;  
-    margin-left: 43%;
-    margin-top: -4%;
-    
+    margin-left: 41.5%;
+    margin-top: 3%;
     font-size: 13px;
     font-family: $font-montserrat;
     font-weight: bold;
@@ -250,7 +268,7 @@
     align-items: center;
     background-color: #572EE5;
     opacity: 0.7;
-    margin-left: -691px;
+    margin-left: -900px;
     
 }
 .progress-icon{
@@ -267,7 +285,7 @@
   //  align-items: center;
     background-color: #572EE5;
     opacity: 0.7;
-    margin-left: -691px;
+    margin-left: -900px;
 }
 
 .progress-icon{

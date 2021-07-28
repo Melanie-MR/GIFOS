@@ -55,7 +55,6 @@ h5 {
 hr {
   display: flex;
   align-items: center;
-  width: 1440px;
   height: 5px;
   background-color: #572EE5;
   margin-top: 0;
@@ -544,16 +543,24 @@ label {
   outline: inherit;
 }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 156px;
-  margin-right: 158px;
-  font-size: 13px;
+.footer-container {
+  margin-bottom: 1%;
 }
 
-footer :hover {
-  color: #572EE5;
+.social-media {
+  color: grey;
+  margin-left: 20px;
+}
+
+.social-media.dark {
+  color: red;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 10.83%;
 }
 
 #icons {
@@ -563,42 +570,44 @@ footer :hover {
   font-family: FontAwesome5Brands-Regular;
   color: grey;
   letter-spacing: 0;
-  width: 15%;
+}
+
+#icons :hover {
+  color: #572EE5;
 }
 
 .footer-font {
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 13px;
   color: black;
   text-align: center;
 }
 
-/*#icon__color{
-    color:grey
-  }
-  #icon__color:hover{
-    color: $purple-color;
-  }*/
-@media only screen and (max-width: 480px) {
-  footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  #icons {
-    display: flex;
-    justify-content: space-around;
-    font-size: 16px;
-    width: 100%;
-    padding-top: 0;
-    padding-bottom: 31px;
-  }
+.footer-font.dark {
+  color: red;
+}
+
+.media-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyright {
+  margin-right: 10.83%;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5.8%;
 }
 
 .camera-display {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  margin-left: 10.8%;
+  margin-left: 8%;
 }
 
 .create-gifo-container {
@@ -617,9 +626,21 @@ footer :hover {
 }
 
 .camera-container {
-  margin-top: 8%;
+  margin-top: 6%;
   display: flex;
   flex-direction: row;
+}
+
+.video-preview {
+  width: 480px;
+  height: 320px;
+  margin-left: 15%;
+  margin-top: 5%;
+}
+
+video {
+  margin-left: 15%;
+  margin-top: 5%;
 }
 
 .tapes-cam-container {
@@ -650,15 +671,16 @@ footer :hover {
 #num-bar-container {
   display: flex;
   flex-direction: column;
-  margin-left: 10%;
+  margin-left: 40px;
 }
 
 .numbers-container {
   display: flex;
   flex-direction: row;
   width: 45%;
-  margin-left: 15%;
+  margin-left: 16%;
   margin-bottom: 5%;
+  margin-top: -3%;
 }
 
 .num-repeat-container {
@@ -708,7 +730,8 @@ footer :hover {
 }
 
 #tape {
-  margin-top: -20%;
+  margin-top: 383px;
+  margin-left: 67px;
 }
 
 .timer-container {
@@ -759,8 +782,8 @@ footer :hover {
 
 #start {
   display: block;
-  margin-left: 43%;
-  margin-top: -4%;
+  margin-left: 41.5%;
+  margin-top: 3%;
   background: none;
   border-radius: 50px;
   border: 1px solid #572EE5;
@@ -779,8 +802,8 @@ footer :hover {
 
 #record {
   display: none;
-  margin-left: 43%;
-  margin-top: -4%;
+  margin-left: 41.5%;
+  margin-top: 3%;
   background: none;
   border-radius: 50px;
   border: 1px solid #572EE5;
@@ -805,8 +828,8 @@ footer :hover {
   border: 1px solid #572EE5;
   height: 50px;
   width: 127px;
-  margin-left: 43%;
-  margin-top: -4%;
+  margin-left: 41.5%;
+  margin-top: 3%;
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
@@ -827,7 +850,7 @@ footer :hover {
   align-items: center;
   background-color: #572EE5;
   opacity: 0.7;
-  margin-left: -691px;
+  margin-left: -900px;
 }
 
 .progress-icon {
@@ -841,7 +864,7 @@ footer :hover {
   height: 390px;
   background-color: #572EE5;
   opacity: 0.7;
-  margin-left: -691px;
+  margin-left: -900px;
 }
 
 .progress-icon {
