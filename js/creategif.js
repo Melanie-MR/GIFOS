@@ -229,7 +229,7 @@ function stopRecordingCallback() {
             }
             myGifs.push(myGif)
             
-            localStorage.setItem('myGifs', JSON.stringify(myLikes)); 
+            localStorage.setItem('myGifs', JSON.stringify(myGifs)); 
     
 
             //Acá con la URL de la imagen subida puedes guardar en localStore tus gifos 
