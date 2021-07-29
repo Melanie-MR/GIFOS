@@ -219,7 +219,7 @@ function stopRecordingCallback() {
 
             buttonEl.innerHTML = buttons;
 
-            ///Save in localStore
+            ///Read from localStorage
             let myGifs = JSON.parse(localStorage.getItem('myGifs'));
             const myGif = {
                 url: url,
@@ -228,7 +228,7 @@ function stopRecordingCallback() {
                 height: height
             }
             myGifs.push(myGif)
-            
+            //Save in localStorage
             localStorage.setItem('myGifs', JSON.stringify(myGifs)); 
     
 

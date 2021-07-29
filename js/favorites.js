@@ -10,7 +10,7 @@ favorites();
 
 //Favorites Function ---> GET Favorites and introduce it in favorites page (html). 
 
-function favorites(num) {
+function favorites() {
 
     const fav_empty = document.getElementById('fav-mygifs_empty');
   
