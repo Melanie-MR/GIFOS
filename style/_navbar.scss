@@ -46,10 +46,9 @@ hr{
         margin: 0;
         line-height: 50px;
       }
-        :hover{
+        :active{
           color: $second-night-font-color;
         }
-
   }
   label{
     margin: 0;
@@ -62,7 +61,11 @@ hr{
     display: none;
 
   }
-  
+
+.menu__list--:hover{
+  text-decoration: underline $aqua-font-color 2px;
+}
+
   @media only screen and (max-width: 480px) {
     
     .nav {

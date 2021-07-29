@@ -99,7 +99,7 @@ li {
   line-height: 50px;
 }
 
-.menu :hover {
+.menu :active {
   color: #9CAFC3;
 }
 
@@ -112,6 +112,10 @@ label {
 
 #toggle {
   display: none;
+}
+
+.menu__list--:hover {
+  text-decoration: underline #5ED7C6 2px;
 }
 
 @media only screen and (max-width: 480px) {

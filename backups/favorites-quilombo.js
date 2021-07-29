@@ -7,50 +7,9 @@ let indexModal = 0;
 const numSlides = 60;
 trending(numSlides);
 
+////TRENDINGS
 
-////SLIDERS
-
-//ShowTrending Function---> to display 3 gif in trending Slider
-function showTrending(slideIndex) {
-    let trendingGif = document.querySelectorAll(".mySlides");
-    
-    for (let i = 0; i < trendingGif.length; i++) {
-        trendingGif[i].style.display = "none";
-    }
-    //To show 3 gif at a time
-    trendingGif[slideIndex].style.display = "flex"; 
-    slideIndex++;
-    trendingGif[slideIndex].style.display = "flex";
-    slideIndex++; 
-    trendingGif[slideIndex].style.display = "flex"; 
-}
-
-//ShowTrendingModal---> to display 1 gif in Modal Slider
-function showTrendingModal(slideIndex) {
-    let trendingGif = document.querySelectorAll(".mySlidesModal");
-    
-    for (let i = 0; i < trendingGif.length; i++) {
-        trendingGif[i].style.display = "none";
-    }
-    //To show 1 gif at a time
-    trendingGif[slideIndex].style.display = "flex"; 
-    slideIndex++;
-}
-
-//PlusSlides function---> Arrows buttons of Trending Slider.
-function plusSlides(steps) {
-    let trendingGif = document.querySelectorAll(".mySlides");
-    slideIndex += steps; // => slideIndex = slideIndex + n;
-    if (slideIndex > (trendingGif.length - 3)) {
-        slideIndex = 0;
-    }
-    if (slideIndex < 0) {
-        slideIndex = trendingGif.length - 3;
-    }
-    showTrending(slideIndex);
-}
-
-////API CONNECTION TRENDING
+//API CONNECTION TRENDING
 
 //Trending Function---> to connect API and introduce content in html.
 function trending(num) {
@@ -68,7 +27,7 @@ function trending(num) {
         json.data.forEach(function(obj, index) {
             //console.log(obj);
 
-            const url = obj.images.fixed_width.url;
+            const url = obj.images.original.url;
             const width = obj.images.fixed_width.width;
             const title = obj.title;
             const height= obj.images.fixed_height.height;
@@ -101,6 +60,35 @@ function trending(num) {
         console.log(err.message);
     });
 }
+
+//ShowTrending Function---> to display 3 gif in trending Slider
+function showTrending(slideIndex) {
+    let trendingGif = document.querySelectorAll(".mySlides");
+    
+    for (let i = 0; i < trendingGif.length; i++) {
+        trendingGif[i].style.display = "none";
+    }
+    //To show 3 gif at a time
+    trendingGif[slideIndex].style.display = "flex"; 
+    slideIndex++;
+    trendingGif[slideIndex].style.display = "flex";
+    slideIndex++; 
+    trendingGif[slideIndex].style.display = "flex"; 
+}
+
+//PlusSlides function---> Arrows buttons of Trending Slider.
+function plusSlides(steps) {
+    let trendingGif = document.querySelectorAll(".mySlides");
+    slideIndex += steps; // => slideIndex = slideIndex + n;
+    if (slideIndex > (trendingGif.length - 3)) {
+        slideIndex = 0;
+    }
+    if (slideIndex < 0) {
+        slideIndex = trendingGif.length - 3;
+    }
+    showTrending(slideIndex);
+}
+
 
 ////FAVORITES
 
@@ -204,7 +192,38 @@ function clickDelete(url) {
     favorites();
 }
 
+// Download Gif
+async function clickDownload(imageUrl) {
+
+    const downloadUrl = imageUrl;
+    const fetchedGif = fetch(downloadUrl);
+    const blobGif = (await fetchedGif).blob();
+    const urlGif = URL.createObjectURL(await blobGif);
+    const saveImg = document.createElement("a");
+    saveImg.href = urlGif;
+    saveImg.download = "downloaded-giphy.gif";
+    saveImg.style = 'display: "none"';
+    document.body.appendChild(saveImg);
+    saveImg.click();
+    document.body.removeChild(saveImg);
+    //showAlert('¡Descarga exitosa!');
+};
+
+////MODAL
+
 ////MODAL TRENDING
+
+//ShowTrendingModal---> to display 1 gif in Modal Slider
+function showTrendingModal(slideIndex) {
+    let trendingGif = document.querySelectorAll(".mySlidesModal");
+    
+    for (let i = 0; i < trendingGif.length; i++) {
+        trendingGif[i].style.display = "none";
+    }
+    //To show 1 gif at a time
+    trendingGif[slideIndex].style.display = "flex"; 
+    slideIndex++;
+}
 
 //Click modal function for TRENDINGS!
 function clickEnlarge(num, index) {
@@ -217,13 +236,13 @@ function clickEnlarge(num, index) {
     fetch (path_trending).then(function (res) { 
         return res.json();
     }).then(function(json){
-        //console.log(json.data[0].images.fixed_width.url);
+        //console.log(json.data[0].images.original.url);
         let resultsTrending = '';
     
         json.data.forEach(function(obj) {
             //console.log(obj);
 
-            const url = obj.images.fixed_width.url;
+            const url = obj.images.original.url;
             const width = obj.images.fixed_width.width;
             const title = obj.title;
             const height= obj.images.fixed_height.height;
@@ -257,6 +276,31 @@ function clickEnlarge(num, index) {
 
     showModal();
 }
+
+// Get the modal
+let modal = document.querySelector("#myModal");
+
+// Get the <span> element that closes the modal
+var span = document.querySelectorAll(".close")[0];
+
+// When the user calls this function. The modal opens up
+function showModal() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
 //PlusSlides Modal function---> Arrows buttons of Modal Slider.
 function plusSlidesModal(steps) {
     let trendingGif = document.querySelectorAll(".mySlidesModal");
@@ -270,25 +314,13 @@ function plusSlidesModal(steps) {
     showTrendingModal(indexModal);
 }
 
-// Download Gif
-async function clickDownload(imageUrl) {
 
-    const downloadUrl = imageUrl;
-    const fetchedGif = fetch(downloadUrl);
-    const blobGif = (await fetchedGif).blob();
-    const urlGif = URL.createObjectURL(await blobGif);
-    const saveImg = document.createElement("a");
-    saveImg.href = urlGif;
-    saveImg.download = "downloaded-giphy.gif";
-    saveImg.style = 'display: "none"';
-    document.body.appendChild(saveImg);
-    saveImg.click();
-    document.body.removeChild(saveImg);
-    //showAlert('¡Descarga exitosa!');
-};
+
+///SWITCH MODE
 
 const switchMode = document.querySelector('#switch');
 switchMode.addEventListener('click', () =>{
-    document.body.classList.toggle('dark');
+    document.body.classList.toggle('dark'); 
+    //usar classlist.remove/add y agregar clase dark a lo que quiero cambiar.
     switchMode.classList.toggle('active');
 });
