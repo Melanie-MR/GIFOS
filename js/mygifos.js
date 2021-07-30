@@ -1,5 +1,4 @@
 
-
 myGifos();
 //Favorites Function ---> GET Favorites and introduce it in favorites page (html). 
 
@@ -31,7 +30,7 @@ function myGifos() {
                             <div class="img-layer">
                                 <div id= "icons-layer">
                                     <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                    <button class="icons-layer" onclick="clickDelete('${url}')"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
+                                    <button class="icons-layer" onclick="clickDelete('${url}', 'myGifs');myGifos()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
                                     <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                 </div>
                             </div>
@@ -40,7 +39,7 @@ function myGifos() {
 
 
         });
-            
+    
         //This is for avoid Error in Index.html and for hide class with default message in favorites
 
         if (galeryEl!=null){
@@ -90,23 +89,6 @@ async function clickDownload(imageUrl) {
     document.body.removeChild(saveImg);
     //showAlert('¡Descarga exitosa!');
 };
-
-//Delete Favorites Function ---> to remove item from Local Storage.
-function clickDelete(url) {
-    //This part find the position of the url 
-    const isElementUrl = (myG) => myG.url === url;
-
-    let myGifs = JSON.parse(localStorage.getItem('myGifs'));
-    //Variable with the position of the element in the array. 
-    let x = myGifs.findIndex(isElementUrl)
-
-    //Remove element in X position.
-    myGifs.splice(x,1)
-    
-    //To update the array after delete elements
-    localStorage.setItem('myGifs', JSON.stringify(myGifs));
-    myGifos();
-}
 
 
 const switchMode = document.querySelector('#switch');

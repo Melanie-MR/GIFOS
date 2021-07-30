@@ -40,7 +40,7 @@ function favorites() {
                             <div class="img-layer">
                                 <div id= "icons-layer">
                                     <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                    <button class="icons-layer" onclick="clickDelete('${url}')"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
+                                    <button class="icons-layer" onclick="clickDelete('${url}', 'myLikesKey');favorites()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
                                     <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@ function clickLike(url, width, title, height) {
 }
 
 //Delete Favorites Function ---> to remove item from Local Storage.
-function clickDelete(url) {
+/*function clickDelete(url) {
     //This part find the position of the url 
     const isElementUrl = (fav) => fav.url === url;
 
@@ -98,7 +98,7 @@ function clickDelete(url) {
     //To update the array after delete elements
     localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
     favorites();
-}
+}*/
 
 
 // Download Gif

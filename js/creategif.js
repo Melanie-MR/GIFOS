@@ -64,17 +64,17 @@ function getStreamAndRecord() {
                 width: 688,
                 height: 390,
                 onGifRecordingStarted: function () {
+                  record.style = 'display: block';
                   console.log("started");
+                  getDuration();
                 },
               });
-    
+              
               recorder.startRecording();
-              getDuration();
-    
+              
               // modificamos el dom para que se note que estamos grabando
+              record.style = 'display: none';
               record.innerHTML = "FINALIZAR";
-        
-
 
               // cortamos el stream de la cámara
               recorder.camera = stream;
@@ -88,9 +88,8 @@ function getStreamAndRecord() {
     });
 }
 function getDuration() {
-  document.getElementById(
-    "timer"
-  ).innerHTML = '00:00:00';
+  document.getElementById("timer").innerHTML = '00:00:00';
+  document.getElementById("timer").style = 'display: none';
   let seconds = 0;
   let minutes = 0;
   let timer = setInterval(() => {
@@ -107,7 +106,9 @@ function getDuration() {
         minutes++;
         seconds = 0;
       }
+      document.getElementById("timer").style = 'display: block';
     } else {
+      document.getElementById("timer").style = 'display: none';
       clearInterval(timer);
     }
   }, 1000);
@@ -167,7 +168,7 @@ function stopRecordingCallback() {
   }
 
   repeat.addEventListener('click', () => {
-    location.reload(); //aca se supone que regrese a grabar, no al inicio DE TODO.
+    location.reload(); //aca se supone que regrese a grabar, no al inicio DE TODO. BORRAR ESTO Y MOSTRAR O DESAPARECER EL RESTO
     getStreamAndRecord()
   })
 

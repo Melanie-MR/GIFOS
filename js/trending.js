@@ -86,3 +86,19 @@ function trending(num) {
         console.log(err.message);
     });
 }
+
+//Delete Function ---> to remove item from Local Storage. Given a key name
+function clickDelete(url, key) {
+    //This part find the position of the url 
+    const isElementUrl = (el) => el.url === url;
+
+    let myData = JSON.parse(localStorage.getItem(key));
+    //Variable with the position of the element in the array. 
+    let x = myData.findIndex(isElementUrl)
+
+    //Remove element in X position.
+    myData.splice(x,1)
+    
+    //To update the array after delete elements
+    localStorage.setItem(key, JSON.stringify(myData));
+}
