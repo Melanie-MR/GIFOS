@@ -216,8 +216,10 @@ function stopRecordingCallback() {
             
             let buttonEl = document.getElementById("icons-layer-gifo");
             let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                           <button class="icons-layer-gifo" link-button" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Link"></button>`;
-
+                           <button class="icons-layer-gifo" onclick="clickLike('${url}', 'key'); favorites()"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                           <button class="icons-layer-gifo" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Me Gusta"></button>
+                          `;
+                           
             buttonEl.innerHTML = buttons;
 
             ///Read from localStorage
@@ -264,7 +266,22 @@ async function clickDownload(imageUrl) {
   document.body.removeChild(saveImg);
 };
 
-function copyToClipboard(url) {
+function clickLike(url, width, title, height) {
+  //console.log(width)
+  let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
+  const fav = {
+      url: url,
+      width: width,
+      title: title,
+      height: height
+  }
+  myLikes.push(fav)
+  
+  localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
+  
+}
+
+/*function copyToClipboard(url) {
 
   var inputc = document.body.appendChild(document.createElement("input"));
   inputc.value = window.location.href;
@@ -273,6 +290,18 @@ function copyToClipboard(url) {
   document.execCommand('copy');
   inputc.parentNode.removeChild(inputc);
   alert("Enlace copiado.");
+  }*/
+
+
+  function copyToClipboard(url) {
+
+    var input = document.createElement("input");
+    input.setAttribute("value", url);
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    alert("Enlace de Giphy copiado");
   }
 
   const switchMode = document.querySelector('#switch');
