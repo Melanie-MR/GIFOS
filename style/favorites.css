@@ -228,10 +228,9 @@ label {
   text-align: center;
   line-height: 50px;
   margin-top: 50px;
-}
-
-.title__color.dark {
-  color: red;
+  /*   &.dark {
+        color: red;
+    }*/
 }
 
 .change__color {
