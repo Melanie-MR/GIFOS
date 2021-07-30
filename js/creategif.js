@@ -1,12 +1,12 @@
-// Constantes útiles
+// API 
 
 const apiKey = "MvRLWWPVxBixgOKhwiLvh8EyVwl2lBKz";
 const apiBaseUrl = "https://api.giphy.com/v1/gifs/";
 
 
-// Subir gifs
+//// Creating a Giphy
 
-// Elementos del HTML con los que vamos a interactuar
+// HTML Elements to interact.
 const start = document.getElementById("start");
 const one = document.getElementById("one");
 const two = document.getElementById("two");
@@ -22,9 +22,9 @@ const layer = document.getElementsByClassName("img-layer-gifo");
 const uploadMessage = document.querySelector(".uploadMessage");
 const uploadMessageDone = document.querySelector(".upload-message-done");
 
-// definimos el objeto recorder - tiene que se global para que podamos accederlo en todos los listeners
+//Object RECORDER. This is global to have access in all the listeners. 
 let recorder;
-// También una variable recording para manejar el timer
+//To manage timer
 let recording = false;
 
 //GET and SET my gifs (Local Storage)
@@ -34,15 +34,15 @@ if (localStorage.getItem('myGifs') === null) {
   localStorage.setItem('myGifs', JSON.stringify(emptyLikes));
 }
 
-
+//Recorder function
 function getStreamAndRecord() {
-    // empieza a correr la cámara
+    // Camera starts here.
     navigator.mediaDevices.getUserMedia({
         audio: false,
         video: { height: 320, width: 480 } 
 
     }).then(function (stream) {
-        // Usamos el stream de la cámara como source de nuestra tag <video> en el html
+        // The stream of the camera is used as a source of the video tag in the html. 
         video.srcObject = stream;
         video.play();
         document.querySelector(".text-gifo-container-recording").style = 'display: none';
@@ -72,11 +72,11 @@ function getStreamAndRecord() {
               
               recorder.startRecording();
               
-              // modificamos el dom para que se note que estamos grabando
+              // Button change according to the step that we are. 
               record.style = 'display: none';
               record.innerHTML = "FINALIZAR";
 
-              // cortamos el stream de la cámara
+              //To stop the stream of the camera.
               recorder.camera = stream;
             } else {
               this.disabled = true;
@@ -87,6 +87,7 @@ function getStreamAndRecord() {
 
     });
 }
+//Timer function
 function getDuration() {
   document.getElementById("timer").innerHTML = '00:00:00';
   document.getElementById("timer").style = 'display: none';
@@ -114,19 +115,20 @@ function getDuration() {
   }, 1000);
 }
 
+//EventListener for the buttons
 start.addEventListener("click", () => {
-    //Pinta de morado el boton 1
+    //Colored purple on button 1. 
     one.classList.remove("button-number");
     one.classList.add("button-number-selected");
     start.style = 'display: none';
-    //Muestra el mensaje de pedir permiso para la cámara
+    //Show the msg to ask permission to have acces to the camera. 
     document.querySelector(".text-gifo-container").style = 'display: none';
     document.querySelector(".text-gifo-container-recording").style = 'display: flex; justify-content: center; flex-direction: column';
 
     getStreamAndRecord();
 });
 
-
+//Stop Recording Function
 function stopRecordingCallback() {
     recorder.camera.stop();
     
@@ -134,8 +136,7 @@ function stopRecordingCallback() {
     record.style = 'display: none';
     repeat.style = 'display: flex';
     upload.style = 'display: block';
-    // le damos el formato requerido a la data que vamos a enviar como body de nuestro
-    // POST request
+    // This is the format of the new data required as a body of the post request. 
     let form = new FormData();
     form.append("file", recorder.getBlob(), "myGif.gif");
     console.log(form.get('file'))
@@ -150,33 +151,29 @@ function stopRecordingCallback() {
       three.classList.add("button-number-selected");
       uploadMessage.style.display = 'flex';
 
-      //animateProgressBar(progressBar);
       uploadGif(form);
     });
   
     objectURL = URL.createObjectURL(recorder.getBlob());
     preview.src = objectURL;
   
-    // modificamos el dom para mostrar la preview, remover el timer
+    // Preview of the video. This part also remove the timer. 
     preview.classList.remove("hide");
     video.classList.add("hide");
-    //document.getElementById("video-record-buttons").classList.add("hidden");
-    //document.getElementById("video-upload-buttons").classList.remove("hidden");
   
     recorder.destroy();
     recorder = null;
   }
 
   repeat.addEventListener('click', () => {
-    location.reload(); //aca se supone que regrese a grabar, no al inicio DE TODO. BORRAR ESTO Y MOSTRAR O DESAPARECER EL RESTO
+    location.reload(); //return to the beginning.
     getStreamAndRecord()
   })
 
-
+  //Upload Giphy to the API.
   function uploadGif(form) {
 
-    // formateamos el post según las necesidades particulares de la api de giphy
-    // la api key se manda en la url
+    // Post according to API needs. The API Key is sent into the url. 
     let params =  {
       method: 'POST', 
       body: form
@@ -186,11 +183,10 @@ function stopRecordingCallback() {
       console.log(res.status)
       if (res.status != 200 ) {
         console.log(res)
-        //uploadMessage.innerHTML = `<h3>Hubo un error subiendo tu Guifo</h3>`
+        uploadMessage.innerHTML = `<h2>Hubo un error subiendo tu Guifo</h2>`
       }
       return res.json();  
     }).then(data => {  
-      //uploadMessage.classList.add('hidden');
       const gifId = data.data.id;
       uploadMessage.style.display = 'none';
       uploadMessageDone.style.display = 'block';
@@ -198,11 +194,12 @@ function stopRecordingCallback() {
   
     })
     .catch(error => {
-      //uploadMessage.innerHTML = (`<h3>Hubo un error subiendo tu Guifo</h3>`)
+      uploadMessage.innerHTML = (`<h2>Hubo un error subiendo tu Guifo</h2>`)
       console.log('Error:', error)
     });
   }
 
+  //Gif Details Function. Buttons to download, copy or like the giphy created.
   function getGifDetails (id) {
 
     fetch(apiBaseUrl + id + '?api_key=' + apiKey) 
@@ -216,7 +213,7 @@ function stopRecordingCallback() {
             
             let buttonEl = document.getElementById("icons-layer-gifo");
             let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                           <button class="icons-layer-gifo" onclick="clickLike('${url}', 'key'); favorites()"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                           <button class="icons-layer-gifo" onclick="clickLike('${url}'); favorites()"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
                            <button class="icons-layer-gifo" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Me Gusta"></button>
                           `;
                            
@@ -234,21 +231,13 @@ function stopRecordingCallback() {
             //Save in localStorage
             localStorage.setItem('myGifs', JSON.stringify(myGifs)); 
     
-
-            //Acá con la URL de la imagen subida puedes guardar en localStore tus gifos 
-            //basandote en la funcion clicklike
-            //Y consultarlos en app.js con una funcion similar a favorites
-            // tu gifo se ha subido con exito.
-            // document.getElementById('finish').addEventListener('click', () => {
-            //   location.reload();
-            // })
         })
         .catch((error) => {
             return error
         })
   }
 
-  // Download Gif
+//// Download Gif
   
 
 async function clickDownload(imageUrl) {
@@ -267,7 +256,7 @@ async function clickDownload(imageUrl) {
 };
 
 function clickLike(url, width, title, height) {
-  //console.log(width)
+  
   let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
   const fav = {
       url: url,
@@ -281,31 +270,22 @@ function clickLike(url, width, title, height) {
   
 }
 
-/*function copyToClipboard(url) {
+function copyToClipboard(url) {
 
-  var inputc = document.body.appendChild(document.createElement("input"));
-  inputc.value = window.location.href;
-  inputc.focus();
-  inputc.select();
+  let input = document.createElement("input");
+  input.setAttribute("value", url);
+  document.body.appendChild(input);
+  input.select();
   document.execCommand('copy');
-  inputc.parentNode.removeChild(inputc);
-  alert("Enlace copiado.");
-  }*/
+  document.body.removeChild(input);
+  alert("Enlace de Giphy copiado");
+}
+
+/*
+const switchMode = document.querySelector('#switch');
 
 
-  function copyToClipboard(url) {
-
-    var input = document.createElement("input");
-    input.setAttribute("value", url);
-    document.body.appendChild(input);
-    input.select();
-    document.execCommand('copy');
-    document.body.removeChild(input);
-    alert("Enlace de Giphy copiado");
-  }
-
-  const switchMode = document.querySelector('#switch');
-  switchMode.addEventListener('click', () =>{
-      document.body.classList.toggle('dark');
-     
-  });
+switchMode.addEventListener('click', () =>{
+    document.body.classList.toggle('dark'); 
+    two.classList.remove("button-number-selected"); 
+});*/

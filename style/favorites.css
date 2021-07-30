@@ -410,6 +410,10 @@ label {
   cursor: pointer;
 }
 
+body {
+  background-color: red;
+}
+
 .trending {
   background-color: #F3F5F8;
   height: 640px;
