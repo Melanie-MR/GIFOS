@@ -60,10 +60,7 @@ function search(query) {
 
 
 /////nigth mode index
-
-
-
-
+let logo = document.getElementById('logo');
 let dark = document.querySelector('#dark'); 
 let changeTheme = localStorage.getItem('nightmode');
 let switchTheme = document.querySelector('#switch');
@@ -82,10 +79,10 @@ function loadTheme() {
         dark.setAttribute('href', 'style/nightmode.css');
         changeTheme = localStorage.setItem('nightmode', 'true');
         switchTheme.textContent = 'Modo Diurno';
-        /*if (ctnVideoImg, progressBarImg) {
-            ctnVideoImg.src = 'assets/camara-modo-noc.svg';
-            progressBarImg.src = 'assets/pelicula-modo-noc.svg';
-        };*/
+        if(logo){
+            logo.src = 'assets/logo-modo-noc.svg';
+        }
+
     } else {
 
         if (changeTheme === 'false') {
@@ -109,19 +106,17 @@ function swapTheme() {
         dark.setAttribute('href', 'style/nightmode.css');
         changeTheme = localStorage.setItem('nightmode', 'true');
         switchTheme.textContent = 'Modo Diurno';
-       /* if (ctnVideoImg, progressBarImg) {
-            ctnVideoImg.src = 'assets/camara-modo-noc.svg';
-            progressBarImg.src = 'assets/pelicula-modo-noc.svg';
-        }*/
+        if (logo){
+            logo.src = 'assets/logo-modo-noc.svg';
+        }
     } else if (switchTheme.textContent === 'Modo Diurno') {
 
         dark.setAttribute('href', 'style/style.css');
         changeTheme = localStorage.setItem('nightmode', 'false');
         switchTheme.textContent = 'Modo Nocturno';
-       /* if (ctnVideoImg, progressBarImg) {
-            ctnVideoImg.src = 'assets/camara.svg';
-            progressBarImg.src = 'assets/pelicula.svg';
-        }*/
+        if (logo){
+            logo.src = 'assets/logo-modo-noc.svg';
+        }
     } else {
         dark.setAttribute('href', 'style/style.css');
         changeTheme = localStorage.setItem('nightmode', 'false');

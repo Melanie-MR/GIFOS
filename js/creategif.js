@@ -290,7 +290,7 @@ switchMode.addEventListener('click', () =>{
     two.classList.remove("button-number-selected"); 
 });*/
 
-/////nigth mode index
+/////nigth mode icreate gifo
 
 
 
@@ -374,6 +374,6 @@ function swapTheme() {
         switchTheme.textContent = 'Modo Nocturno';
     };
 
-};
+}; 
 
 

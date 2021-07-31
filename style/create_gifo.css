@@ -1,13 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@400;700;900&display=swap");
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+/**{
+    box-sizing: inherit;
+}*/
 body {
   display: inline;
   max-width: 1440px;
   min-width: 375px;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   background-color: #FFFFFFFF;
-  transition: .3s ease all;
 }
 
 h1 {
@@ -53,7 +59,7 @@ hr {
   align-items: center;
   height: 5px;
   background-color: #572EE5;
-  margin-top: 0;
+  margin: 0;
 }
 
 .nav {
