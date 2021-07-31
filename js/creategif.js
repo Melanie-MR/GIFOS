@@ -289,3 +289,91 @@ switchMode.addEventListener('click', () =>{
     document.body.classList.toggle('dark'); 
     two.classList.remove("button-number-selected"); 
 });*/
+
+/////nigth mode index
+
+
+
+let cameraImg = document.getElementsByClassName('camera-img');
+let tape1 = document.getElementById('tape-animation1');
+let tape2 = document.getElementById('tape-animation2');
+let tape = document.getElementById('tape');
+let logo = document.getElementById('logo');
+let dark = document.querySelector('#dark'); 
+let changeTheme = localStorage.getItem('nightmode');
+let switchTheme = document.querySelector('#switch');
+switchTheme.addEventListener('click', swapTheme);
+
+// Load theme
+function loadTheme() {
+
+    if (dark === undefined || dark === null) {
+        dark.setAttribute('href', 'style/create_gifo.css');
+        changeTheme = localStorage.setItem('nightmode', 'false');
+        switchTheme.textContent = 'Modo Nocturno';
+
+    } else if (changeTheme === 'true') {
+
+        dark.setAttribute('href', 'style/nightmode.css');
+        changeTheme = localStorage.setItem('nightmode', 'true');
+        switchTheme.textContent = 'Modo Diurno';
+        if (cameraImg, tape, tape1, tape2, logo) {
+          cameraImg.src = 'assets/camara-modo-noc.svg';
+          tape.src = 'assets/pelicula-modo-noc.svg';
+          tape1.src = 'assets/element_cinta1-modo-noc.svg';
+          tape2.src = 'assets/element_cinta2-modo-noc.svg';
+          logo.src = 'assets/logo-modo-noc.svg';
+
+        };
+    } else {
+
+        if (changeTheme === 'false') {
+            dark.setAttribute('href', 'style/create_gifo.css');
+            changeTheme = localStorage.setItem('nightmode', 'false');
+            switchTheme.textContent = 'Modo Nocturno';
+        };
+    };
+};
+document.addEventListener('DOMContentLoaded', () => {
+
+    loadTheme();
+
+});
+
+// Switch Themes * ligth - dark
+function swapTheme() {
+
+    if (switchTheme.textContent === 'Modo Nocturno') {
+
+        dark.setAttribute('href', 'style/nightmode.css');
+        changeTheme = localStorage.setItem('nightmode', 'true');
+        switchTheme.textContent = 'Modo Diurno';
+        if (cameraImg, tape, tape1, tape2,logo) {
+          cameraImg.src = 'assets/camara-modo-noc.svg';
+          tape.src = 'assets/pelicula-modo-noc.svg';
+          tape1.src = 'assets/element_cinta1-modo-noc.svg';
+          tape2.src = 'assets/element_cinta2-modo-noc.svg';
+          logo.src = 'assets/logo-modo-noc.svg';
+            
+        }
+    } else if (switchTheme.textContent === 'Modo Diurno') {
+
+        dark.setAttribute('href', 'style/create_gifo.css');
+        changeTheme = localStorage.setItem('nightmode', 'false');
+        switchTheme.textContent = 'Modo Nocturno';
+        if (cameraImg, tape, tape1, tape2, logo) {
+          cameraImg.src = 'assets/element-camara.svg';
+          tape.src = 'assets/pelicula.svg';
+          tape1.src = 'assets/element_cinta1.svg';
+          tape2.src = 'assets/element_cinta2.svg';
+          logo.src = 'assets/logo-desktop.svg';
+        }
+    } else {
+        dark.setAttribute('href', 'style/create_gifo.css');
+        changeTheme = localStorage.setItem('nightmode', 'false');
+        switchTheme.textContent = 'Modo Nocturno';
+    };
+
+};
+
+

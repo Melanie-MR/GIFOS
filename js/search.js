@@ -57,3 +57,77 @@ function search(query) {
         console.log(err.message);
     });
 } 
+
+
+/////nigth mode index
+
+
+
+
+let dark = document.querySelector('#dark'); 
+let changeTheme = localStorage.getItem('nightmode');
+let switchTheme = document.querySelector('#switch');
+switchTheme.addEventListener('click', swapTheme);
+
+// Load theme
+function loadTheme() {
+
+    if (dark === undefined || dark === null) {
+        dark.setAttribute('href', 'style/style.css');
+        changeTheme = localStorage.setItem('nightmode', 'false');
+        switchTheme.textContent = 'Modo Nocturno';
+
+    } else if (changeTheme === 'true') {
+
+        dark.setAttribute('href', 'style/nightmode.css');
+        changeTheme = localStorage.setItem('nightmode', 'true');
+        switchTheme.textContent = 'Modo Diurno';
+        /*if (ctnVideoImg, progressBarImg) {
+            ctnVideoImg.src = 'assets/camara-modo-noc.svg';
+            progressBarImg.src = 'assets/pelicula-modo-noc.svg';
+        };*/
+    } else {
+
+        if (changeTheme === 'false') {
+            dark.setAttribute('href', 'style/style.css');
+            changeTheme = localStorage.setItem('nightmode', 'false');
+            switchTheme.textContent = 'Modo Nocturno';
+        };
+    };
+};
+document.addEventListener('DOMContentLoaded', () => {
+
+    loadTheme();
+
+});
+
+// Switch Themes * ligth - dark
+function swapTheme() {
+
+    if (switchTheme.textContent === 'Modo Nocturno') {
+
+        dark.setAttribute('href', 'style/nightmode.css');
+        changeTheme = localStorage.setItem('nightmode', 'true');
+        switchTheme.textContent = 'Modo Diurno';
+       /* if (ctnVideoImg, progressBarImg) {
+            ctnVideoImg.src = 'assets/camara-modo-noc.svg';
+            progressBarImg.src = 'assets/pelicula-modo-noc.svg';
+        }*/
+    } else if (switchTheme.textContent === 'Modo Diurno') {
+
+        dark.setAttribute('href', 'style/style.css');
+        changeTheme = localStorage.setItem('nightmode', 'false');
+        switchTheme.textContent = 'Modo Nocturno';
+       /* if (ctnVideoImg, progressBarImg) {
+            ctnVideoImg.src = 'assets/camara.svg';
+            progressBarImg.src = 'assets/pelicula.svg';
+        }*/
+    } else {
+        dark.setAttribute('href', 'style/style.css');
+        changeTheme = localStorage.setItem('nightmode', 'false');
+        switchTheme.textContent = 'Modo Nocturno';
+    };
+
+};
+
+

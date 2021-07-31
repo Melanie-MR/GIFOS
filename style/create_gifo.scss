@@ -14,7 +14,7 @@
 @import "_main.scss";
 
 //Night mode
-@import "_nightmode.scss";
+//@import "_nightmode.scss";
 
 //Trending - Slider
 @import "_trending.scss";
@@ -56,6 +56,7 @@
     display: flex;
     flex-direction: row;
 }
+
 .video-preview{
     width: 480px;
     height: 320px;
@@ -75,7 +76,11 @@ video{
     height: 162px;
     
 }
-
+/*.camera_img{
+    background:  {
+        image: url("assets/element-camara.svg");
+}}
+    */
 #tape-animation1 {
     width: 30%;;
     margin-top:20%;

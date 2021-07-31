@@ -8,11 +8,6 @@ body{
     box-sizing: border-box;
     background-color: $background-color;
     transition: .3s ease all;
-   
-    //Night mode
-    &.dark {
-        background-color: $night-background-color;
-    }
 
 }
 h1{
