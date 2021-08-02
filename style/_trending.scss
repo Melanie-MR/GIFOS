@@ -2,8 +2,10 @@
 .trending{
     background-color:#F3F5F8;
     height: 640px;
-    width: 1440px;
+    width: 100%;
     margin-top: 50px;
+    padding-top: 10px;
+    position: center;
 }
 
 //#title__margin{
@@ -139,4 +141,10 @@
     font: inherit;
     cursor: pointer;
     outline: inherit;
+}
+.arrowsTrend {
+    display: flex;
+    justify-content: space-around;
+    margin-left: -5%;
+    margin-right: -5%;
 }

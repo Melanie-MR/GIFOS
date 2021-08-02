@@ -365,7 +365,6 @@ label {
   outline: inherit;
 }
 
-/* The Modal (background) */
 .modal {
   display: none;
   /* Hidden by default */
@@ -482,8 +481,10 @@ label {
 .trending {
   background-color: #F3F5F8;
   height: 640px;
-  width: 1440px;
+  width: 100%;
   margin-top: 50px;
+  padding-top: 10px;
+  position: center;
 }
 
 #trending__description {
@@ -613,6 +614,13 @@ label {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+.arrowsTrend {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -5%;
+  margin-right: -5%;
 }
 
 .footer-container {

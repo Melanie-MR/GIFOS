@@ -73,8 +73,8 @@ function trending(num) {
                                     
                                 </div>`;
 
-            slideButtons = `<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>`;
+            slideButtons = `<a class="prev arrowsTrend" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next arrowsTrend" onclick="plusSlides(1)">&#10095;</a>`;
         });
             
         //console.log(resultsTrending);
@@ -210,3 +210,38 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
+
+/////Click Download
+
+async function clickDownload(imageUrl) {
+
+    const downloadUrl = imageUrl;
+    const fetchedGif = fetch(downloadUrl);
+    const blobGif = (await fetchedGif).blob();
+    const urlGif = URL.createObjectURL(await blobGif);
+    const saveImg = document.createElement("a");
+    saveImg.href = urlGif;
+    saveImg.download = "downloaded-giphy.gif";
+    saveImg.style = 'display: "none"';
+    document.body.appendChild(saveImg);
+    saveImg.click();
+    document.body.removeChild(saveImg);
+    //showAlert('¡Descarga exitosa!');
+};
+
+//ClickLike Function ---> This is for save in LocalStorage fav object when user click.
+
+function clickLike(url, width, title, height) {
+    //console.log(width)
+    let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
+    const fav = {
+        url: url,
+        width: width,
+        title: title,
+        height: height
+    }
+    myLikes.push(fav)
+    
+    localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
+    favorites();
+}
