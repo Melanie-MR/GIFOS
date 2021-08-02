@@ -1,6 +1,3 @@
-
-///importar app.js
-
 //API Conection Search
 
 const searchForm = document.querySelector('#search-form');
@@ -59,7 +56,7 @@ function search(query) {
 } 
 
 
-/////nigth mode index
+/////Nigth mode index
 let logo = document.getElementById('logo');
 let dark = document.querySelector('#dark'); 
 let changeTheme = localStorage.getItem('nightmode');

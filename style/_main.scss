@@ -154,7 +154,10 @@
     outline: inherit;
 }
 
+
 /* The Modal (background) */
+
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -162,25 +165,32 @@
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    height: 80%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    background-color: red; /* Black w/ opacity */
 }
 
+.mySlidesModal{
+    display: flex;
+    justify-content: center;
+    //margin-left: 5%;
+}
 /* Modal Content/Box */
 .modal-container {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
+   // margin: 15% auto; /* 15% from the top and centered */
+    //padding: 20px;
+    border: none;
+    //width:80%; /* Could be more or less, depending on screen size */
+}
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    color: greenyellow;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    font-size: 50px;
     font-weight: bold;
 }
 
@@ -189,6 +199,74 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+//Next and previous buttons
+.prev2, .next2 {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 8px;
+    color: $purple-color;
+    border-style: solid;
+    border-width: 2px;
+    font-size: 14px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+//Position the "next button" to the right 
+.next2 {
+    right: 0;
+  }
+
+//On hover, add a black background color with a little bit see-through
+.prev2:hover, .next2:hover {
+    background-color:$purple-color;
+    color: white;
+    border-color: $purple-color;
+  }
+
+.arrowsModal {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 22%;
+    margin-right: 22%;
+}
+#titleModal{
+    font-size: 15px;
+    color: $black-font-color;
+    font-weight: 400;
+}
+#userModal{
+    font-size: 16px;
+    font-weight: bold;
+}
+.icons-layer-modal {
+    cursor: pointer;
+    //display: flex;
+    flex-direction: row;
+    //justify-content: space-between;
+    width: 32px;
+    height: 32px;
+    //margin-right: 4%;
+    margin-top: 100%;
+    border:2px $purple-color;
+    border-radius: 6px;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+.modal-icon-layer{
+    display: flex;
+    padding-top: 23%;
+    justify-content: space-between;
+    margin-left: -5%;
 }
 
 //Responsive//

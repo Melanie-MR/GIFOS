@@ -102,3 +102,111 @@ function clickDelete(url, key) {
     //To update the array after delete elements
     localStorage.setItem(key, JSON.stringify(myData));
 }
+
+
+
+
+
+
+
+
+
+
+////MODAL
+
+
+//ShowTrendingModal---> to display 1 gif in Modal Slider
+function showTrendingModal(slideIndex) {
+    let trendingGif = document.querySelectorAll(".mySlidesModal");
+    
+    for (let i = 0; i < trendingGif.length; i++) {
+        trendingGif[i].style.display = "none";
+    }
+    //To show 1 gif at a time
+    trendingGif[slideIndex].style.display = "flex"; 
+    slideIndex++;
+}
+
+//PlusSlides Modal function---> Arrows buttons of Modal Slider.
+function plusSlidesModal(steps) {
+    let trendingGif = document.querySelectorAll(".mySlidesModal");
+    //indexModal += steps; // => slideIndex = slideIndex + n;
+    if (indexModal >= (trendingGif.length - 1)) {
+        indexModal = 0;
+    } else {
+        indexModal++
+    }
+    if (indexModal <= 0) {
+        indexModal = trendingGif.length - 1;
+    }
+    showTrendingModal(indexModal);
+}
+
+////MODAL TRENDING
+
+//Click modal function for TRENDINGS!
+function clickEnlarge(num, index) {
+    indexModal = index; 
+    
+    const trendingModal = document.querySelectorAll('.modal-container');
+    const trendingModalEl = trendingModal[0]; 
+    const path_trending = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${num}`; 
+
+    fetch (path_trending).then(function (res) { 
+        return res.json();
+    }).then(function(json){
+        //console.log(json.data[0].images.fixed_width.url);
+        let resultsTrending = '';
+    
+        json.data.forEach(function(obj) {
+            //console.log(obj);
+
+            const url = obj.images.fixed_width.url;
+            const width = obj.images.fixed_width.width;
+            const title = obj.title;
+            const height= obj.images.fixed_height.height;
+            const user = obj.username;
+            //To add strings
+            
+            resultsTrending += `<div class="mySlidesModal">
+                                    <div><img src="${url}"  style= "width: 695px; height: 385px" alt="${title}"><h5 id= "titleModal">Titulo:${title}<br><span id="userModal">User:${user}</span></h5></div>
+                                    <div class="modal-icon-layer">
+                                        <button class="icons-layer-modal" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                                        <button class="icons-layer-modal" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>  
+                                    </div>
+                                </div>`;
+            slideButtons = `<a class="prev2 arrowsModal" onclick="plusSlideModal(-1)">&#10094;</a>
+                             <a class="next2 arrowsModal" onclick="plusSlidesModal(1)">&#10095;</a>`;
+
+        });
+            
+        //console.log(resultsTrending);
+        trendingModalEl.innerHTML = resultsTrending + slideButtons; //to introduce it in html
+ 
+        showTrendingModal(indexModal);
+
+    }).catch(function(err) {
+        console.log(err.message);
+    });
+
+    showModal();
+}
+
+//PlusSlides Modal function---> Arrows buttons of Modal Slider.
+function plusSlidesModal(steps) {
+    let trendingGif = document.querySelectorAll(".mySlidesModal");
+    indexModal += steps; // => slideIndex = slideIndex + n;
+    if (indexModal > (trendingGif.length - 3)) {
+        indexModal = 0;
+    }
+    if (indexModal < 0) {
+        indexModal = trendingGif.length - 3;
+    }
+    showTrendingModal(indexModal);
+}
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
