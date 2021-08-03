@@ -304,7 +304,7 @@ label {
     margin-top: 1em;
 }*/
 .gral-button {
-  display: none;
+  display: block;
   position: absolute;
   margin-left: 25%;
   margin-top: 2%;

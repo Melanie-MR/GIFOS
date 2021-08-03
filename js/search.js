@@ -3,8 +3,54 @@
 const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#search-input');
 const resultsEl = document.querySelector('#results');
+const listAuto = document.querySelector('#list-auto');
+const offset = 12;
+var pagenum = 0;
 
-//Event Listener to submit
+
+
+//Event Listener to autocomplete
+searchInput.addEventListener('input', (e) => {
+    e.preventDefault();
+    const term = searchInput.value;
+    autocomplete(term);
+    
+    //Código para actualuizar un elemento segun la búsqueda
+    //const resultado = document.querySelector('#trending-font');
+    //resultado.textContent = `${event.target.value}`;
+});
+
+function autocomplete(term) {
+   
+    /////Function Search Suggestions
+
+    const path_suggestions = `https://api.giphy.com/v1/tags/related/${term}?api_key=${apiKey}&limit=5`
+
+
+    fetch (path_suggestions).then(function (res) { 
+        return res.json();
+    }).then(function(json){
+        //console.log(json.data[0].images.original.url);
+        let listHTML = '';
+        //console.log(json);
+        json.data.forEach(function(obj) {
+            console.log(obj.name);
+            listHTML += `<div onclick="fill('${obj.name}');">${obj.name}</div>`;
+        });
+        listAuto.innerHTML = listHTML;
+        listAuto.style = "display: auto;";
+    }).catch(function(err) {
+        console.log(err.message);
+    });
+}
+
+function fill(searchTerm) {
+    searchInput.value = searchTerm;
+    listAuto.style = "display: none;";
+    search(searchTerm);
+}
+
+//Event Listener to submit the search
 searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const q = searchInput.value;
@@ -12,9 +58,8 @@ searchForm.addEventListener('submit', function(e) {
 });
 
 function search(query) {
-   
-    const path_search = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=15&q=${query}`;
-
+    const path_search = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=12&q=${query}&offset=${offset*pagenum}`;// Se puede hacer solo con offset sumando de 12 en 12
+    
     fetch (path_search).then(function (res) { 
         return res.json();
     }).then(function(json){
@@ -54,6 +99,12 @@ function search(query) {
         console.log(err.message);
     });
 } 
+
+function next() {
+    pagenum++;
+    const q = searchInput.value;
+    search(q);
+}
 
 
 /////Nigth mode index

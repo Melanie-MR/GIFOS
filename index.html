@@ -42,15 +42,20 @@
 
         <!--Boton de busqueda-->
         <div class="container_search">
-            <form class="search" id="search-form">
+            <form autocomplete="off" class="search" id="search-form">
                 <input  type="text" class="search__text" id="search-input" placeholder="Busca GIFOS y más">
-                <button class="button" id="button__search"><img src="assets/icon-search.svg" alt="Search"></button>
+                <button type="submit" class="button" id="button__search"><img src="assets/icon-search.svg" alt="Search"></button>
             </form>
+            <!--GIFOS autocomplete-->
+            <div class="autocomplete" id="autocomplete">  
+                <li id="list-auto">
 
+                </li>
+            </div>
             <!--GIFOS results-->
             <div class="results" id="results">  
-                <div class="gral-button" id="button-format"><h3>VER MÁS</h3></div>
             </div>
+            <div class="" id="button-format" onclick="next();"><h3>VER MAS</h3></div>
         </div>
         <!--Trending-->
         <div class="trending__header">
