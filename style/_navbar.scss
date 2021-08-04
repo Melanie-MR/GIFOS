@@ -9,10 +9,10 @@
 
 }
 header {
-  //background: $purple-color(0,0,0,0.9);
+  //background-color: $background-color;
   width: 100%;
   position: fixed;
-  z-index: 10;
+  z-index: 1;
 }
 #logo {
   display: flex;
@@ -25,9 +25,10 @@ header {
 .nav{
     display: flex;
     justify-content: space-around; 
+    background-color: $background-color;
     border-bottom: none;
     text-align: center;
-    background: $background-color;
+
   
   }
   
@@ -77,16 +78,21 @@ header {
     .blue-line{
       width: 110%;
     }
+    .wider{
+      height: 500px; //this make the menu heighter.
+    }
     header {
-      //background: $purple-color(0,0,0,0.9);
+      //background: $background-color;
       width: 100%;
       position: fixed;
-      z-index: 10;
+      z-index: 1;
     }
     .nav {
       display: flex;
-     justify-content: space-between;
-     
+      justify-content: space-between;
+      background-color: $background-color;
+      opacity: 90%;
+    
   
       #logo{
         margin-left: 30%;
@@ -97,6 +103,7 @@ header {
         padding-left: 0;
         font-size: 15px;
         line-height: 30px;
+        
         #botton__gifo--disappear{
           display: none;
         }
@@ -109,7 +116,8 @@ header {
         padding-left: 25%;
         //margin-left: 23%;
         width: 100%;
-        height: 200%;
+        
+        
         
       }
       .menu__list{
@@ -178,11 +186,11 @@ header {
       .menu {
         width: 100%;
         //background-color: $purple-color;
-        opacity: 90%;
+        //opacity: 90%;
         display: none;
         margin-top: 60px;
-        height: 100%;
+        //height: 300px;
       }      
     }
-  
+ 
   }
