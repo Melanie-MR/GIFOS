@@ -13,9 +13,6 @@
 //Main
 @import "_main.scss";
 
-//Night mode
-//@import "_nightmode.scss";
-
 //Trending - Slider
 @import "_trending.scss";
 
@@ -41,22 +38,6 @@
     height: 390px;
    
 }
-
-.tapes-container{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: -8%;
-    margin-left: 5%;
-    border-collapse: collapse;
-    position: relative;
-    
-}
-.camera-container{
-    margin-top: 6%;
-    display: flex;
-    flex-direction: row;
-}
-
 .video-preview{
     width: 480px;
     height: 320px;
@@ -68,33 +49,18 @@ video{
     margin-top: 5%;
 }
 
-.tapes-cam-container{
-    display: flex;
-    flex-direction: column;
-    //margin-top: 30%;
-    width: 123px;
-    height: 162px;
-    
-}
-/*.camera_img{
-    background:  {
-        image: url("assets/element-camara.svg");
-}}
-    */
-#tape-animation1 {
-    width: 30%;;
-    margin-top:20%;
-    opacity: 100%;
-}
-#tape-animation2{
-    width: 50%;
-    opacity: 100%;
-}
 .light{
-    margin-top: 15%;
+    margin-top: 10%;
     opacity: 50%;
     width: 91px;
-    height: 151px;
+    height: 165px;
+}
+.camera_img{
+    width: 130px;
+    height: 170px;
+}
+.light-cam-container{
+    margin-top: 40%;
 }
 #num-bar-container{
     display: flex;

@@ -8,6 +8,7 @@ const searchBar = document.querySelector('.search');
 const clearButton = document.querySelector('#button__exs');
 const offset = 12;
 var pagenum = 0;
+let listHTML = '';
 
 clearButton.addEventListener('click', (e) => {
     searchInput.value = '';
@@ -21,6 +22,7 @@ searchInput.addEventListener('input', (e) => {
     const term = searchInput.value;
     
     autocomplete(term);
+    autocompleteSearch (term)
     
     if (term == '') {
         searchBar.style = 'height: 30px;';
@@ -46,12 +48,11 @@ function autocomplete(term) {
 
     const path_suggestions = `https://api.giphy.com/v1/tags/related/${term}?api_key=${apiKey}&limit=5`
 
-
     fetch (path_suggestions).then(function (res) { 
         return res.json();
     }).then(function(json){
         //console.log(json.data[0].images.original.url);
-        let listHTML = '';
+        
         //console.log(json);
         json.data.forEach(function(obj) {
             console.log(obj.name);
@@ -137,70 +138,71 @@ function next() {
     search(q);
 }
 
+///Autocomplete search. No se vacia cuando le doy x, y agrega de dos en dos, termina dando una sugerencia muy grande. 
+//CORREGIR
+function autocompleteSearch (query){
+    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${query}&limit=2`
+    
+    fetch (path_autocomplete).then(function (res) { 
+        return res.json();
+    }).then(function(json){
+        
+        console.log(json);
+        
+        //console.log(json);
+        json.data.forEach(function(obj) {
+            console.log(obj.name);
+            listHTML += `<div onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</div>`;
+            
+        });
+        listAuto.innerHTML = listHTML;
+        listAuto.style = "display: auto;";
+        
 
-/////Nigth mode index
+    }).catch(function(err) {
+        console.log(err.message);
+    });
+}
+
+
+/////Nigth mode Index
 let logo = document.getElementById('logo');
 let dark = document.querySelector('#dark'); 
-let changeTheme = localStorage.getItem('nightmode');
-let switchTheme = document.querySelector('#switch');
-switchTheme.addEventListener('click', swapTheme);
+let changeStyle = localStorage.getItem('nightmode');
+let switches = document.querySelector('#switch');
+switches.addEventListener('click', swapStyle);
 
-// Load theme
-function loadTheme() {
-
-    if (dark === undefined || dark === null) {
-        dark.setAttribute('href', 'style/style.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-
-    } else if (changeTheme === 'true') {
-
+// Load Page Style
+function loadStyle() {
+    changeStyle = localStorage.getItem('nightmode');
+    if (changeStyle === 'true') {
         dark.setAttribute('href', 'style/nightmode.css');
-        changeTheme = localStorage.setItem('nightmode', 'true');
-        switchTheme.textContent = 'Modo Diurno';
-        if(logo){
+        switches.textContent = 'Modo Diurno';
+        if (logo){
             logo.src = 'assets/logo-modo-noc.svg';
         }
-
     } else {
-
-        if (changeTheme === 'false') {
+        if (changeStyle === 'false') {
             dark.setAttribute('href', 'style/style.css');
-            changeTheme = localStorage.setItem('nightmode', 'false');
-            switchTheme.textContent = 'Modo Nocturno';
-        };
+            switches.textContent = 'Modo Nocturno';
+        } 
+        if(logo){
+            logo.src = 'assets/logo-desktop.svg';
+        }
+
     };
 };
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', loadStyle);
 
-    loadTheme();
-
-});
-
-// Switch Themes * ligth - dark
-function swapTheme() {
-
-    if (switchTheme.textContent === 'Modo Nocturno') {
-
-        dark.setAttribute('href', 'style/nightmode.css');
-        changeTheme = localStorage.setItem('nightmode', 'true');
-        switchTheme.textContent = 'Modo Diurno';
-        if (logo){
-            logo.src = 'assets/logo-modo-noc.svg';
-        }
-    } else if (switchTheme.textContent === 'Modo Diurno') {
-
-        dark.setAttribute('href', 'style/style.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-        if (logo){
-            logo.src = 'assets/logo-modo-noc.svg';
-        }
+// Switch Styles according to Local Storage
+function swapStyle() {
+    changeStyle = localStorage.getItem('nightmode');
+    if (changeStyle === 'true'){
+        changeStyle = localStorage.setItem('nightmode', 'false');
     } else {
-        dark.setAttribute('href', 'style/style.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-    };
+        changeStyle = localStorage.setItem('nightmode', 'true');
+    }
+    loadStyle();
 
 };
 

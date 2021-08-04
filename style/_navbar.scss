@@ -3,29 +3,37 @@
   display: flex;
   align-items: center;
   height: 5px;
+  width: 100%;
   background-color: $purple-color;
   margin: 0;
+
+}
+header {
+  //background: $purple-color(0,0,0,0.9);
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+#logo {
+  display: flex;
+  padding-top: 18px;
+  //margin-left: 10.83%;;
+  width: 59px;
 
 }
 
 .nav{
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-around; 
     border-bottom: none;
     text-align: center;
     background: $background-color;
   
   }
-  #logo {
-    display: flex;
-    align-self: flex-start;
-    padding-top: 18px;
-    margin-left: 10.83%;
-    width: 59px;
-
-  }
+  
+  
  
-  li{
+  .list-nav{
     display: inline;
     vertical-align: top;
     font-family: $font-montserrat;
@@ -38,7 +46,7 @@
   }
   .menu{
     margin: 0;
-    padding-right: 10.83%;
+    //padding-right: 10.83%;
       a {
         text-decoration: none;
         color: $purple-color;
@@ -65,19 +73,30 @@
   text-decoration: underline $aqua-font-color 2px;
 }
 
-  @media only screen and (max-width: 480px) {
-    
+  @media only screen and (max-width: 615px) {
+    .blue-line{
+      width: 110%;
+    }
+    header {
+      //background: $purple-color(0,0,0,0.9);
+      width: 100%;
+      position: fixed;
+      z-index: 10;
+    }
     .nav {
       display: flex;
-      justify-content: space-between;
+     justify-content: space-between;
+     
   
       #logo{
-        margin-left: 5%;
+        margin-left: 30%;
         width: 48.8px;
       }
-      li{
+      .list-nav{
         text-transform: none;
         padding-left: 0;
+        font-size: 15px;
+        line-height: 30px;
         #botton__gifo--disappear{
           display: none;
         }
@@ -87,15 +106,19 @@
         background: $purple-color;
         opacity: 90%;
         color: $background-color;
-        width: 375px;
+        padding-left: 25%;
+        //margin-left: 23%;
+        width: 100%;
+        height: 200%;
         
       }
       .menu__list{
         margin-left: -90%;
+      
       }
       .exs {
         display: none;
-        background-color: $black-font-color;
+        background-color: $purple-color;
         width: 14px;
         height: 14px;
         margin-right: 27px;
@@ -117,14 +140,14 @@
           width: 15px;
           height: 2px;
           margin: auto;
-          background: $black-font-color;
+          background: $purple-color;
           opacity: 100%;
           &:before, &:after {
             position: absolute;
             width: 15px;
             height: 2px;
             content: '';
-            background: $black-font-color;
+            background: $purple-color;
             opacity: 100%;
           }
           &:before {
@@ -153,16 +176,12 @@
     }
      
       .menu {
-        width: 150px;
-        background-color:  red;
+        width: 100%;
+        //background-color: $purple-color;
+        opacity: 90%;
         display: none;
-        margin-top: 50px;
-        height: 484px;
-        a:hover{
-          color: #00F3BB;
-          text-decoration: line-through;
-          font-weight: 500;
-        }
+        margin-top: 60px;
+        height: 100%;
       }      
     }
   

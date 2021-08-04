@@ -98,64 +98,44 @@ switchMode.addEventListener('click', () =>{
 });
 */
 
-/////nisth mode
+/////Nigth mode My Gifos
 
-
-
-
+let logo = document.getElementById('logo');
 let dark = document.querySelector('#dark'); 
-let changeTheme = localStorage.getItem('nightmode');
-let switchTheme = document.querySelector('#switch');
-switchTheme.addEventListener('click', swapTheme);
+let changeStyle = localStorage.getItem('nightmode');
+let switches = document.querySelector('#switch');
+switches.addEventListener('click', swapStyle);
 
-// Load theme
-function loadTheme() {
-
-    if (dark === undefined || dark === null) {
-        dark.setAttribute('href', 'style/my-gifs.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-
-    } else if (changeTheme === 'true') {
-
+// Load Page Style
+function loadStyle() {
+    if (changeStyle === 'true') {
         dark.setAttribute('href', 'style/nightmode.css');
-        changeTheme = localStorage.setItem('nightmode', 'true');
-        switchTheme.textContent = 'Modo Diurno';
-        
-    } else {
+        switches.textContent = 'Modo Diurno';
+        if (logo){
+            logo.src = 'assets/logo-modo-noc.svg';
+        }
 
-        if (changeTheme === 'false') {
+    } else {
+        if (changeStyle === 'false') {
             dark.setAttribute('href', 'style/my-gifs.css');
-            changeTheme = localStorage.setItem('nightmode', 'false');
-            switchTheme.textContent = 'Modo Nocturno';
+            switches.textContent = 'Modo Nocturno';
         };
+        if (logo){
+            logo.src = 'assets/logo-desktop.svg';
+        }
     };
 };
-document.addEventListener('DOMContentLoaded', () => {
 
-    loadTheme();
+document.addEventListener('DOMContentLoaded', loadStyle);
 
-});
 
-// Switch Themes * ligth - dark
-function swapTheme() {
-
-    if (switchTheme.textContent === 'Modo Nocturno') {
-
-        dark.setAttribute('href', 'style/nightmode.css');
-        changeTheme = localStorage.setItem('nightmode', 'true');
-        switchTheme.textContent = 'Modo Diurno';
-     
-    } else if (switchTheme.textContent === 'Modo Diurno') {
-
-        dark.setAttribute('href', 'style/my-gifs.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-      
+// Switch Styles according to Local Storage
+function swapStyle() {
+    changeStyle = localStorage.getItem('nightmode');
+    if (changeStyle === 'true'){
+        changeStyle = localStorage.setItem('nightmode', 'false');
     } else {
-        dark.setAttribute('href', 'style/my-gifs.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-    };
-
+        changeStyle = localStorage.setItem('nightmode', 'true');
+    }
+    loadStyle();
 };

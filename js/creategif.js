@@ -37,25 +37,24 @@ if (localStorage.getItem('myGifs') === null) {
 //Recorder function
 function getStreamAndRecord() {
     // Camera starts here.
-    navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: { height: 320, width: 480 } 
+  navigator.mediaDevices.getUserMedia({
+    audio: false,
+    video: { height: 320, width: 480 } 
 
-    }).then(function (stream) {
-        // The stream of the camera is used as a source of the video tag in the html. 
-        video.srcObject = stream;
-        video.play();
-        document.querySelector(".text-gifo-container-recording").style = 'display: none';
-        record.style = 'display: block';
-        one.classList.remove("button-number-selected");
-        one.classList.add("button-number");
-        two.classList.remove("button-number");
-        two.classList.add("button-number-selected");
+  }).then(function (stream) {
+    // The stream of the camera is used as a source of the video tag in the html. 
+      video.srcObject = stream;
+      video.play();
+      document.querySelector(".text-gifo-container-recording").style = 'display: none';
+      record.style = 'display: block';
+      one.classList.remove("button-number-selected");
+      one.classList.add("button-number");
+      two.classList.remove("button-number");
+      two.classList.add("button-number-selected");
 
-        record.addEventListener("click", () => {
-            recording = !recording;
-
-            if (recording === true) {
+      record.addEventListener("click", () => {
+        recording = !recording;
+          if (recording === true) {
               this.disabled = true;
               recorder = RecordRTC(stream, {
                 type: "gif",
@@ -69,7 +68,7 @@ function getStreamAndRecord() {
                   getDuration();
                 },
               });
-              
+            
               recorder.startRecording();
               
               // Button change according to the step that we are. 
@@ -78,15 +77,16 @@ function getStreamAndRecord() {
 
               //To stop the stream of the camera.
               recorder.camera = stream;
-            } else {
+          } else {
               this.disabled = true;
               recorder.stopRecording(stopRecordingCallback);
               recording = false;
             }
-          });
+      });
 
-    });
-}
+  });
+};
+
 //Timer function
 function getDuration() {
   document.getElementById("timer").innerHTML = '00:00:00';
@@ -117,42 +117,41 @@ function getDuration() {
 
 //EventListener for the buttons
 start.addEventListener("click", () => {
-    //Colored purple on button 1. 
-    one.classList.remove("button-number");
-    one.classList.add("button-number-selected");
-    start.style = 'display: none';
-    //Show the msg to ask permission to have acces to the camera. 
-    document.querySelector(".text-gifo-container").style = 'display: none';
-    document.querySelector(".text-gifo-container-recording").style = 'display: flex; justify-content: center; flex-direction: column';
-
-    getStreamAndRecord();
+  //Colored purple on button 1. 
+  one.classList.remove("button-number");
+  one.classList.add("button-number-selected");
+  start.style = 'display: none';
+  //Show the msg to ask permission to have acces to the camera. 
+  document.querySelector(".text-gifo-container").style = 'display: none';
+  document.querySelector(".text-gifo-container-recording").style = 'display: flex; justify-content: center; flex-direction: column';
+  
+  getStreamAndRecord();
 });
 
 //Stop Recording Function
 function stopRecordingCallback() {
-    recorder.camera.stop();
-    
-    timer.style = 'display: none';
-    record.style = 'display: none';
-    repeat.style = 'display: flex';
-    upload.style = 'display: block';
-    // This is the format of the new data required as a body of the post request. 
-    let form = new FormData();
-    form.append("file", recorder.getBlob(), "myGif.gif");
-    console.log(form.get('file'))
-      
-    upload.addEventListener("click", () => {
+  recorder.camera.stop(); 
+  timer.style = 'display: none';
+  record.style = 'display: none';
+  repeat.style = 'display: flex';
+  upload.style = 'display: block';
+  // This is the format of the new data required as a body of the post request. 
+  let form = new FormData();
+  form.append("file", recorder.getBlob(), "myGif.gif");
+  console.log(form.get('file')) 
+  
+  upload.addEventListener("click", () => {
    
-      upload.style = 'display: none';
-      repeat.style = 'display: none';
-      two.classList.remove("button-number-selected");
-      two.classList.add("button-number");
-      three.classList.remove("button-number");
-      three.classList.add("button-number-selected");
-      uploadMessage.style.display = 'flex';
+    upload.style = 'display: none';
+    repeat.style = 'display: none';
+    two.classList.remove("button-number-selected");
+    two.classList.add("button-number");
+    three.classList.remove("button-number");
+    three.classList.add("button-number-selected");
+    uploadMessage.style.display = 'flex';
 
-      uploadGif(form);
-    });
+    uploadGif(form);
+  });
   
     objectURL = URL.createObjectURL(recorder.getBlob());
     preview.src = objectURL;
@@ -163,83 +162,79 @@ function stopRecordingCallback() {
   
     recorder.destroy();
     recorder = null;
-  }
+}
 
-  repeat.addEventListener('click', () => {
-    location.reload(); //return to the beginning.
-    getStreamAndRecord()
+repeat.addEventListener('click', () => {
+  location.reload(); //return to the beginning.
+  getStreamAndRecord()
+})
+
+//Upload Giphy to the API.
+function uploadGif(form) {
+
+  // Post according to API needs. The API Key is sent into the url. 
+  let params =  {
+    method: 'POST', 
+    body: form
+  };
+  fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, params
+  ).then(res => {
+    console.log(res.status)
+    if (res.status != 200 ) {
+      console.log(res)
+      uploadMessage.innerHTML = `<h2>Hubo un error subiendo tu Guifo</h2>`;
+    }
+    return res.json();  
+  }).then(data => {  
+    const gifId = data.data.id;
+    uploadMessage.style.display = 'none';
+    uploadMessageDone.style.display = 'block'
+    getGifDetails(gifId);
   })
-
-  //Upload Giphy to the API.
-  function uploadGif(form) {
-
-    // Post according to API needs. The API Key is sent into the url. 
-    let params =  {
-      method: 'POST', 
-      body: form
-    };
-    fetch('https://upload.giphy.com/v1/gifs' + '?api_key=' + apiKey, params
-    ).then(res => {
-      console.log(res.status)
-      if (res.status != 200 ) {
-        console.log(res)
-        uploadMessage.innerHTML = `<h2>Hubo un error subiendo tu Guifo</h2>`
-      }
-      return res.json();  
-    }).then(data => {  
-      const gifId = data.data.id;
-      uploadMessage.style.display = 'none';
-      uploadMessageDone.style.display = 'block';
-      getGifDetails(gifId)
-  
-    })
     .catch(error => {
       uploadMessage.innerHTML = (`<h2>Hubo un error subiendo tu Guifo</h2>`)
       console.log('Error:', error)
     });
-  }
+}
 
-  //Gif Details Function. Buttons to download, copy or like the giphy created.
-  function getGifDetails (id) {
+//Gif Details Function. Buttons to download, copy or like the giphy created.
+function getGifDetails (id) {
+  fetch(apiBaseUrl + id + '?api_key=' + apiKey) 
+    .then((response) => {
+      return response.json()
+    }).then(data => {
+        const url = data.data.images.original.url;
+        const width = data.data.images.fixed_width.width;
+        const height = data.data.images.fixed_height.height;
+        const title = data.data.title;
 
-    fetch(apiBaseUrl + id + '?api_key=' + apiKey) 
-        .then((response) => {
-           return response.json()
-        }).then(data => {
-            const url = data.data.images.original.url;
-            const width = data.data.images.fixed_width.width;
-            const height = data.data.images.fixed_height.height;
-            const title = data.data.title;
-            
-            let buttonEl = document.getElementById("icons-layer-gifo");
-            let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                           <button class="icons-layer-gifo" onclick="clickLike('${url}'); favorites()"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
-                           <button class="icons-layer-gifo" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Me Gusta"></button>
-                          `;
-                           
-            buttonEl.innerHTML = buttons;
+        let buttonEl = document.getElementById("icons-layer-gifo");
+        let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
+                      <button class="icons-layer-gifo" onclick="clickLike('${url}'); favorites()"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                      <button class="icons-layer-gifo" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Me Gusta"></button>
+                      `;             
+        buttonEl.innerHTML = buttons;
 
-            ///Read from localStorage
-            let myGifs = JSON.parse(localStorage.getItem('myGifs'));
-            const myGif = {
-                url: url,
-                width: width,
-                title: title,
-                height: height
-            }
-            myGifs.push(myGif)
-            //Save in localStorage
-            localStorage.setItem('myGifs', JSON.stringify(myGifs)); 
+        ///Read from localStorage
+        let myGifs = JSON.parse(localStorage.getItem('myGifs'));
+        const myGif = {
+          url: url,
+          width: width,
+          title: title,
+          height: height
+        }
+        myGifs.push(myGif)
+        //Save in localStorage
+        localStorage.setItem('myGifs', JSON.stringify(myGifs)); 
     
-        })
+    })
         .catch((error) => {
             return error
         })
-  }
+}
 
 //// Download Gif
   
-
 async function clickDownload(imageUrl) {
 
   const downloadUrl = imageUrl;
@@ -254,6 +249,8 @@ async function clickDownload(imageUrl) {
   saveImg.click();
   document.body.removeChild(saveImg);
 };
+
+////Like Gif
 
 function clickLike(url, width, title, height) {
   
@@ -270,6 +267,8 @@ function clickLike(url, width, title, height) {
   
 }
 
+////Copy Link GIF
+
 function copyToClipboard(url) {
 
   let input = document.createElement("input");
@@ -281,99 +280,50 @@ function copyToClipboard(url) {
   alert("Enlace de Giphy copiado");
 }
 
-/*
-const switchMode = document.querySelector('#switch');
+////Nigth mode Create Gifo
 
-
-switchMode.addEventListener('click', () =>{
-    document.body.classList.toggle('dark'); 
-    two.classList.remove("button-number-selected"); 
-});*/
-
-/////nigth mode icreate gifo
-
-
-
-let cameraImg = document.getElementsByClassName('camera-img');
-let tape1 = document.getElementById('tape-animation1');
-let tape2 = document.getElementById('tape-animation2');
+let cam = document.getElementById('cam');
 let tape = document.getElementById('tape');
 let logo = document.getElementById('logo');
 let dark = document.querySelector('#dark'); 
-let changeTheme = localStorage.getItem('nightmode');
-let switchTheme = document.querySelector('#switch');
-switchTheme.addEventListener('click', swapTheme);
+let changeStyle = localStorage.getItem('nightmode');
+let switches = document.querySelector('#switch');
+switches.addEventListener('click', swapStyle);
 
-// Load theme
-function loadTheme() {
-
-    if (dark === undefined || dark === null) {
-        dark.setAttribute('href', 'style/create_gifo.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-
-    } else if (changeTheme === 'true') {
-
-        dark.setAttribute('href', 'style/nightmode.css');
-        changeTheme = localStorage.setItem('nightmode', 'true');
-        switchTheme.textContent = 'Modo Diurno';
-        if (cameraImg, tape, tape1, tape2, logo) {
-          cameraImg.src = 'assets/camara-modo-noc.svg';
-          tape.src = 'assets/pelicula-modo-noc.svg';
-          tape1.src = 'assets/element_cinta1-modo-noc.svg';
-          tape2.src = 'assets/element_cinta2-modo-noc.svg';
-          logo.src = 'assets/logo-modo-noc.svg';
-
-        };
-    } else {
-
-        if (changeTheme === 'false') {
-            dark.setAttribute('href', 'style/create_gifo.css');
-            changeTheme = localStorage.setItem('nightmode', 'false');
-            switchTheme.textContent = 'Modo Nocturno';
-        };
+// Load Page Style
+function loadStyle() {
+  changeStyle = localStorage.getItem('nightmode');
+  if (changeStyle === 'true') {
+    dark.setAttribute('href', 'style/nightmode.css');
+    switches.textContent = 'Modo Diurno';
+    if (cam, tape, logo){
+      cam.src = 'assets/camara-modo-noc.svg';
+      tape.src = 'assets/pelicula-modo-noc.svg';
+      logo.src = 'assets/logo-modo-noc.svg';
+    }
+  } else {
+    if (changeStyle === 'false') {
+      dark.setAttribute('href', 'style/create_gifo.css');
+      switches.textContent = 'Modo Nocturno';
     };
+    if (cam, tape,  logo){
+      cam.src = 'assets/camara.svg';
+      tape.src = 'assets/pelicula.svg';
+      logo.src = 'assets/logo-desktop.svg';
+    }
+  };
 };
-document.addEventListener('DOMContentLoaded', () => {
 
-    loadTheme();
+document.addEventListener('DOMContentLoaded', loadStyle);
 
-});
-
-// Switch Themes * ligth - dark
-function swapTheme() {
-
-    if (switchTheme.textContent === 'Modo Nocturno') {
-
-        dark.setAttribute('href', 'style/nightmode.css');
-        changeTheme = localStorage.setItem('nightmode', 'true');
-        switchTheme.textContent = 'Modo Diurno';
-        if (cameraImg, tape, tape1, tape2,logo) {
-          cameraImg.src = 'assets/camara-modo-noc.svg';
-          tape.src = 'assets/pelicula-modo-noc.svg';
-          tape1.src = 'assets/element_cinta1-modo-noc.svg';
-          tape2.src = 'assets/element_cinta2-modo-noc.svg';
-          logo.src = 'assets/logo-modo-noc.svg';
-            
-        }
-    } else if (switchTheme.textContent === 'Modo Diurno') {
-
-        dark.setAttribute('href', 'style/create_gifo.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-        if (cameraImg, tape, tape1, tape2, logo) {
-          cameraImg.src = 'assets/element-camara.svg';
-          tape.src = 'assets/pelicula.svg';
-          tape1.src = 'assets/element_cinta1.svg';
-          tape2.src = 'assets/element_cinta2.svg';
-          logo.src = 'assets/logo-desktop.svg';
-        }
-    } else {
-        dark.setAttribute('href', 'style/create_gifo.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-    };
-
-}; 
-
-
+// Switch Styles according to Local Storage
+function swapStyle() {
+  changeStyle = localStorage.getItem('nightmode');
+  if (changeStyle === 'true'){
+      changeStyle = localStorage.setItem('nightmode', 'false');
+  } else {
+      changeStyle = localStorage.setItem('nightmode', 'true');
+  }
+  loadStyle();
+  
+};

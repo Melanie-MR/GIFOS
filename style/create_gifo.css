@@ -58,27 +58,32 @@ h5 {
   display: flex;
   align-items: center;
   height: 5px;
+  width: 100%;
   background-color: #572EE5;
   margin: 0;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+
+#logo {
+  display: flex;
+  padding-top: 18px;
+  width: 59px;
+}
+
 .nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border-bottom: none;
   text-align: center;
   background: #FFFFFFFF;
 }
 
-#logo {
-  display: flex;
-  align-self: flex-start;
-  padding-top: 18px;
-  margin-left: 10.83%;
-  width: 59px;
-}
-
-li {
+.list-nav {
   display: inline;
   vertical-align: top;
   font-family: "Montserrat", sans-serif;
@@ -91,7 +96,6 @@ li {
 
 .menu {
   margin: 0;
-  padding-right: 10.83%;
 }
 
 .menu a {
@@ -120,20 +124,30 @@ label {
   text-decoration: underline #5ED7C6 2px;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 615px) {
+  .blue-line {
+    width: 110%;
+  }
+  header {
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+  }
   .nav {
     display: flex;
     justify-content: space-between;
   }
   .nav #logo {
-    margin-left: 5%;
+    margin-left: 30%;
     width: 48.8px;
   }
-  .nav li {
+  .nav .list-nav {
     text-transform: none;
     padding-left: 0;
+    font-size: 15px;
+    line-height: 30px;
   }
-  .nav li #botton__gifo--disappear {
+  .nav .list-nav #botton__gifo--disappear {
     display: none;
   }
   .nav .menu__list-- {
@@ -141,14 +155,16 @@ label {
     background: #572EE5;
     opacity: 90%;
     color: #FFFFFFFF;
-    width: 375px;
+    padding-left: 25%;
+    width: 100%;
+    height: 200%;
   }
   .nav .menu__list {
     margin-left: -90%;
   }
   .nav .exs {
     display: none;
-    background-color: black;
+    background-color: #572EE5;
     width: 14px;
     height: 14px;
     margin-right: 27px;
@@ -171,7 +187,7 @@ label {
     width: 15px;
     height: 2px;
     margin: auto;
-    background: black;
+    background: #572EE5;
     opacity: 100%;
   }
   .nav .menu2 .bar:before, .nav .menu2 .bar:after {
@@ -179,7 +195,7 @@ label {
     width: 15px;
     height: 2px;
     content: '';
-    background: black;
+    background: #572EE5;
     opacity: 100%;
   }
   .nav .menu2 .bar:before {
@@ -201,16 +217,11 @@ label {
     margin-left: 30px;
   }
   .nav .menu {
-    width: 150px;
-    background-color: red;
+    width: 100%;
+    opacity: 90%;
     display: none;
-    margin-top: 50px;
-    height: 484px;
-  }
-  .nav .menu a:hover {
-    color: #00F3BB;
-    text-decoration: line-through;
-    font-weight: 500;
+    margin-top: 60px;
+    height: 100%;
   }
 }
 
@@ -741,21 +752,6 @@ form {
   height: 390px;
 }
 
-.tapes-container {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: -8%;
-  margin-left: 5%;
-  border-collapse: collapse;
-  position: relative;
-}
-
-.camera-container {
-  margin-top: 6%;
-  display: flex;
-  flex-direction: row;
-}
-
 .video-preview {
   width: 480px;
   height: 320px;
@@ -768,34 +764,20 @@ video {
   margin-top: 5%;
 }
 
-.tapes-cam-container {
-  display: flex;
-  flex-direction: column;
-  width: 123px;
-  height: 162px;
-}
-
-/*.camera_img{
-    background:  {
-        image: url("assets/element-camara.svg");
-}}
-    */
-#tape-animation1 {
-  width: 30%;
-  margin-top: 20%;
-  opacity: 100%;
-}
-
-#tape-animation2 {
-  width: 50%;
-  opacity: 100%;
-}
-
 .light {
-  margin-top: 15%;
+  margin-top: 10%;
   opacity: 50%;
   width: 91px;
-  height: 151px;
+  height: 165px;
+}
+
+.camera_img {
+  width: 130px;
+  height: 170px;
+}
+
+.light-cam-container {
+  margin-top: 40%;
 }
 
 #num-bar-container {
