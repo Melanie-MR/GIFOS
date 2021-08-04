@@ -10,7 +10,7 @@
 
 <body class="body">
     <header>
-    <hr>
+    <hr class="blue-line">
 
     <!--navbar-->
         <div class="nav">
@@ -21,7 +21,7 @@
                     <li><a class="menu__list-- switch" id= "switch" href="#"><span>Modo Nocturno</span></a></li>
                     <li><a class="menu__list--" href="pages_favorites.html">Favoritos</a></li>
                     <li><a class="menu__list--" href="pages_mygifs.html">Mis GIFOS</a></li>
-                    <li><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear"  src="assets/button-crear-gifo.svg" onmouseover="this.src = 'assets/CTA-crear-gifo-hover.svg';" onmouseup="this.src = 'assets/CTA-crear-gifo-active.svg';" alt="Crear GIF"></a></li>
+                    <li><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg" onmouseover="this.src = 'assets/CTA-crear-gifo-hover.svg';" alt="Crear GIF" onmouseleave="this.src = 'assets/button-crear-gifo.svg' " onmousedown="this.src = 'assets/CTA-crear-gifo-active.svg';"></a></li>
                 </ul>
             </div>
             <label id="hamburger" for="toggle" class="menu2">
@@ -42,25 +42,31 @@
 
         <!--Boton de busqueda-->
         <div class="container_search">
-            <form autocomplete="off" class="search" id="search-form">
+          
+            <form autocomplete="off" class="search"  id="search-form">
                 <input  type="text" class="search__text" id="search-input" placeholder="Busca GIFOS y más">
-                <button type="submit" class="button" id="button__search"><img src="assets/icon-search.svg" alt="Search"></button>
-            </form>
-            <!--GIFOS autocomplete-->
+                <button type="submit" class="button" id="button__search"><i class="fas fa-search"></i></button>
+                <button class="button" id="button__exs"><i class="fas fa-times"></i></button>
+                <!--GIFOS autocomplete-->
             <div class="autocomplete" id="autocomplete">  
-                <li id="list-auto">
-
-                </li>
+                <div id="list-auto">
+                   
+                </div>
             </div>
+            
+            </form>
+            
             <!--GIFOS results-->
             <div class="results" id="results">  
+                
             </div>
-            <div class="" id="button-format" onclick="next();"><h3>VER MAS</h3></div>
+            <div id="button-more" onclick="next();"><h3>VER MAS</h3></div>
+            
         </div>
         <!--Trending-->
         <div class="trending__header">
-            <h3 id="trending-font">Trending:</h3>
-            <h4>Reactions, Entertainment, Sports, Stickers, Artists</h4>
+            <h3 class="trending-font">Trending:</h3>
+            <h4 id="trending-topics">Reactions, Entertainment, Sports, Stickers, Artists</h4>
         </div>
 
         <!--Trending and slider-->
@@ -100,7 +106,7 @@
             <div class="copyright"><h5 class="footer-font" id="copyright">© GIFOS 2021 All Rights Reserved.</h5></div>
         </section>
     </footer>
-    <hr>
+    <hr class="blue-line">
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="js/trending.js"></script>
     <script src="js/search.js"></script>

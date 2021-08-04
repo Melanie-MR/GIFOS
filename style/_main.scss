@@ -38,19 +38,23 @@
     flex-direction: column;
     align-content: center;
 }
-.search {
-    display: flex;
-    align-items: center;
-    top: 66.6%;
-    background-color: $background-color;
-    padding: 10px;
+form{
     height: 30px;
     width: 551px;
+    top: 66.6%;
     margin-left: 10%;
     border-radius: 50px;
     border: 1px solid $purple-color;
+    
+}
 
+.search {
+    display: flex;
+    align-items: center;
+    background-color: $background-color;
+    padding: 10px;
 }    
+
 .search__text{
     border: none;
     background: none;
@@ -62,7 +66,24 @@
     width: 551px;
     
 }
+#list-auto{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#header-results{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#search-font{
+    font-size: 35px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5%;
+   
 
+}
 //Search button
 .button{
     width: 20px;
@@ -93,6 +114,32 @@
     margin-top: 1em;
 }*/
 
+//Line results
+.gray-line{
+    opacity: 0.5;
+    border: 1px solid #9CAFC3;
+    width: 338px;
+    height: 0.1px;
+    
+}
+#button-more{ // this can be in general style
+    background: none;
+    color: $background-color;
+    border-radius: 50px;
+    border: 0.5px solid $purple-color;
+    height: 50px;
+    width: 127px;
+    //display: block; //should be block when the search appear.
+    //position: absolute;
+    margin-left: 25%;
+    margin-top: 2%;
+    
+    :hover{
+        background-color:$purple-color;
+        color:$background-color;
+    }
+}
+
 
 .gral-button{
     display: block; //should be block when the search appear.
@@ -114,6 +161,8 @@
     height: 50px;
     width: 127px;
 }
+
+
 
 .img-layer{
     width: 260px;

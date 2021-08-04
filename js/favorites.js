@@ -125,7 +125,7 @@ switchMode.addEventListener('click', () =>{
 });
 */
 
-/////nigth mode
+/////nigth mode codigo mejorado
 
 
 
@@ -137,59 +137,52 @@ switchTheme.addEventListener('click', swapTheme);
 
 // Load theme
 function loadTheme() {
-
-    if (dark === undefined || dark === null) {
-        dark.setAttribute('href', 'style/favorites.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-
-    } else if (changeTheme === 'true') {
-
+    changeTheme = localStorage.getItem('nightmode');
+    if (changeTheme === 'true') {
         dark.setAttribute('href', 'style/nightmode.css');
-        changeTheme = localStorage.setItem('nightmode', 'true');
         switchTheme.textContent = 'Modo Diurno';
         if (logo){
             logo.src = 'assets/logo-modo-noc.svg';
         }
     } else {
-
         if (changeTheme === 'false') {
             dark.setAttribute('href', 'style/favorites.css');
-            changeTheme = localStorage.setItem('nightmode', 'false');
             switchTheme.textContent = 'Modo Nocturno';
         };
+        if (logo){
+            logo.src = 'assets/logo-desktop.svg';
+        }
     };
 };
-document.addEventListener('DOMContentLoaded', () => {
-
-    loadTheme();
-
-});
+document.addEventListener('DOMContentLoaded', loadTheme);
 
 // Switch Themes * ligth - dark
 function swapTheme() {
-
-    if (switchTheme.textContent === 'Modo Nocturno') {
-
-        dark.setAttribute('href', 'style/nightmode.css');
-        changeTheme = localStorage.setItem('nightmode', 'true');
-        switchTheme.textContent = 'Modo Diurno';
-        if (logo){
-            logo.src = 'assets/logo-modo-noc.svg';
-        }
-
-    } else if (switchTheme.textContent === 'Modo Diurno') {
-
-        dark.setAttribute('href', 'style/favorites.css');
+    changeTheme = localStorage.getItem('nightmode');
+    if (changeTheme === 'true'){
         changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-        if (logo){
-            logo.src = 'assets/logo-modo-noc.svg';
-        }
     } else {
-        dark.setAttribute('href', 'style/favorites.css');
-        changeTheme = localStorage.setItem('nightmode', 'false');
-        switchTheme.textContent = 'Modo Nocturno';
-    };
+        changeTheme = localStorage.setItem('nightmode', 'true');
+    }
+    loadTheme();
+
+    // if (switchTheme.textContent === 'Modo Nocturno') {
+
+    //     dark.setAttribute('href', 'style/nightmode.css');
+    //     changeTheme = localStorage.setItem('nightmode', 'true');
+    //     switchTheme.textContent = 'Modo Diurno';
+    //     if (logo){
+    //         logo.src = 'assets/logo-modo-noc.svg';
+    //     }
+
+    // } else if (switchTheme.textContent === 'Modo Diurno') {
+
+    //     dark.setAttribute('href', 'style/favorites.css');
+    //     changeTheme = localStorage.setItem('nightmode', 'false');
+    //     switchTheme.textContent = 'Modo Nocturno';
+    //     if (logo){
+    //         logo.src = 'assets/logo-modo-noc.svg';
+    //     }
+    // }
     
 };

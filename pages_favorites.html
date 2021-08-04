@@ -9,17 +9,18 @@
 </head>
 <body class="body">
     <header>
-    <hr>
+    <hr class="blue-line">
+
     <!--navbar-->
         <div class="nav">
             <a class="link-home" href="index.html"><img id="logo" class="logo" src="assets/logo-desktop.svg" alt="logo"></a> 
             <input type="checkbox" id="toggle" value="flag"/>
             <div class="menu">
                 <ul class="menu__list">
-                    <li><a class="menu__list-- switch" id= "switch" href=""><span>Modo Nocturno</span></a></li>
+                    <li><a class="menu__list-- switch" id= "switch" href="#"><span>Modo Nocturno</span></a></li>
                     <li><a class="menu__list--" href="#">Favoritos</a></li>
                     <li><a class="menu__list--" href="pages_mygifs.html">Mis GIFOS</a></li>
-                    <li><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear"  src="assets/button-crear-gifo.svg" onmouseover="this.src = 'assets/CTA-crear-gifo-hover.svg';" onmouseup="this.src = 'assets/CTA-crear-gifo-active.svg';" alt="Crear GIF"></a></li>
+                    <li><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg" onmouseover="this.src = 'assets/CTA-crear-gifo-hover.svg';" alt="Crear GIF" onmouseleave="this.src = 'assets/button-crear-gifo.svg' " onmousedown="this.src = 'assets/CTA-crear-gifo-active.svg';"></a></li>
                 </ul>
             </div>
             <label id="hamburger" for="toggle" class="menu2">
@@ -89,7 +90,7 @@
             <div class="copyright"><h5 class="footer-font" id="copyright">© GIFOS 2021 All Rights Reserved.</h5></div>
         </section>
     </footer>
-    <hr>
+    <hr class="blue-line">
     <script src="js/favorites.js"></script>
     <script src="js/trending.js"></script>
     <script src="js/modal.js"></script>

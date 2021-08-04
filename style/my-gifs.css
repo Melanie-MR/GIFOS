@@ -54,7 +54,7 @@ h5 {
   display: none;
 }
 
-hr {
+.blue-line {
   display: flex;
   align-items: center;
   height: 5px;
@@ -251,17 +251,20 @@ label {
   align-content: center;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  top: 66.6%;
-  background-color: #FFFFFFFF;
-  padding: 10px;
+form {
   height: 30px;
   width: 551px;
+  top: 66.6%;
   margin-left: 10%;
   border-radius: 50px;
   border: 1px solid #572EE5;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFFFF;
+  padding: 10px;
 }
 
 .search__text {
@@ -273,6 +276,25 @@ label {
   line-height: 50px;
   transition: .3s;
   width: 551px;
+}
+
+#list-auto {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#header-results {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#search-font {
+  font-size: 35px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 5%;
 }
 
 .button {
@@ -303,6 +325,29 @@ label {
     margin-bottom: 1em;
     margin-top: 1em;
 }*/
+.gray-line {
+  opacity: 0.5;
+  border: 1px solid #9CAFC3;
+  width: 338px;
+  height: 0.1px;
+}
+
+#button-more {
+  background: none;
+  color: #FFFFFFFF;
+  border-radius: 50px;
+  border: 0.5px solid #572EE5;
+  height: 50px;
+  width: 127px;
+  margin-left: 25%;
+  margin-top: 2%;
+}
+
+#button-more :hover {
+  background-color: #572EE5;
+  color: #FFFFFFFF;
+}
+
 .gral-button {
   display: block;
   position: absolute;
@@ -510,7 +555,7 @@ label {
   line-height: 30px;
 }
 
-#trending-font {
+.trending-font {
   font-size: 18px;
   line-height: 25px;
   margin-top: 5%;

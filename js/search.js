@@ -4,24 +4,44 @@ const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#search-input');
 const resultsEl = document.querySelector('#results');
 const listAuto = document.querySelector('#list-auto');
+const searchBar = document.querySelector('.search');
+const clearButton = document.querySelector('#button__exs');
 const offset = 12;
 var pagenum = 0;
 
-
+clearButton.addEventListener('click', (e) => {
+    searchInput.value = '';
+    listAuto.innerHTML = '';
+    searchBar.style = 'height: 30px;';
+});
 
 //Event Listener to autocomplete
 searchInput.addEventListener('input', (e) => {
     e.preventDefault();
     const term = searchInput.value;
+    
     autocomplete(term);
     
+    if (term == '') {
+        searchBar.style = 'height: 30px;';
+    } else {
+        searchBar.style = "height: 100px;"
+    }
+    
     //Código para actualuizar un elemento segun la búsqueda
-    //const resultado = document.querySelector('#trending-font');
-    //resultado.textContent = `${event.target.value}`;
+    
+    const trendingHeader = document.querySelector('.trending__header');
+    trendingHeader.style= "display: none;"
+    //se borra al darle enter, corregir. 
+    resultsEl.innerHTML= `<div id="header-results">
+    <hr class="gray-line">
+    <h3 id="search-font">${e.target.value}</h3> 
+    
+    </div>`;
 });
 
 function autocomplete(term) {
-   
+    
     /////Function Search Suggestions
 
     const path_suggestions = `https://api.giphy.com/v1/tags/related/${term}?api_key=${apiKey}&limit=5`
@@ -35,10 +55,12 @@ function autocomplete(term) {
         //console.log(json);
         json.data.forEach(function(obj) {
             console.log(obj.name);
-            listHTML += `<div onclick="fill('${obj.name}');">${obj.name}</div>`;
+            listHTML += `<div onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</div>`;
+            
         });
         listAuto.innerHTML = listHTML;
         listAuto.style = "display: auto;";
+
     }).catch(function(err) {
         console.log(err.message);
     });
@@ -90,12 +112,21 @@ function search(query) {
                             <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                         </div>
                     </div>
+                   
                `;
         });
+
+        if (resultsHTML == ''){
+            resultsHTML = '<p>INTENTA DE NUEVO</p>';
+        } 
     
-        resultsEl.innerHTML = resultsHTML; //to add to html
+        
+        //cambiar boton de lugar para que no se duplique afuera de results.
+        resultsEl.innerHTML += resultsHTML; //to add to html
+        
         
     }).catch(function(err) {
+        resultsEl.style = 'display:none;';
         console.log(err.message);
     });
 } 
