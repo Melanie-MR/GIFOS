@@ -30,7 +30,7 @@
     color: $purple-color;
     line-height: 30px;
 }
-.trending-font{
+#trending-font{
     font-size: 18px;
     line-height: 25px;
     margin-top: 5%;
@@ -46,6 +46,10 @@
     justify-content: space-between;
 }
 
+.styleCard{
+    width: 357px;
+    height: 275px;
+}
 //Hide the images by default
 //.mySlydes {
     //display: none;
@@ -147,4 +151,32 @@
     justify-content: space-around;
     margin-left: -5%;
     margin-right: -5%;
+}
+
+@media only screen and (max-width: 615px) {
+    .trending{
+        background-color:#F3F5F8;
+        height: 430px;
+        width: 100%;
+        margin-top: 50px;
+        padding-top: 10px;
+        position: center;
+    }
+    .img-layer-trending{
+        display: none;
+    }
+    .slideshow-container{
+        max-width:375px;
+        overflow: hidden;
+        
+    }
+    /*.mySlides{
+        width: 243px;
+        height: 187px;
+    }*/
+    .styleCard{
+        width: 243px;
+        height: 187px;
+    }
+  
 }

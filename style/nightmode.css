@@ -216,6 +216,7 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 8%;
 }
 
 #break__desktop {
@@ -235,7 +236,6 @@ label {
 }
 
 .container__photo {
-  position: relative;
   height: 100%;
   width: 100%;
 }
@@ -246,17 +246,30 @@ label {
   align-content: center;
 }
 
+form {
+  height: 40px;
+  width: 551px;
+  top: 66.6%;
+  border-radius: 50px;
+  border: 1px solid #572EE5;
+}
+
 .search {
+  /* display: flex;
+    align-items: center;
+    top: 66.6%;
+    background-color: $night-background-color;
+    padding: 10px;
+    height: 30px;
+    width: 551px;
+    margin-left: 10%;
+    border-radius: 50px;
+    border: 1px solid $background-color;
+*/
   display: flex;
   align-items: center;
-  top: 66.6%;
-  background-color: #37383C;
+  background-color: #FFFFFFFF;
   padding: 10px;
-  height: 30px;
-  width: 551px;
-  margin-left: 10%;
-  border-radius: 50px;
-  border: 1px solid #FFFFFFFF;
 }
 
 .search__text {
@@ -268,6 +281,25 @@ label {
   line-height: 50px;
   transition: .3s;
   width: 551px;
+}
+
+#list-auto {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+#header-results {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#search-font {
+  font-size: 35px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 5%;
 }
 
 .button {
@@ -287,44 +319,26 @@ label {
 }
 
 .results {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  max-width: 70%;
-  margin-left: 10%;
+  display: inline;
+  width: calc(280px * 4 + 4em);
+  margin: auto;
 }
 
-/*.item { comentado por prueba en favoritos
-    margin-bottom: 1em;
-    margin-top: 1em;
-}*/
-.gral-button {
-  display: none;
-  position: absolute;
-  margin-left: 25%;
-  margin-top: 2%;
-}
-
-.gral-button :hover {
-  background-color: #FFFFFFFF;
-  color: black;
-}
-
-#button-format {
-  background: none;
-  color: none;
-  border-radius: 50px;
-  border: 0.5px solid #FFFFFFFF;
-  height: 50px;
-  width: 127px;
+.galeryMeasure {
+  width: 260px;
+  height: 200px;
+  margin-left: 2%;
+  margin-bottom: 2%;
 }
 
 .img-layer {
-  width: 260px;
+  display: inline;
+  position: absolute;
+  width: 262px;
   height: 200px;
-  display: flex;
-  justify-content: flex-end;
-  margin-left: -260px;
+  margin-left: -262px;
+  margin-top: 0;
+  z-index: 0;
   opacity: 0;
   transition: all .3s ease-in-out;
 }
@@ -332,7 +346,7 @@ label {
 .img-layer:hover {
   background-color: #572EE5;
   opacity: 0.7;
-  width: 260px;
+  width: 263px;
   height: 200px;
 }
 
@@ -358,6 +372,61 @@ label {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+.autoList {
+  list-style: none;
+  display: block;
+}
+
+.autocomplete {
+  margin-top: -72px;
+  margin-left: -445px;
+}
+
+.gray-line {
+  opacity: 0.5;
+  border: 1px solid #9CAFC3;
+  width: 338px;
+  height: 0.1px;
+}
+
+#button-more {
+  display: none;
+  background: none;
+  color: #FFFFFFFF;
+  border-radius: 50px;
+  border: 0.5px solid #572EE5;
+  height: 50px;
+  width: 127px;
+  margin-left: 25%;
+  margin-top: 2%;
+}
+
+#button-more :hover {
+  background-color: #572EE5;
+  color: #FFFFFFFF;
+}
+
+.gral-button {
+  display: none;
+  position: absolute;
+  margin-left: 25%;
+  margin-top: 2%;
+}
+
+.gral-button :hover {
+  background-color: #FFFFFFFF;
+  color: black;
+}
+
+#button-format {
+  background: none;
+  color: none;
+  border-radius: 50px;
+  border: 0.5px solid #FFFFFFFF;
+  height: 50px;
+  width: 127px;
 }
 
 .trending {

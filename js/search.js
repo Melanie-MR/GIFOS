@@ -6,14 +6,23 @@ const resultsEl = document.querySelector('#results');
 const listAuto = document.querySelector('#list-auto');
 const searchBar = document.querySelector('.search');
 const clearButton = document.querySelector('#button__exs');
+const moreButton = document.querySelector('#button-more');
+
 const offset = 12;
 var pagenum = 0;
 let listHTML = '';
-
+moreButton.style.display = 'none';
+//To clear input
 clearButton.addEventListener('click', (e) => {
     searchInput.value = '';
     listAuto.innerHTML = '';
-    searchBar.style = 'height: 30px;';
+    listHTML = '';
+    listAuto.style = "display: none;";
+    searchBar.style = 'height: 40px;';
+    resultsEl.style = 'display:none;';
+    resultsEl.innerHTML= '';
+    moreButton.style.display = 'none';
+    
 });
 
 //Event Listener to autocomplete
@@ -21,16 +30,17 @@ searchInput.addEventListener('input', (e) => {
     e.preventDefault();
     const term = searchInput.value;
     
-    autocomplete(term);
+  //  suggestions(term);
     autocompleteSearch (term)
     
     if (term == '') {
-        searchBar.style = 'height: 30px;';
+        searchBar.style = 'height: 40px;';
+        moreButton.style = 'display: none;';
     } else {
         searchBar.style = "height: 100px;"
     }
     
-    //Código para actualuizar un elemento segun la búsqueda
+    //Código para actualizar un elemento segun la búsqueda
     
     const trendingHeader = document.querySelector('.trending__header');
     trendingHeader.style= "display: none;"
@@ -42,7 +52,36 @@ searchInput.addEventListener('input', (e) => {
     </div>`;
 });
 
-function autocomplete(term) {
+////esta deberia mostrarse al hacer click en la barra de busqueda o copiar una letra maximo.
+//asi mismo, al hacer clear tambien deberia limpiar lo que se trajo de la api como sugerencia o auto.
+searchInput.addEventListener('input', (e) => {
+    e.preventDefault();
+    //const term = searchInput.value;
+    
+    suggestions();
+    //autocompleteSearch (term)
+    
+  /*  if (term == '') {
+        searchBar.style = 'height: 40px;';
+        moreButton.style = 'display: none;';
+    } else {
+        searchBar.style = "height: 100px;"
+    }*/
+    
+    //Código para actualuizar un elemento segun la búsqueda
+   /* 
+    const trendingHeader = document.querySelector('.trending__header');
+    trendingHeader.style= "display: none;"
+    //se borra al darle enter, corregir. 
+    resultsEl.innerHTML= `<div id="header-results">
+    <hr class="gray-line">
+    <h3 id="search-font">${e.target.value}</h3> 
+    
+    </div>`;*/
+});
+
+
+function suggestions(term) {
     
     /////Function Search Suggestions
 
@@ -56,7 +95,7 @@ function autocomplete(term) {
         //console.log(json);
         json.data.forEach(function(obj) {
             console.log(obj.name);
-            listHTML += `<div onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</div>`;
+            listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</li>`;;
             
         });
         listAuto.innerHTML = listHTML;
@@ -101,10 +140,10 @@ function search(query) {
 
                 `
                     <img 
-                        class="item"
+                        class="item galeryMeasure"
                         src="${url}" 
                         alt="${title}"
-                        style= "width: 260px; height: 200px"
+                        
                     >
                     <div class="img-layer">
                         <div id= "icons-layer">
@@ -116,7 +155,7 @@ function search(query) {
                    
                `;
         });
-
+        moreButton.style = 'display: block;'
         if (resultsHTML == ''){
             resultsHTML = '<p>INTENTA DE NUEVO</p>';
         } 
@@ -129,7 +168,9 @@ function search(query) {
     }).catch(function(err) {
         resultsEl.style = 'display:none;';
         console.log(err.message);
+        moreButton.style = 'display: none;'
     });
+    
 } 
 
 function next() {
@@ -140,8 +181,9 @@ function next() {
 
 ///Autocomplete search. No se vacia cuando le doy x, y agrega de dos en dos, termina dando una sugerencia muy grande. 
 //CORREGIR
-function autocompleteSearch (query){
-    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${query}&limit=2`
+let y = 5
+function autocompleteSearch (y){
+    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${y}&limit=5&offset=5`
     
     fetch (path_autocomplete).then(function (res) { 
         return res.json();
@@ -152,7 +194,7 @@ function autocompleteSearch (query){
         //console.log(json);
         json.data.forEach(function(obj) {
             console.log(obj.name);
-            listHTML += `<div onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</div>`;
+            listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</li>`;
             
         });
         listAuto.innerHTML = listHTML;

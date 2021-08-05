@@ -238,6 +238,7 @@ hr{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 8%;
 }
 
 //Title header
@@ -258,7 +259,7 @@ hr{
 
 //Header Ilustration
 .container__photo {
-    position:relative;
+    //position:relative;
     height: 100%;
     width:100%;
 }
@@ -269,8 +270,16 @@ hr{
     flex-direction: column;
     align-content: center;
 }
+form{
+    height: 40px;
+    width: 551px;
+    top: 66.6%;
+    border-radius: 50px;
+    border: 1px solid $purple-color;
+    
+}
 .search {
-    display: flex;
+   /* display: flex;
     align-items: center;
     top: 66.6%;
     background-color: $night-background-color;
@@ -280,7 +289,11 @@ hr{
     margin-left: 10%;
     border-radius: 50px;
     border: 1px solid $background-color;
-
+*/
+    display: flex;
+    align-items: center;
+    background-color: $background-color;
+    padding: 10px;
 }    
 .search__text{
     border: none;
@@ -293,7 +306,24 @@ hr{
     width: 551px;
     
 }
+#list-auto{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#header-results{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#search-font{
+    font-size: 35px;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5%;
+   
 
+}
 //Search button
 .button{
     width: 20px;
@@ -312,17 +342,98 @@ hr{
 
 //Search Results 
 .results{
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    max-width: 70%; 
-    margin-left: 10%;  
+    display: inline;
+    width: calc(280px * 4 + 4em);
+    margin: auto;  
 }
 
-/*.item { comentado por prueba en favoritos
-    margin-bottom: 1em;
-    margin-top: 1em;
-}*/
+.galeryMeasure{
+    width: 260px; 
+    height: 200px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+.img-layer{
+    display: inline;
+    position: absolute;
+    width: 262px;
+    height: 200px;
+    margin-left: -262px;
+    margin-top: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: all .3s ease-in-out;  
+
+}
+.img-layer:hover {
+   background-color: $purple-color;
+   opacity: 0.7;
+   width: 263px;
+   height: 200px;
+}
+#icons-layer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 2%;
+}
+.icons-layer {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-right: 4%;
+    margin-top: 5%;
+    border:none;
+    border-radius: 6px;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+//Style list autocompleted
+.autoList{
+    list-style: none;
+    display: block;
+}
+.autocomplete{
+    margin-top: -72px;
+    margin-left: -445px;
+}
+
+//Line results
+.gray-line{
+    opacity: 0.5;
+    border: 1px solid #9CAFC3;
+    width: 338px;
+    height: 0.1px;
+    
+}
+
+///VER MAS 
+
+#button-more{ // this can be in general style
+    display: none;
+    background: none;
+    color: $background-color;
+    border-radius: 50px;
+    border: 0.5px solid $purple-color;
+    height: 50px;
+    width: 127px;
+    //display: block; //should be block when the search appear.
+    //position: absolute;
+    margin-left: 25%;
+    margin-top: 2%;
+    
+    :hover{
+        background-color:$purple-color;
+        color:$background-color;
+    }
+}
 
 
 .gral-button{
@@ -346,44 +457,6 @@ hr{
     width: 127px;
 }
 
-.img-layer{
-    width: 260px;
-    height: 200px;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: -260px; //-19%;
-    opacity: 0;
-    transition: all .3s ease-in-out;  
-}
-.img-layer:hover {
-    background-color: $purple-color;
-    opacity: 0.7;
-    width: 260px;
-    height: 200px;
-}
-
-#icons-layer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-right: 2%;
-}
-.icons-layer {
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    margin-right: 4%;
-    margin-top: 5%;
-    border:none;
-    border-radius: 6px;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}
 
 ////TRENDING
 

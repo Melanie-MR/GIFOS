@@ -32,10 +32,10 @@ function favorites() {
             resultsLikes += `
                             
                             <img 
-                            class="item"
+                            class="item galeryMeasure"
                             src="${url}" 
                             alt="${title}"
-                            style= "width: 260px; height: 200px"
+                            
                             > 
                             <div class="img-layer">
                                 <div id= "icons-layer">

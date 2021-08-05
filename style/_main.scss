@@ -6,6 +6,7 @@
     margin-top: 8%;
 }
 
+
 //Title header
 #break__desktop{
     display: block;
@@ -17,33 +18,32 @@
     text-align: center;
     line-height: 50px;
     margin-top: 50px;
- /*   &.dark {
-        color: red;
-    }*/
+
     
 }
+
 .change__color{
     color: $aqua-font-color;
 }
 
 //Header Ilustration
 .container__photo {
-    position:relative;
-    height: 100%;
-    width:100%;
+    //position:relative;
+    height: 190px;
+    width:399px;
 }
 
 //Search
 .container_search {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
+    
 }
 form{
-    height: 30px;
+    height: 40px;
     width: 551px;
     top: 66.6%;
-    margin-left: 10%;
     border-radius: 50px;
     border: 1px solid $purple-color;
     
@@ -103,17 +103,128 @@ form{
 
 //Search Results 
 .results{
-    display: flex;
+   /* display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     max-width: 70%; 
-    margin-left: 10%;  
+    margin-left: 10%;  */
+    display: inline;
+    width: calc(280px * 4 + 4em);
+    margin: auto;
 }
 
-/*.item { comentado por prueba en favoritos
-    margin-bottom: 1em;
-    margin-top: 1em;
+.galeryMeasure{
+    width: 260px; 
+    height: 200px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+.img-layer{
+    display: inline;
+    position: absolute;
+    width: 262px;
+    height: 200px;
+    margin-left: -262px;
+    margin-top: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: all .3s ease-in-out;  
+
+}
+.img-layer:hover {
+   background-color: $purple-color;
+   opacity: 0.7;
+   width: 263px;
+   height: 200px;
+}
+#icons-layer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 2%;
+}
+.icons-layer {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-right: 4%;
+    margin-top: 5%;
+    border:none;
+    border-radius: 6px;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+/*
+
+.galeryMeasure{
+    width: 260px; 
+    height: 200px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+.img-layer{
+    display: inline;
+    position: absolute;
+    width: 262px;
+    height: 200px;
+    margin-left: -262px;
+    margin-top: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: all .3s ease-in-out;  
+
+}
+.img-layer:hover {
+   background-color: $purple-color;
+   opacity: 0.7;
+   width: 263px;
+   height: 200px;
+}
+#icons-layer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 2%;
+}
+.icons-layer {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-right: 4%;
+    margin-top: 5%;
+    border:none;
+    border-radius: 6px;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }*/
+
+
+//Style list autocompleted
+.autoList{
+    list-style: none;
+    display: block;
+}
+.autocomplete{
+    margin-top: -72px;
+    margin-left: -445px;
+}
+
+
+
+
 
 //Line results
 .gray-line{
@@ -124,6 +235,7 @@ form{
     
 }
 #button-more{ // this can be in general style
+    display: none;
     background: none;
     color: $background-color;
     border-radius: 50px;
@@ -164,7 +276,7 @@ form{
 }
 
 
-
+/* COMENTADO POR AJUSTES EN LAYERS DE FAVORITOS
 .img-layer{
     width: 260px;
     height: 200px;
@@ -202,7 +314,7 @@ form{
     font: inherit;
     cursor: pointer;
     outline: inherit;
-}
+}*/
 
 
 /////The Modal
@@ -320,6 +432,61 @@ form{
 }
 
 //Responsive//
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 615px) {
     
+    .container_search{
+        margin-left: 5%;
+        margin-top: 5%;
+        max: width 334px;;
+        margin-left: 10%;
+    }
+    .container__photo {
+        //position:relative;
+        height: 130px;
+        width:273px;
+    }
+    .title__color{
+        
+        font-size: 25px;
+        text-align: center;
+        line-height: 33px;
+        margin-top: 20%;
+     /*   &.dark {
+            color: red;
+        }*/
+        
+    }
+    #break__desktop{
+        display: inline;
+    }
+    form{
+        height: 40px;
+        width: 334px;
+        //top: 66.6%;
+       // margin-left: 10%;
+        border-radius: 27px;
+        //border: 1px solid $purple-color;
+    }
+    .search{
+        padding: 0;
+      
+    }
+    .title{
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .galeryMeasure{
+        width: 156px; 
+        height: 120px;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+    .results{
+        display: inline;
+        width: calc(156px * 2 + 4em);
+        margin: auto;
+    }
+    .img-layer{
+        display: none;
+    }
 }
