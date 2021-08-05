@@ -19,7 +19,7 @@
                 <ul class="menu__list">
                     <li class="list-nav"><a class="menu__list-- switch" id= "switch" href="#"><span>Modo Nocturno</span></a></li>
                     <li class="list-nav"><a class="menu__list--" href="pages_favorites.html">Favoritos</a></li>
-                    <li class="list-nav"><a class="menu__list--" href="#">Mis GIFOS</a></li>
+                    <li class="list-nav"><a class="menu__list--  wider" href="#">Mis GIFOS</a></li>
                     <li class="list-nav"><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg" onmouseover="this.src = 'assets/CTA-crear-gifo-hover.svg';" alt="Crear GIF" onmouseleave="this.src = 'assets/button-crear-gifo.svg' " onmousedown="this.src = 'assets/CTA-crear-gifo-active.svg';"></a></li>
                 </ul>
             </div>
@@ -28,26 +28,24 @@
                     <span class="exs"></span>
             </label>
         </div>
+        
+    </header>
+    <main>
         <div class="title-mygifs">
             <img src="assets/icon-mis-gifos.svg" alt="Icon Mygifs">
             <h1>Mis GIFOS</h1>
         </div>
-    </header>
-    <main>
-
         <!--My Gifs-->
-        <div class="galery"></div>
+        <div id="margin-galery">
+            <div class="galery"></div>
 
-
-
-       
-        <section id="mygifs_empty" class="no-fav-mygifs">
-            <div class="fav-mygifs-empty-container">
-                <img id="icon-mygifs-sin-contenido" src="assets/icon-mis-gifos-sin-contenido.svg" alt="My GIFOS sin contenido">
-                <h2 id="default-msg">"¡Anímate a crear tu primer GIFO!"</h2>
-            </div>
-        </section>
-        
+            <section id="mygifs_empty" class="no-fav-mygifs">
+                <div class="fav-mygifs-empty-container">
+                    <img id="icon-mygifs-sin-contenido" src="assets/icon-mis-gifos-sin-contenido.svg" alt="My GIFOS sin contenido">
+                    <h2 id="default-msg">"¡Anímate a crear tu primer GIFO!"</h2>
+                </div>
+            </section>
+        </div>
         <!--Trending-->
         <div class="trending__header">
             <h3 id="trending-font">Trending:</h3>

@@ -39,33 +39,37 @@
         <div class="title"> <!--titulos_header-->
             <h1 class="title__color">Inspírate, busca, guarda, y crea <span id="break__desktop">los mejores<span class="change__color"> GIFOS</span></span></h1>
         </div>
-        <div class="container">
-            <img class="container__photo" src="assets/ilustra_header.svg" alt="Family Image">
-        </div>
+        
 
         <!--Boton de busqueda-->
         <div class="container_search">
-          
+            <div class="container-photo">
+                <img class="container__photo" src="assets/ilustra_header.svg" alt="Family Image">
+            </div>
             <form autocomplete="off" class="search"  id="search-form">
                 <input  type="text" class="search__text" id="search-input" placeholder="Busca GIFOS y más">
                 <button type="submit" class="button" id="button__search"><i class="fas fa-search"></i></button>
                 <button class="button" id="button__exs"><i class="fas fa-times"></i></button>
-                <!--GIFOS autocomplete-->
-            <div class="autocomplete" id="autocomplete">  
-                <div id="list-auto">
-                   
-                </div>
-            </div>
-            
+               
             </form>
-            
+        </div>
+
+            <!--GIFOS autocomplete-->
+        <div class="autocomplete" id="autocomplete">  
+            <div id="list-auto">
+               
+            </div>
+        </div>
+
             <!--GIFOS results-->
+           
             <div class="results" id="results">  
                 
             </div>
             <div id="button-more" onclick="next();"><h3>VER MAS</h3></div>
             
-        </div>
+        
+         
         <!--Trending-->
         <div class="trending__header">
             <h3 class="trending-font">Trending:</h3>
