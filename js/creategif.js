@@ -282,6 +282,7 @@ function copyToClipboard(url) {
 
 ////Nigth mode Create Gifo
 
+let createButton = document.getElementById('botton__gifo--disappear');
 let cam = document.getElementById('cam');
 let tape = document.getElementById('tape');
 let logo = document.getElementById('logo');
@@ -296,20 +297,42 @@ function loadStyle() {
   if (changeStyle === 'true') {
     dark.setAttribute('href', 'style/nightmode.css');
     switches.textContent = 'Modo Diurno';
-    if (cam, tape, logo){
+    if (cam, tape, logo, createButton){
       cam.src = 'assets/camara-modo-noc.svg';
       tape.src = 'assets/pelicula-modo-noc.svg';
       logo.src = 'assets/logo-modo-noc.svg';
+      createButton.src = 'assets/CTA-crear-gifo-modo-noc.svg';
+      
+      createButton.addEventListener('mouseleave', e => {
+        createButton.src = 'assets/CTA-crear-gifo-modo-noc.svg';
+      })
+      createButton.addEventListener('mouseover', e => {
+        createButton.src = 'assets/CTA-crear-gifo-hover-modo-noc.svg';
+      })
+      createButton.addEventListener('mousedown', e => {
+        createButton.src = 'assets/CTA-crear-gifo-active-modo-noc.svg';
+      })
     }
   } else {
     if (changeStyle === 'false') {
       dark.setAttribute('href', 'style/create_gifo.css');
       switches.textContent = 'Modo Nocturno';
     };
-    if (cam, tape,  logo){
+    if (cam, tape,  logo, createButton){
       cam.src = 'assets/camara.svg';
       tape.src = 'assets/pelicula.svg';
       logo.src = 'assets/logo-desktop.svg';
+      createButton.src = 'assets/button-crear-gifo.svg';
+            
+      createButton.addEventListener('mouseleave', e => {
+        createButton.src = 'assets/button-crear-gifo.svg';
+      })
+      createButton.addEventListener('mouseover', e => {
+        createButton.src = 'assets/CTA-crear-gifo-hover.svg';
+      })
+      createButton.addEventListener('mousedown', e => {
+        createButton.src = 'assets/CTA-crear-gifo-active.svg';
+      })
     }
   };
 };

@@ -87,19 +87,11 @@ async function clickDownload(imageUrl) {
     document.body.appendChild(saveImg);
     saveImg.click();
     document.body.removeChild(saveImg);
-    //showAlert('¡Descarga exitosa!');
 };
-
-
-/*const switchMode = document.querySelector('#switch');
-switchMode.addEventListener('click', () =>{
-    document.body.classList.toggle('dark');
-    switchMode.classList.toggle('active');
-});
-*/
 
 /////Nigth mode My Gifos
 
+let createButton = document.getElementById('botton__gifo--disappear');
 let logo = document.getElementById('logo');
 let dark = document.querySelector('#dark'); 
 let changeStyle = localStorage.getItem('nightmode');
@@ -108,26 +100,47 @@ switches.addEventListener('click', swapStyle);
 
 // Load Page Style
 function loadStyle() {
+    changeStyle = localStorage.getItem('nightmode');
     if (changeStyle === 'true') {
         dark.setAttribute('href', 'style/nightmode.css');
         switches.textContent = 'Modo Diurno';
-        if (logo){
+        if (logo, createButton){
             logo.src = 'assets/logo-modo-noc.svg';
+            createButton.src = 'assets/CTA-crear-gifo-modo-noc.svg';
+            
+            createButton.addEventListener('mouseleave', e => {
+                createButton.src = 'assets/CTA-crear-gifo-modo-noc.svg';
+            })
+            createButton.addEventListener('mouseover', e => {
+                createButton.src = 'assets/CTA-crear-gifo-hover-modo-noc.svg';
+            })
+            createButton.addEventListener('mousedown', e => {
+                createButton.src = 'assets/CTA-crear-gifo-active-modo-noc.svg';
+            })
         }
-
     } else {
         if (changeStyle === 'false') {
             dark.setAttribute('href', 'style/my-gifs.css');
             switches.textContent = 'Modo Nocturno';
         };
-        if (logo){
+        if (logo, createButton){
             logo.src = 'assets/logo-desktop.svg';
+            createButton.src = 'assets/button-crear-gifo.svg';
+            
+            createButton.addEventListener('mouseleave', e => {
+                createButton.src = 'assets/button-crear-gifo.svg';
+            })
+            createButton.addEventListener('mouseover', e => {
+                createButton.src = 'assets/CTA-crear-gifo-hover.svg';
+            })
+            createButton.addEventListener('mousedown', e => {
+                createButton.src = 'assets/CTA-crear-gifo-active.svg';
+            })
         }
     };
 };
 
 document.addEventListener('DOMContentLoaded', loadStyle);
-
 
 // Switch Styles according to Local Storage
 function swapStyle() {

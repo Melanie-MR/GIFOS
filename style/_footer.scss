@@ -4,9 +4,6 @@
 .social-media{
   color:grey;
   margin-left: 20px;
-  &.dark{
-    color:red;
-  }
 }
 
 .icon-container{
@@ -22,6 +19,7 @@
   align-items: center;
   font-family: FontAwesome5Brands-Regular;
   color:grey;
+  font-size: 15px;
   letter-spacing: 0;
   :hover{
     color: $purple-color;
@@ -33,9 +31,6 @@
   font-size: 13px;
   color: $black-font-color;
   text-align: center;
-  &.dark{
-    color:red;
-  }
 }
   
 .media-container{
@@ -45,6 +40,7 @@
 
 .copyright{
   margin-right: 10.83%;
+  
 }
 
 @media only screen and (max-width: 615px) {
@@ -57,10 +53,8 @@
     flex-direction: column;
     justify-content: center;
   }
- #icons{
+  #icons{
     justify-content: center;
-   // margin-left: -20px;
-    //padding: 0;
   }
   .copyright{
     margin: 0;

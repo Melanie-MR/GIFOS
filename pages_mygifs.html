@@ -8,7 +8,8 @@
     <title>Mis GIFOS</title>
 </head>
 <body class="body">
-    <header>
+
+    <header class="header">
     <hr class="blue-line">
 
     <!--navbar-->
@@ -20,12 +21,12 @@
                     <li class="list-nav"><a class="menu__list-- switch" id= "switch" href="#"><span>Modo Nocturno</span></a></li>
                     <li class="list-nav"><a class="menu__list--" href="pages_favorites.html">Favoritos</a></li>
                     <li class="list-nav"><a class="menu__list--  wider" href="#">Mis GIFOS</a></li>
-                    <li class="list-nav"><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg" onmouseover="this.src = 'assets/CTA-crear-gifo-hover.svg';" alt="Crear GIF" onmouseleave="this.src = 'assets/button-crear-gifo.svg' " onmousedown="this.src = 'assets/CTA-crear-gifo-active.svg';"></a></li>
+                    <li class="list-nav"><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg"></a></li>
                 </ul>
             </div>
             <label id="hamburger" for="toggle" class="menu2">
-                    <span class="bar"></span>
-                    <span class="exs"></span>
+                <span class="bar"></span>
+                <span class="exs"></span>
             </label>
         </div>
         
@@ -35,17 +36,20 @@
             <img src="assets/icon-mis-gifos.svg" alt="Icon Mygifs">
             <h1>Mis GIFOS</h1>
         </div>
+        
+        <!--My gifos, default msg-->
+        <section id="mygifs_empty" class="no-fav-mygifs">
+            <div class="fav-mygifs-empty-container">
+                <img id="icon-mygifs-sin-contenido" src="assets/icon-mis-gifos-sin-contenido.svg" alt="My GIFOS sin contenido">
+                <h2 id="default-msg">"¡Anímate a crear tu primer GIFO!"</h2>
+            </div>
+        </section>
+
         <!--My Gifs-->
         <div id="margin-galery">
-            <div class="galery"></div>
-
-            <section id="mygifs_empty" class="no-fav-mygifs">
-                <div class="fav-mygifs-empty-container">
-                    <img id="icon-mygifs-sin-contenido" src="assets/icon-mis-gifos-sin-contenido.svg" alt="My GIFOS sin contenido">
-                    <h2 id="default-msg">"¡Anímate a crear tu primer GIFO!"</h2>
-                </div>
-            </section>
+            <div class="galery"></div>  
         </div>
+
         <!--Trending-->
         <div class="trending__header">
             <h3 id="trending-font">Trending:</h3>
@@ -63,16 +67,14 @@
             <!-- Slideshow container -->
             <div class="slideshow-container"></div>
         </section>  
+
         <!-- The Modal -->
 
         <div id="myModal" class="modal">
             <span class="close" onclick="showModal()">&times;</span>
             <!-- Modal content-->
-            <div class="modal-container">
-            </div> 
+            <div class="modal-container"></div> 
         </div>
-
-
     </main>
     
     <!--footer-->
@@ -96,6 +98,5 @@
     <script src="js/mygifos.js"></script>
     <script src="js/trending.js"></script>
     <script src="js/modal.js"></script>
-  
 </body>
 </html>

@@ -83,24 +83,6 @@ function clickLike(url, width, title, height) {
     favorites();
 }
 
-//Delete Favorites Function ---> to remove item from Local Storage.
-/*function clickDelete(url) {
-    //This part find the position of the url 
-    const isElementUrl = (fav) => fav.url === url;
-
-    let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
-    //Variable with the position of the element in the array. 
-    let x = myLikes.findIndex(isElementUrl)
-
-    //Remove element in X position.
-    myLikes.splice(x,1)
-    
-    //To update the array after delete elements
-    localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
-    favorites();
-}*/
-
-
 // Download Gif
 async function clickDownload(imageUrl) {
 
@@ -115,18 +97,11 @@ async function clickDownload(imageUrl) {
     document.body.appendChild(saveImg);
     saveImg.click();
     document.body.removeChild(saveImg);
-    //showAlert('¡Descarga exitosa!');
 };
-
-/*const switchMode = document.querySelector('#switch');
-switchMode.addEventListener('click', () =>{
-    document.body.classList.toggle('dark');
-    switchMode.classList.toggle('active');
-});
-*/
 
 /////Nigth mode favorites
 
+let createButton = document.getElementById('botton__gifo--disappear');
 let logo = document.getElementById('logo');
 let dark = document.querySelector('#dark'); 
 let changeStyle = localStorage.getItem('nightmode');
@@ -139,16 +114,38 @@ function loadStyle() {
     if (changeStyle === 'true') {
         dark.setAttribute('href', 'style/nightmode.css');
         switches.textContent = 'Modo Diurno';
-        if (logo){
+        if (logo, createButton){
             logo.src = 'assets/logo-modo-noc.svg';
+            createButton.src = 'assets/CTA-crear-gifo-modo-noc.svg';
+            
+            createButton.addEventListener('mouseleave', e => {
+                createButton.src = 'assets/CTA-crear-gifo-modo-noc.svg';
+            })
+            createButton.addEventListener('mouseover', e => {
+                createButton.src = 'assets/CTA-crear-gifo-hover-modo-noc.svg';
+            })
+            createButton.addEventListener('mousedown', e => {
+                createButton.src = 'assets/CTA-crear-gifo-active-modo-noc.svg';
+            })
         }
     } else {
         if (changeStyle === 'false') {
             dark.setAttribute('href', 'style/favorites.css');
             switches.textContent = 'Modo Nocturno';
         };
-        if (logo){
+        if (logo, createButton){
             logo.src = 'assets/logo-desktop.svg';
+            createButton.src = 'assets/button-crear-gifo.svg';
+            
+            createButton.addEventListener('mouseleave', e => {
+                createButton.src = 'assets/button-crear-gifo.svg';
+            })
+            createButton.addEventListener('mouseover', e => {
+                createButton.src = 'assets/CTA-crear-gifo-hover.svg';
+            })
+            createButton.addEventListener('mousedown', e => {
+                createButton.src = 'assets/CTA-crear-gifo-active.svg';
+            })
         }
     };
 };
@@ -163,5 +160,4 @@ function swapStyle() {
         changeStyle = localStorage.setItem('nightmode', 'true');
     }
     loadStyle();
-    
 };

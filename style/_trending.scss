@@ -8,9 +8,6 @@
     position: center;
 }
 
-//#title__margin{
-   // margin-top: 67px;
-//}
 #trending__description{
     font-size: 18px;
     margin-top: 10px;
@@ -23,8 +20,7 @@
     margin-top: 4%;
 }
 .trending__header{
-    margin-top: 30px;
-    position: center;
+    margin-top: 80px;
 }
 #title__trending{
     color: $purple-color;
@@ -50,10 +46,6 @@
     width: 357px;
     height: 275px;
 }
-//Hide the images by default
-//.mySlydes {
-    //display: none;
-//}
 
 //Next and previous buttons
 .prev, .next {
@@ -76,14 +68,14 @@
 //Position the "next button" to the right 
 .next {
     right: 0;
-  }
+}
 
 //On hover, add a black background color with a little bit see-through
 .prev:hover, .next:hover {
     background-color:$purple-color;
     color: white;
     border-color: $purple-color;
-  }
+}
 
 //Fading animation
 .fade {
@@ -113,7 +105,7 @@
     height: 275px;
     display: flex;
     justify-content: flex-end;
-    margin-left: -357px; //-19%;
+    margin-left: -357px; 
     opacity: 0;
     transition: all .3s ease-in-out;  
 }
@@ -167,16 +159,10 @@
     }
     .slideshow-container{
         max-width:375px;
-        overflow: hidden;
-        
+        overflow: hidden; 
     }
-    /*.mySlides{
-        width: 243px;
-        height: 187px;
-    }*/
     .styleCard{
         width: 243px;
         height: 187px;
     }
-  
 }

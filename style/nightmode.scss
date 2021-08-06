@@ -62,46 +62,45 @@ h5{
 
 ////NAV BAR
 
-hr{
+.blue-line{
     display: flex;
     align-items: center;
     height: 5px;
-    background-color: black;
+    width: 100%;
+    background-color: $black-font-color;
     margin: 0;
-    border:none;
-  }
+    border-color: $black-font-color;
   
-  .nav{
-      display: flex;
-      justify-content: space-between; 
-      border-bottom: none;
-      text-align: center;
-      background: $night-background-color;
-    
-    }
-    #logo {
-      display: flex;
-      align-self: flex-start;
-      padding-top: 18px;
-      margin-left: 10.83%;
-      width: 59px;
-  
-    }
-   
-    li{
-      display: inline;
-      vertical-align: top;
-      font-family: $font-montserrat;
-      text-transform: uppercase;
-      font-size: 13px;
-      font-weight: bold;
-      list-style: none;
-      padding-left: 40px;
-  
-    }
-    .menu{
-      margin: 0;
-      padding-right: 10.83%;
+}
+header {
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+#logo {
+    display: flex;
+    padding-top: 18px;
+    width: 59px;
+}
+.nav{
+    display: flex;
+    justify-content: space-around; 
+    border-bottom: none;
+    text-align: center;
+    background: $night-background-color;
+}
+.list-nav{
+    display: inline;
+    vertical-align: top;
+    font-family: $font-montserrat;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    list-style: none;
+    padding-left: 40px;
+}
+.menu{
+    margin: 0;
         a {
           text-decoration: none;
           color: $background-color;
@@ -111,47 +110,59 @@ hr{
           :active{
             color: $second-night-font-color;
           }
-    }
-    label{
-      margin: 0;
-      font-size: 16px;
-      line-height: 80px;
-      display: none;
+}
+
+label{
+    margin: 0;
+    font-size: 16px;
+    line-height: 80px;
+    display: none;
   
-    }
-    #toggle{
-      display: none;
-  
-    }
-  
-  .menu__list--:hover{
+}
+#toggle{
+    display: none;
+}
+.menu__list--:hover{
     text-decoration: underline $aqua-font-color 2px;
-  }
+}
   
-    @media only screen and (max-width: 480px) {
-      
-      .nav {
+@media only screen and (max-width: 615px) {
+    .blue-line{
+        width: 100%;
+    }
+    .wider{
+        height: 500px; //this make the menu heighter.
+    }  
+    header {
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+      }
+    .nav {
         display: flex;
         justify-content: space-between;
-    
+        background-color: $night-background-color;
+        opacity: 100%;
         #logo{
-          margin-left: 5%;
-          width: 48.8px;
+            margin-left: 30%;
+            width: 48.8px;
         }
-        li{
+        .list-nav{
           text-transform: none;
           padding-left: 0;
+          font-size: 15px;
+          line-height: 30px;
           #botton__gifo--disappear{
             display: none;
           }
         }
         .menu__list-- {
           display: block;
-          background: black;
-          opacity: 90%;
+          background: $black-font-color;
+          opacity: 100%;
           color: $background-color;
-          width: 375px;
-          
+          padding-left: 25%;
+          width: 100%;   
         }
         .menu__list{
           margin-left: -90%;
@@ -170,7 +181,7 @@ hr{
           width: 64px;
           height: 64px;
           cursor: pointer;
-          background-color: red;
+          background-color: $night-background-color;
           .bar {
             position: absolute;
             top: 10px;
@@ -187,7 +198,7 @@ hr{
               width: 15px;
               height: 2px;
               content: '';
-              background: green;
+              background: $background-color;
               opacity: 100%;
             }
             &:before {
@@ -207,29 +218,23 @@ hr{
         }
         #toggle:checked~.menu2 {
           .bar {
-              display: none;
+            display: none;
           }
           .exs {
-              display: inline-block;
-              margin-left: 30px;
+            display: inline-block;
+            margin-left: 30px;
           }
-      }
-       
+        }
         .menu {
-          width: 150px;
-          background-color:  red;
-          display: none;
-          margin-top: 50px;
-          height: 484px;
-          a:hover{
-            color: #00F3BB;
-            text-decoration: line-through;
-            font-weight: 500;
-          }
-        }      
-      }
-    
-    }
+            width: 100%;
+            display: none;
+            margin-top: 60px;
+        }
+    } 
+    .menu__list--:hover{
+        text-decoration: none;
+    }  
+}
 
 //// MAIN -INDEX
 
@@ -250,8 +255,7 @@ hr{
     color: $background-color;
     font-size: 35px;
     text-align: center;
-    line-height: 50px;
-    margin-top: 50px;   
+    line-height: 50px; 
 }
 .change__color{
     color: $aqua-font-color;
@@ -259,40 +263,28 @@ hr{
 
 //Header Ilustration
 .container__photo {
-    //position:relative;
-    height: 100%;
-    width:100%;
+    height: 190px;
+    width:399px;
 }
 
 //Search
 .container_search {
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
 }
 form{
     height: 40px;
     width: 551px;
     top: 66.6%;
     border-radius: 50px;
-    border: 1px solid $purple-color;
+    border: 1px solid $background-color;
     
 }
 .search {
-   /* display: flex;
-    align-items: center;
-    top: 66.6%;
-    background-color: $night-background-color;
-    padding: 10px;
-    height: 30px;
-    width: 551px;
-    margin-left: 10%;
-    border-radius: 50px;
-    border: 1px solid $background-color;
-*/
     display: flex;
     align-items: center;
-    background-color: $background-color;
+    background-color: $night-background-color;
     padding: 10px;
 }    
 .search__text{
@@ -321,9 +313,8 @@ form{
     text-align: center;
     line-height: 30px;
     margin-top: 5%;
-   
-
 }
+
 //Search button
 .button{
     width: 20px;
@@ -414,41 +405,37 @@ form{
     
 }
 
-///VER MAS 
-
-#button-more{ // this can be in general style
+///VER MAS button
+#button-more{ 
     display: none;
     background: none;
     color: $background-color;
+    padding-top: 2px;
     border-radius: 50px;
-    border: 0.5px solid $purple-color;
+    border: 1px solid $background-color;
     height: 50px;
     width: 127px;
-    //display: block; //should be block when the search appear.
-    //position: absolute;
-    margin-left: 25%;
-    margin-top: 2%;
-    
-    :hover{
-        background-color:$purple-color;
-        color:$background-color;
+    font-size: 13px;
+    font-family: $font-montserrat;
+    font-weight: bold;
+    &:hover{
+        background-color:$background-color;
+        color:$black-font-color;
     }
 }
 
-
 .gral-button{
-    display: none; //should be block when the search appear.
+    display: block; 
     position: absolute;
     margin-left: 25%;
     margin-top: 2%;
-    
     :hover{
         background-color:$background-color;
         color:black;
     }
     
 }
-#button-format{ // this can be in general style
+#button-format{ 
     background: none;
     color: none;
     border-radius: 50px;
@@ -457,6 +444,161 @@ form{
     width: 127px;
 }
 
+/////The Modal
+
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80%; 
+    overflow: auto; 
+    background-color: red; 
+}
+.mySlidesModal{
+    display: flex;
+    justify-content: center;
+}
+
+//Modal Content/Box
+.modal-container {
+    background-color: #fefefe;
+    border: none;
+    //width:80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: greenyellow;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+//Next and previous buttons
+.prev2, .next2 {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    width: 8px;
+    color: $purple-color;
+    border-style: solid;
+    border-width: 2px;
+    font-size: 14px;
+    transition: 0.6s ease;
+    user-select: none;
+}
+//Position the "next button" to the right 
+.next2 {
+    right: 0;
+}
+//On hover, add a black background color with a little bit see-through
+.prev2:hover, .next2:hover {
+    background-color:$purple-color;
+    color: white;
+    border-color: $purple-color;
+}
+
+.arrowsModal {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 22%;
+    margin-right: 22%;
+}
+#titleModal{
+    font-size: 15px;
+    color: $black-font-color;
+    font-weight: 400;
+}
+#userModal{
+    font-size: 16px;
+    font-weight: bold;
+}
+.icons-layer-modal {
+    cursor: pointer;
+    flex-direction: row;
+    width: 32px;
+    height: 32px;
+    margin-top: 100%;
+    border:2px $purple-color;
+    border-radius: 6px;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.modal-icon-layer{
+    display: flex;
+    padding-top: 23%;
+    justify-content: space-between;
+    margin-left: -5%;
+}
+
+//Responsive MAIN//
+@media only screen and (max-width: 615px) {
+    
+    .container_search{
+        margin-left: 5%;
+        margin-top: 5%;
+        max-width:  334px;;
+        margin-left: 10%;
+    }
+    .container__photo {
+        height: 130px;
+        width:273px;
+    }
+    .title__color{
+        font-size: 25px;
+        text-align: center;
+        line-height: 33px;
+        margin-top: 8%;
+    }
+    #break__desktop{
+        display: inline;
+    }
+    form{
+        height: 40px;
+        width: 334px;
+        border-radius: 27px;
+    }
+    .search{
+        padding: 0; 
+    }
+    .title{
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .galeryMeasure{
+        width: 156px; 
+        height: 120px;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+    .results{
+        display: inline;
+        width: calc(156px * 2 + 4em);
+        margin: auto;
+    }
+    .img-layer{
+        display: none;
+    }
+}
 
 ////TRENDING
 
@@ -464,13 +606,12 @@ form{
 .trending{
     background-color:#222326;
     height: 640px;
-    width: 1440px;
+    width: 100%;
     margin-top: 50px;
+    padding-top: 10px;
+    position: center;
 }
 
-//#title__margin{
-   // margin-top: 67px;
-//}
 #trending__description{
     font-size: 18px;
     margin-top: 10px;
@@ -483,8 +624,7 @@ form{
     margin-top: 4%;
 }
 .trending__header{
-    margin-top: 30px;
-    position: center;
+    margin-top: 80px;
 }
 #title__trending {
     color: $background-color;
@@ -505,11 +645,10 @@ form{
     flex-direction: row;
     justify-content: space-between;
 }
-
-//Hide the images by default
-//.mySlydes {
-    //display: none;
-//}
+.styleCard{
+    width: 357px;
+    height: 275px;
+}
 
 //Next and previous buttons
 .prev, .next {
@@ -532,14 +671,14 @@ form{
 //Position the "next button" to the right 
 .next {
     right: 0;
-  }
+}
 
 //On hover, add a black background color with a little bit see-through
 .prev:hover, .next:hover {
     background-color:$background-color;
     color: #222326 ;
     border-color: #222326 ;
-  }
+}
 
 //Fading animation
 .fade {
@@ -569,7 +708,7 @@ form{
     height: 275px;
     display: flex;
     justify-content: flex-end;
-    margin-left: -357px; //-19%;
+    margin-left: -357px; 
     opacity: 0;
     transition: all .3s ease-in-out;  
 }
@@ -603,52 +742,47 @@ form{
     outline: inherit;
 }
 
-/* // The Modal (background) 
-.modal {
-    display: none; // Hidden by default 
-    position: fixed; // Stay in place 
-    z-index: 1; //Sit on top 
-    left: 0;
-    top: 0;
-    width: 100%; //Full width 
-    height: 100%; //Full height 
-    overflow: auto;// Enable scroll if needed 
-    background-color: rgb(0,0,0);// Fallback color 
-    background-color: rgba(0,0,0,0.4); // Black w/ opacity 
+.arrowsTrend {
+    display: flex;
+    justify-content: space-around;
+    margin-left: -5%;
+    margin-right: -5%;
 }
 
-Modal Content/Box 
-.modal-container {
-    background-color: #fefefe;
-    margin: 15% auto; // 15% from the top and centered 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; // Could be more or less, depending on screen size 
-  }
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+@media only screen and (max-width: 615px) {
+    .trending{
+        background-color:#222326;
+        height: 430px;
+        width: 100%;
+        margin-top: 50px;
+        padding-top: 10px;
+        position: center;
+    }
+    .img-layer-trending{
+        display: none;
+    }
+    .slideshow-container{
+        max-width:375px;
+        overflow: hidden; 
+    }
+    .styleCard{
+        width: 243px;
+        height: 187px;
+    }
 }
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-*/
-
-
 
 ///////FAVORITES
+
+#margin-galery{
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
 .title-favoritos {
     color: $background-color;
     font-size: 15px;
     text-align: center;
-    margin-top: 2px;
+    margin-top: 8%;
 }
 #default-msg{
     font-size: 22px;
@@ -663,23 +797,29 @@ Modal Content/Box
 #icon-fav-sin-contenido{
     width: 151px;
     height: 150px;
-    margin-left: 45%;//mejorar esto para responsive
 }
 
 .galery{
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    max-width: 80%; 
-    margin-left: 10%; 
+    display: inline;
+    width: calc(260px * 4 + 4em);
+    margin: auto;
+}
+
+.galeryMeasure{
+    width: 260px; 
+    height: 200px;
+    margin-left: 2%;
+    margin-bottom: 2%;
 }
 
 .img-layer{
-    width: 260px;
+    display: inline;
+    position: absolute;
+    width: 262px;
     height: 200px;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: -260px; //-19%;
+    margin-left: -262px;
+    margin-top: 0;
+    z-index: 0;
     opacity: 0;
     transition: all .3s ease-in-out;  
 }
@@ -713,19 +853,49 @@ Modal Content/Box
     outline: inherit;
 }
 
+@media only screen and (max-width: 615px) {
+
+    .galeryMeasure{
+        width: 156px; 
+        height: 120px;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+    .galery{
+        display: inline;
+        width: calc(156px * 2 + 4em);
+        margin: auto;
+  
+    }
+    .img-layer{
+        display: none;
+    }
+  
+    .title-favoritos {
+        margin-top: 15%;
+    }
+}
+
+
 ////MY GIFS
 
 .title-mygifs {
     color: $background-color;
     font-size: 15px;
     text-align: center;
-    margin-top: 2px;
+    margin-top: 8%;
 }
 
 #icon-mygifs-sin-contenido{
     width: 151px;
     height: 150px;
-    margin-left: 45%;//mejorar esto para responsive
+}
+
+@media only screen and (max-width: 615px) {
+
+    .title-mygifs {
+        margin-top: 15%;
+    }
 }
 
 /////CREATE GIFO
@@ -749,15 +919,6 @@ Modal Content/Box
    
 }
 
-.tapes-container{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: -8%;
-    margin-left: 5%;
-    border-collapse: collapse;
-    position: relative;
-    
-}
 .video-preview{
     width: 480px;
     height: 320px;
@@ -768,7 +929,6 @@ video{
     margin-left: 15%;
     margin-top: 5%;
 }
-
 
 .light{
     margin-top: 10%;
@@ -786,8 +946,7 @@ video{
 #num-bar-container{
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
-    
+    margin-left: 40px;  
 } 
 .numbers-container{
     display: flex;
@@ -796,8 +955,6 @@ video{
     margin-left: 16%;
     margin-bottom: 5%;
     margin-top: -3%;
-
-
 }
 .num-repeat-container{
     display: flex;
@@ -805,7 +962,6 @@ video{
     justify-content: space-between;
     margin-left: 30%;
 }
-
 
 .button-number{
     border-radius: 50%;
@@ -831,7 +987,6 @@ video{
     font-weight: medium;
     color: #222326;
     font-size: 18px;
-    
 }
 
 .bottom-camera-display{
@@ -845,7 +1000,6 @@ video{
     background-color: black;
     border-radius: 30px;
 }
-
 #tape{
     margin-top: 383px;
     margin-left: 67px;
@@ -873,11 +1027,9 @@ video{
 .text-gifo-container{ 
     display: flex;
     flex-direction: column;
-
 }
-.text-gifo-container-recording{ //Hidden in crear gifo 1. 
-    display: none;
-    
+.text-gifo-container-recording{ 
+    display: none; 
 }
 .main-msg{
     color: $background-color;
@@ -893,7 +1045,6 @@ video{
     line-height: 29px;
     margin-top: 0%;
 }
-
 
 #start {
     display: block; 
@@ -963,8 +1114,7 @@ video{
     background-color: #572EE5;
     opacity: 0.7;
     margin-left: -796px;
-    margin-top: 2.8%;
-    
+    margin-top: 2.8%; 
 }
 .progress-icon{
     display: flex;
@@ -1017,8 +1167,8 @@ video{
     outline: inherit;
 }
 
+/////FOOTER
 
-    /////FOOTER
 .footer-container{
     margin-bottom: 1%;
 }
@@ -1040,6 +1190,7 @@ video{
     align-items: center;
     font-family: FontAwesome5Brands-Regular;
     color: $background-color;
+    font-size: 15px;
     letter-spacing: 0;
     :hover{
         color: $purple-color;
@@ -1061,3 +1212,22 @@ video{
 .copyright{
     margin-right: 10.83%;
 }
+
+@media only screen and (max-width: 615px) {
+    
+    .icon-container{
+      flex-direction: column;
+      margin: 0;
+    }
+    .media-container{
+      flex-direction: column;
+      justify-content: center;
+    }
+    #icons{
+      justify-content: center;
+    }
+    .copyright{
+      margin: 0;
+    }
+}  
+    

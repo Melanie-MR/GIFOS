@@ -13,7 +13,6 @@
 //Main
 @import "_main.scss";
 
-
 //Trending - Slider
 @import "_trending.scss";
 
@@ -22,6 +21,7 @@
 
 #margin-galery{
     margin-left: 10%;
+    margin-top: 2%;
 }
 .title-mygifs {
     color: $purple-color;
@@ -42,7 +42,6 @@
 #icon-mygifs-sin-contenido{
     width: 151px;
     height: 150px;
-    margin-left: 45%;//mejorar esto para responsive
 }
 
 .galery{
@@ -70,12 +69,11 @@
     z-index: 0;
     opacity: 0;
     transition: all .3s ease-in-out;  
-
 }
 .img-layer:hover {
    background-color: $purple-color;
    opacity: 0.7;
-   width: 263px;
+   width: 260px;
    height: 200px;
 }
 #icons-layer {
@@ -101,56 +99,6 @@
     outline: inherit;
 }
 
-
-
-
-/*.galery{
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    max-width: 80%; 
-    margin-left: 10%; 
-}
-
-.img-layer{
-    width: 260px;
-    height: 200px;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: -260px; //-19%;
-    opacity: 0;
-    transition: all .3s ease-in-out;  
-}
-.img-layer:hover {
-    background-color: $purple-color;
-    opacity: 0.7;
-    width: 260px;
-    height: 200px;
-}
-
-#icons-layer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-right: 2%;
-}
-.icons-layer {
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    margin-right: 4%;
-    margin-top: 5%;
-    border:none;
-    border-radius: 6px;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}*/
-
 @media only screen and (max-width: 615px) {
 
     .galeryMeasure{
@@ -167,6 +115,9 @@
     }
     .img-layer{
         display: none;
+    }
+    .title-mygifs {
+        margin-top: 15%;
     }
     
 }

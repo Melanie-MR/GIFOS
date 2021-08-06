@@ -9,12 +9,10 @@
 </head>
 
 <body class="body">
-    <header>
+    <header class="header">
     <hr class="blue-line">
 
     <!--navbar-->
-   
-        
         <div class="nav">
             <a class="link-home" href="index.html"><img id="logo" class="logo" src="assets/logo-desktop.svg" alt="logo"></a>
             <input type="checkbox" id="toggle" value="flag"/>
@@ -22,8 +20,8 @@
                 <ul class="menu__list">
                     <li class="list-nav"><a class="menu__list-- switch" id= "switch" href="#"><span>Modo Nocturno</span></a></li>
                     <li class="list-nav"><a class="menu__list--" href="pages_favorites.html">Favoritos</a></li>
-                    <li class="list-nav"><a class="menu__list-- wider" href="pages_mygifs.html">Mis GIFOS</a></li>
-                    <li class="list-nav"><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg" onmouseover="this.src = 'assets/CTA-crear-gifo-hover.svg';" alt="Crear GIF" onmouseleave="this.src = 'assets/button-crear-gifo.svg' " onmousedown="this.src = 'assets/CTA-crear-gifo-active.svg';"></a></li>
+                    <li class="list-nav"><a class="menu__list--" href="pages_mygifs.html">Mis GIFOS</a></li>
+                    <li class="list-nav"><a class="menu__list-- wider" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg"></a></li>
                 </ul>
             </div>
             <label id="hamburger" for="toggle" class="menu2">
@@ -36,11 +34,11 @@
 
     <!--Main-->
     <main class="main__content">
-        <div class="title"> <!--titulos_header-->
+        <!--titulos_header-->
+        <div class="title"> 
             <h1 class="title__color">Inspírate, busca, guarda, y crea <span id="break__desktop">los mejores<span class="change__color"> GIFOS</span></span></h1>
         </div>
-        
-
+    
         <!--Boton de busqueda-->
         <div class="container_search">
             <div class="container-photo">
@@ -49,27 +47,21 @@
             <form autocomplete="off" class="search"  id="search-form">
                 <input  type="text" class="search__text" id="search-input" placeholder="Busca GIFOS y más">
                 <button type="submit" class="button" id="button__search"><i class="fas fa-search"></i></button>
-                <button class="button" id="button__exs"><i class="fas fa-times"></i></button>
-               
+                <button class="button" id="button__exs"><i class="fas fa-times"></i></button> 
             </form>
         </div>
 
-            <!--GIFOS autocomplete-->
+        <!--GIFOS autocomplete-->
         <div class="autocomplete" id="autocomplete">  
-            <div id="list-auto">
-               
+            <div id="list-auto"> 
             </div>
         </div>
-
-            <!--GIFOS results-->
-           
-            <div class="results" id="results">  
-                
-            </div>
-            <div id="button-more" onclick="next();"><h3>VER MAS</h3></div>
-            
         
-         
+        <!--GIFOS results-->
+        <div class="results" id="results">    
+        </div>
+        <button id="button-more" onclick="next();">VER MAS</button>
+          
         <!--Trending-->
         <div class="trending__header">
             <h3 id="trending-font">Trending:</h3>
@@ -77,7 +69,6 @@
         </div>
 
         <!--Trending and slider-->
-        
         <section class="trending">
             <div class="trending__gifs">
                 <h2 id="title__trending">Trending GIFOS</h2>
@@ -92,14 +83,13 @@
         <div id="myModal" class="modal">
             <span class="close" onclick="showModal()">&times;</span>
             <!-- Modal content-->
-            <div class="modal-container">
-            </div> 
+            <div class="modal-container"></div> 
         </div>
         
     </main>
 
-     <!--footer-->
-     <footer>
+    <!--footer-->
+    <footer>
         <section class="footer-container">
             <div class="media-container">
                 <div class="icon-container">

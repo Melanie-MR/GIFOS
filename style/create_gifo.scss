@@ -65,8 +65,7 @@ video{
 #num-bar-container{
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
-    
+    margin-left: 40px;  
 } 
 .numbers-container{
     display: flex;
@@ -75,8 +74,6 @@ video{
     margin-left: 16%;
     margin-bottom: 5%;
     margin-top: -3%;
-
-
 }
 .num-repeat-container{
     display: flex;
@@ -84,7 +81,6 @@ video{
     justify-content: space-between;
     margin-left: 30%;
 }
-
 
 .button-number{
     border-radius: 50%;
@@ -110,7 +106,6 @@ video{
     font-weight: medium;
     color: $background-color;
     font-size: 18px;
-    
 }
 
 .bottom-camera-display{
@@ -150,11 +145,9 @@ video{
 .text-gifo-container{ 
     display: flex;
     flex-direction: column;
-
 }
-.text-gifo-container-recording{ //Hidden in crear gifo 1. 
+.text-gifo-container-recording{ 
     display: none;
-    
 }
 .main-msg{
     color: $purple-color;
@@ -170,7 +163,6 @@ video{
     line-height: 29px;
     margin-top: 0%;
 }
-
 
 #start {
     display: block; 
@@ -241,7 +233,6 @@ video{
     opacity: 0.7;
     margin-left: -796px;
     margin-top: 2.8%;
-    
 }
 .progress-icon{
     display: flex;

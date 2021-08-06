@@ -17,9 +17,6 @@
     font-size: 35px;
     text-align: center;
     line-height: 50px;
-    margin-top: 50px;
-
-    
 }
 
 .change__color{
@@ -28,7 +25,6 @@
 
 //Header Ilustration
 .container__photo {
-    //position:relative;
     height: 190px;
     width:399px;
 }
@@ -37,8 +33,7 @@
 .container_search {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: center;  
 }
 form{
     height: 40px;
@@ -82,9 +77,8 @@ form{
     text-align: center;
     line-height: 30px;
     margin-top: 5%;
-   
-
 }
+
 //Search button
 .button{
     width: 20px;
@@ -103,11 +97,6 @@ form{
 
 //Search Results 
 .results{
-   /* display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    max-width: 70%; 
-    margin-left: 10%;  */
     display: inline;
     width: calc(280px * 4 + 4em);
     margin: auto;
@@ -161,57 +150,6 @@ form{
     outline: inherit;
 }
 
-/*
-
-.galeryMeasure{
-    width: 260px; 
-    height: 200px;
-    margin-left: 2%;
-    margin-bottom: 2%;
-}
-
-.img-layer{
-    display: inline;
-    position: absolute;
-    width: 262px;
-    height: 200px;
-    margin-left: -262px;
-    margin-top: 0;
-    z-index: 0;
-    opacity: 0;
-    transition: all .3s ease-in-out;  
-
-}
-.img-layer:hover {
-   background-color: $purple-color;
-   opacity: 0.7;
-   width: 263px;
-   height: 200px;
-}
-#icons-layer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-right: 2%;
-}
-.icons-layer {
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    margin-right: 4%;
-    margin-top: 5%;
-    border:none;
-    border-radius: 6px;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}*/
-
-
 //Style list autocompleted
 .autoList{
     list-style: none;
@@ -222,10 +160,6 @@ form{
     margin-left: -445px;
 }
 
-
-
-
-
 //Line results
 .gray-line{
     opacity: 0.5;
@@ -234,39 +168,37 @@ form{
     height: 0.1px;
     
 }
-#button-more{ // this can be in general style
+///VER MAS button
+#button-more{ 
     display: none;
     background: none;
-    color: $background-color;
     border-radius: 50px;
-    border: 0.5px solid $purple-color;
+    padding-top: 2px;
+    border: 1px solid $purple-color;
     height: 50px;
     width: 127px;
-    //display: block; //should be block when the search appear.
-    //position: absolute;
-    margin-left: 25%;
-    margin-top: 2%;
-    
-    :hover{
-        background-color:$purple-color;
+    font-size: 13px;
+    font-family: $font-montserrat;
+    font-weight: bold;
+    color:$purple-color;
+    &:hover{
         color:$background-color;
+        background-color:$purple-color;
     }
 }
 
-
 .gral-button{
-    display: block; //should be block when the search appear.
+    display: block; 
     position: absolute;
     margin-left: 25%;
     margin-top: 2%;
-    
     :hover{
         background-color:$purple-color;
         color:$background-color;
     }
     
 }
-#button-format{ // this can be in general style
+#button-format{ 
     background: none;
     color: none;
     border-radius: 50px;
@@ -275,74 +207,29 @@ form{
     width: 127px;
 }
 
-
-/* COMENTADO POR AJUSTES EN LAYERS DE FAVORITOS
-.img-layer{
-    width: 260px;
-    height: 200px;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: -260px; //-19%;
-    opacity: 0;
-    transition: all .3s ease-in-out;  
-}
-.img-layer:hover {
-    background-color: $purple-color;
-    opacity: 0.7;
-    width: 260px;
-    height: 200px;
-}
-
-#icons-layer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-right: 2%;
-}
-.icons-layer {
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    margin-right: 4%;
-    margin-top: 5%;
-    border:none;
-    border-radius: 6px;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-}*/
-
-
 /////The Modal
 
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 80%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-
-    background-color: red; /* Black w/ opacity */
+    width: 100%; 
+    height: 80%; 
+    overflow: auto; 
+    background-color: red; 
 }
 
 .mySlidesModal{
     display: flex;
     justify-content: center;
-    //margin-left: 5%;
 }
-/* Modal Content/Box */
+
+//Modal Content/Box
 .modal-container {
     background-color: #fefefe;
-   // margin: 15% auto; /* 15% from the top and centered */
-    //padding: 20px;
     border: none;
     //width:80%; /* Could be more or less, depending on screen size */
 }
@@ -391,7 +278,7 @@ form{
     background-color:$purple-color;
     color: white;
     border-color: $purple-color;
-  }
+}
 
 .arrowsModal {
     display: flex;
@@ -410,12 +297,9 @@ form{
 }
 .icons-layer-modal {
     cursor: pointer;
-    //display: flex;
     flex-direction: row;
-    //justify-content: space-between;
     width: 32px;
     height: 32px;
-    //margin-right: 4%;
     margin-top: 100%;
     border:2px $purple-color;
     border-radius: 6px;
@@ -441,20 +325,14 @@ form{
         margin-left: 10%;
     }
     .container__photo {
-        //position:relative;
         height: 130px;
         width:273px;
     }
     .title__color{
-        
         font-size: 25px;
         text-align: center;
         line-height: 33px;
-        margin-top: 20%;
-     /*   &.dark {
-            color: red;
-        }*/
-        
+        margin-top: 8%;
     }
     #break__desktop{
         display: inline;
@@ -462,14 +340,10 @@ form{
     form{
         height: 40px;
         width: 334px;
-        //top: 66.6%;
-       // margin-left: 10%;
         border-radius: 27px;
-        //border: 1px solid $purple-color;
     }
     .search{
         padding: 0;
-      
     }
     .title{
         margin-left: 5%;

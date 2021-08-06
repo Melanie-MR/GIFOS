@@ -8,7 +8,8 @@
     <title>Favoritos</title>
 </head>
 <body class="body">
-    <header>
+
+    <header class="header">
     <hr class="blue-line">
 
     <!--navbar-->
@@ -20,36 +21,36 @@
                     <li class="list-nav"><a class="menu__list-- switch" id= "switch" href="#"><span>Modo Nocturno</span></a></li>
                     <li class="list-nav"><a class="menu__list--" href="#">Favoritos</a></li>
                     <li class="list-nav"><a class="menu__list--  wider" href="pages_mygifs.html">Mis GIFOS</a></li>
-                    <li class="list-nav"><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg" onmouseover="this.src = 'assets/CTA-crear-gifo-hover.svg';" alt="Crear GIF" onmouseleave="this.src = 'assets/button-crear-gifo.svg' " onmousedown="this.src = 'assets/CTA-crear-gifo-active.svg';"></a></li>
+                    <li class="list-nav"><a class="menu__list--" href="pages_creategif.html"><img id="botton__gifo--disappear" src="assets/button-crear-gifo.svg"></a></li>
                 </ul>
             </div>
             <label id="hamburger" for="toggle" class="menu2">
-                    <span class="bar"></span>
-                    <span class="exs"></span>
+                <span class="bar"></span>
+                <span class="exs"></span>
             </label>
         </div>
         
     </header>
     <main>
-
         <div class="title-favoritos">
             <img src="assets/icon-favoritos.svg" alt="Icon Favoritos">
             <h1>Favoritos</h1>
         </div>
 
-        <!--Favorites-->
-        <div id="margin-galery">
-        <div class="galery"></div>
-        
         <!--Favorites, default msg-->
         <section id="fav-mygifs_empty" class="no-fav-mygifs hide">
             <div class="fav-mygifs-empty-container">
                 <img id="icon-fav-sin-contenido" src="assets/icon-fav-sin-contenido.svg" alt="Favoritos sin contenido">
                 <h2 id="default-msg">"¡Guarda tu primer GIFO en Favoritos <br>
-                    para que se muestre aquí!"</h2>
+                        para que se muestre aquí!"</h2>
             </div>
         </section>
-    </div>
+       
+        <!--Favorites-->
+        <div id="margin-galery">
+            <div class="galery"></div>
+        </div>
+
         <!--Trending-->
         <div class="trending__header">
             <h3 id="trending-font">Trending:</h3>
@@ -62,8 +63,7 @@
             <div class="trending__gifs">
                 <h2 id="title__trending">Trending GIFOS</h2>
                 <h5 id="trending__description">Mira los últimos GIFO de nuestra comunidad.</h5>
-            </div>
-            
+            </div> 
             <!-- Slideshow container -->
             <div class="slideshow-container"></div>
         </section>
@@ -73,8 +73,7 @@
         <div id="myModal" class="modal">
             <span class="close" onclick="showModal()">&times;</span>
             <!-- Modal content-->
-            <div class="modal-container">
-            </div> 
+            <div class="modal-container"></div> 
         </div>
     </main>
     

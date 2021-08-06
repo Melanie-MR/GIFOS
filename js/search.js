@@ -208,6 +208,8 @@ function autocompleteSearch (y){
 
 
 /////Nigth mode Index
+
+let createButton = document.getElementById('botton__gifo--disappear');
 let logo = document.getElementById('logo');
 let dark = document.querySelector('#dark'); 
 let changeStyle = localStorage.getItem('nightmode');
@@ -220,16 +222,38 @@ function loadStyle() {
     if (changeStyle === 'true') {
         dark.setAttribute('href', 'style/nightmode.css');
         switches.textContent = 'Modo Diurno';
-        if (logo){
+        if (logo, createButton){
             logo.src = 'assets/logo-modo-noc.svg';
+            createButton.src = 'assets/CTA-crear-gifo-modo-noc.svg';
+            
+            createButton.addEventListener('mouseleave', e => {
+                createButton.src = 'assets/CTA-crear-gifo-modo-noc.svg';
+            })
+            createButton.addEventListener('mouseover', e => {
+                createButton.src = 'assets/CTA-crear-gifo-hover-modo-noc.svg';
+            })
+            createButton.addEventListener('mousedown', e => {
+                createButton.src = 'assets/CTA-crear-gifo-active-modo-noc.svg';
+            })
         }
     } else {
         if (changeStyle === 'false') {
             dark.setAttribute('href', 'style/style.css');
             switches.textContent = 'Modo Nocturno';
         } 
-        if(logo){
+        if (logo, createButton){
             logo.src = 'assets/logo-desktop.svg';
+            createButton.src = 'assets/button-crear-gifo.svg';
+            
+            createButton.addEventListener('mouseleave', e => {
+                createButton.src = 'assets/button-crear-gifo.svg';
+            })
+            createButton.addEventListener('mouseover', e => {
+                createButton.src = 'assets/CTA-crear-gifo-hover.svg';
+            })
+            createButton.addEventListener('mousedown', e => {
+                createButton.src = 'assets/CTA-crear-gifo-active.svg';
+            })
         }
 
     };
