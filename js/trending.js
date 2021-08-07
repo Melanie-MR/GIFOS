@@ -56,7 +56,9 @@ function trending(num) {
             const url = obj.images.fixed_width.url;
             const width = obj.images.fixed_width.width;
             const title = obj.title;
+            const user = obj.username;
             const height= obj.images.fixed_height.height;
+       
             
             //To add strings
             
@@ -64,6 +66,7 @@ function trending(num) {
                                     <img src="${url}" class= "styleCard" alt="${title}">
                                     
                                     <div class="img-layer-trending">
+                                        <div class="user-trend">User: ${user}<span class="titleGtrend">Titulo: ${title}</span></div>
                                         <div id= "icons-layer-trending">
                                             <button class="icons-layer-trending" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                             <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>

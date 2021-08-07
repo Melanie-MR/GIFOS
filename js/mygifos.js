@@ -13,9 +13,11 @@ function myGifos() {
     
         myGifs.forEach(function(myG) {
             
-            //const id = myG.id;
+            
             const url = myG.url;
             const title = myG.title;
+            const user = myG.username;
+            const id = myG.id;
 
             //To add strings
             
@@ -33,6 +35,7 @@ function myGifos() {
                                     <button class="icons-layer" onclick="clickDelete('${url}', 'myGifs');myGifos()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
                                     <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                 </div>
+                                <div class="user-title">User: Melanie-MR<span class="titleG">Título: Gif Creado</span></div>
                             </div>
                             
                             `;

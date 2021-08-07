@@ -21,11 +21,10 @@ function favorites() {
     
         myLikes.forEach(function(fav) {
             
-            const id = fav.id;
             const url = fav.url;
             const title = fav.title;
-            const width = fav.width;
-            const height = fav.height;
+            const user = fav.username;
+         
 
             //To add strings
             
@@ -43,6 +42,7 @@ function favorites() {
                                     <button class="icons-layer" onclick="clickDelete('${url}', 'myLikesKey');favorites()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
                                     <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                 </div>
+                                <div class="user-title">User:${user}<span class="titleG">Título:${title}</span></div>
                             </div>
                             
                             `;

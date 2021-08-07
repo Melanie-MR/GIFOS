@@ -70,7 +70,7 @@ form{
 #header-results{
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column
 }
 #search-font{
     font-size: 35px;
@@ -150,14 +150,41 @@ form{
     outline: inherit;
 }
 
+.user-title{
+    font-family: $font-roboto;
+    font-weight: 400;
+    font-size: 15px;
+    color: $background-color;
+    display: block;
+    margin-left: 5px;
+    margin-top:20%;
+    width: 200px;
+}
+.titleG{
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+}
+
 //Style list autocompleted
+.autoList:hover{
+    background-color: #f1f1f1;
+}
 .autoList{
     list-style: none;
     display: block;
+    height: 20px;
+    padding-left: 10px;
+    width: 100%;
 }
+
 .autocomplete{
-    margin-top: -72px;
-    margin-left: -445px;
+    width: 551px;
+    border-radius: 50px;
+    border: 1px solid $purple-color;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 10px;
 }
 
 //Line results
@@ -170,7 +197,7 @@ form{
 }
 ///VER MAS button
 #button-more{ 
-    display: none;
+    //display: none;
     background: none;
     border-radius: 50px;
     padding-top: 2px;

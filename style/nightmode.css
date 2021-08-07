@@ -378,6 +378,40 @@ form {
   outline: inherit;
 }
 
+.user-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #FFFFFFFF;
+  display: block;
+  margin-left: 5px;
+  margin-top: 20%;
+  width: 200px;
+}
+
+.titleG {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+}
+
+.user-trend {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #FFFFFFFF;
+  display: block;
+  margin-left: 5px;
+  margin-top: 50%;
+  width: 240px;
+}
+
+.titleGtrend {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+}
+
 .autoList {
   list-style: none;
   display: block;

@@ -7,6 +7,7 @@ const listAuto = document.querySelector('#list-auto');
 const searchBar = document.querySelector('.search');
 const clearButton = document.querySelector('#button__exs');
 const moreButton = document.querySelector('#button-more');
+const listAutoDiv = document.querySelector('.autocomplete');
 
 const offset = 12;
 var pagenum = 0;
@@ -21,7 +22,7 @@ clearButton.addEventListener('click', (e) => {
     searchBar.style = 'height: 40px;';
     resultsEl.style = 'display:none;';
     resultsEl.innerHTML= '';
-    moreButton.style.display = 'none';
+    moreButton.style = 'display:none;';
     
 });
 
@@ -30,69 +31,23 @@ searchInput.addEventListener('input', (e) => {
     e.preventDefault();
     const term = searchInput.value;
     
-  //  suggestions(term);
-    autocompleteSearch (term)
+    listHTML = '';
+    autocompleteSearch(term);
+    suggestions(term);
     
-    if (term == '') {
-        searchBar.style = 'height: 40px;';
-        moreButton.style = 'display: none;';
-    } else {
-        searchBar.style = "height: 100px;"
-    }
     
-    //Código para actualizar un elemento segun la búsqueda
-    
-    const trendingHeader = document.querySelector('.trending__header');
-    trendingHeader.style= "display: none;"
-    //se borra al darle enter, corregir. 
-    resultsEl.innerHTML= `<div id="header-results">
-    <hr class="gray-line">
-    <h3 id="search-font">${e.target.value}</h3> 
-    
-    </div>`;
 });
-
-////esta deberia mostrarse al hacer click en la barra de busqueda o copiar una letra maximo.
-//asi mismo, al hacer clear tambien deberia limpiar lo que se trajo de la api como sugerencia o auto.
-searchInput.addEventListener('input', (e) => {
-    e.preventDefault();
-    //const term = searchInput.value;
-    
-    suggestions();
-    //autocompleteSearch (term)
-    
-  /*  if (term == '') {
-        searchBar.style = 'height: 40px;';
-        moreButton.style = 'display: none;';
-    } else {
-        searchBar.style = "height: 100px;"
-    }*/
-    
-    //Código para actualuizar un elemento segun la búsqueda
-   /* 
-    const trendingHeader = document.querySelector('.trending__header');
-    trendingHeader.style= "display: none;"
-    //se borra al darle enter, corregir. 
-    resultsEl.innerHTML= `<div id="header-results">
-    <hr class="gray-line">
-    <h3 id="search-font">${e.target.value}</h3> 
-    
-    </div>`;*/
-});
-
 
 function suggestions(term) {
     
     /////Function Search Suggestions
 
-    const path_suggestions = `https://api.giphy.com/v1/tags/related/${term}?api_key=${apiKey}&limit=5`
+    const path_suggestions = `https://api.giphy.com/v1/tags/related/${term}?api_key=${apiKey}&limit=3`
 
     fetch (path_suggestions).then(function (res) { 
         return res.json();
     }).then(function(json){
-        //console.log(json.data[0].images.original.url);
-        
-        //console.log(json);
+      
         json.data.forEach(function(obj) {
             console.log(obj.name);
             listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</li>`;;
@@ -100,6 +55,16 @@ function suggestions(term) {
         });
         listAuto.innerHTML = listHTML;
         listAuto.style = "display: auto;";
+
+        if (listHTML == '') {
+            moreButton.style = 'display: none;';
+            listAutoDiv.style = 'display: none;';
+            searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
+    
+        } else {
+            listAutoDiv.style = 'display: auto;';
+            searchBar.style = "border-bottom-left-radius: 0; border-bottom-right-radius: 0;"           
+        }
 
     }).catch(function(err) {
         console.log(err.message);
@@ -109,6 +74,8 @@ function suggestions(term) {
 function fill(searchTerm) {
     searchInput.value = searchTerm;
     listAuto.style = "display: none;";
+    listAutoDiv.style = 'display: none;';
+    searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
     search(searchTerm);
 }
 
@@ -116,6 +83,9 @@ function fill(searchTerm) {
 searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const q = searchInput.value;
+    //Código para actualizar un elemento segun la búsqueda
+    
+    
     search(q);
 });
 
@@ -125,16 +95,16 @@ function search(query) {
     fetch (path_search).then(function (res) { 
         return res.json();
     }).then(function(json){
-        //console.log(json.data[0].images.original.url);
         let resultsHTML = '';
     
         json.data.forEach(function(obj) {
-            //console.log(obj);
+    
 
             const url = obj.images.original.url;
             const width = obj.images.fixed_width.width;
             const height = obj.images.fixed_height.height;
             const title = obj.title;
+            const user = obj.username;
     
             resultsHTML += 
 
@@ -151,14 +121,31 @@ function search(query) {
                             <button class="icons-layer" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
                             <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                         </div>
+                        <div class="user-title">User:${user}<span class="titleG">Título:${title}</span></div>
                     </div>
                    
                `;
         });
-        moreButton.style = 'display: block;'
+            listAuto.style = "display: none;";
+            searchBar.style = 'height: 40px;';
+            listAutoDiv.style = 'display: none;';
+
         if (resultsHTML == ''){
             resultsHTML = '<p>INTENTA DE NUEVO</p>';
-        } 
+            resultsEl.innerHTML = '';
+            moreButton.style = 'display: none;'
+            
+        } else {
+            moreButton.style = 'display: block;'
+            const trendingHeader = document.querySelector('.trending__header');
+            trendingHeader.style= "display: none;"
+            //se borra al darle enter, corregir. 
+            resultsEl.innerHTML= `<div id="header-results">
+                                <hr class="gray-line">
+                                <h3 id="search-font">${query}</h3> 
+                                </div>`;
+            resultsEl.style = "display:auto;"                   
+        }
     
         
         //cambiar boton de lugar para que no se duplique afuera de results.
@@ -168,7 +155,11 @@ function search(query) {
     }).catch(function(err) {
         resultsEl.style = 'display:none;';
         console.log(err.message);
-        moreButton.style = 'display: none;'
+        moreButton.style = 'display: none;';
+        //resultsEl.innerHTML= `<div id="header-results">
+                          //      <hr class="gray-line">
+                           //     <h3 id="search-font">Algo paso!!! no panic!</h3> 
+                            //    </div>`;
     });
     
 } 
@@ -183,7 +174,7 @@ function next() {
 //CORREGIR
 let y = 5
 function autocompleteSearch (y){
-    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${y}&limit=5&offset=5`
+    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${y}&limit=5&offset=3`
     
     fetch (path_autocomplete).then(function (res) { 
         return res.json();
