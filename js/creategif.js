@@ -207,10 +207,11 @@ function getGifDetails (id) {
         const width = data.data.images.fixed_width.width;
         const height = data.data.images.fixed_height.height;
         const title = data.data.title;
+        const user = data.data.username;
 
         let buttonEl = document.getElementById("icons-layer-gifo");
         let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                      <button class="icons-layer-gifo" onclick="clickLike('${url}'); favorites()"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                      <button class="icons-layer-gifo" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}'); favorites()"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
                       <button class="icons-layer-gifo" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Me Gusta"></button>
                       `;             
         buttonEl.innerHTML = buttons;
@@ -221,7 +222,8 @@ function getGifDetails (id) {
           url: url,
           width: width,
           title: title,
-          height: height
+          height: height,
+          user: user
         }
         myGifs.push(myGif)
         //Save in localStorage
@@ -252,14 +254,15 @@ async function clickDownload(imageUrl) {
 
 ////Like Gif
 
-function clickLike(url, width, title, height) {
+function clickLike(url, width, title, height, user) {
   
   let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
   const fav = {
       url: url,
       width: width,
       title: title,
-      height: height
+      height: height,
+      user: user
   }
   myLikes.push(fav)
   

@@ -23,7 +23,9 @@ function favorites() {
             
             const url = fav.url;
             const title = fav.title;
-            const user = fav.username;
+            const user = fav.user;
+            const width = fav.width;
+            const height = fav.height;
          
 
             //To add strings
@@ -40,13 +42,12 @@ function favorites() {
                                 <div id= "icons-layer">
                                     <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                     <button class="icons-layer" onclick="clickDelete('${url}', 'myLikesKey');favorites()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
-                                    <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                    <button class="icons-layer enlarge-button" onclick="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                 </div>
                                 <div class="user-title">User:${user}<span class="titleG">Título:${title}</span></div>
                             </div>
                             
                             `;
-
 
         });
             
@@ -68,14 +69,15 @@ function favorites() {
 
 //ClickLike Function ---> This is for save in LocalStorage fav object when user click.
 
-function clickLike(url, width, title, height) {
+function clickLike(url, width, title, height, user) {
     //console.log(width)
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
     const fav = {
         url: url,
         width: width,
         title: title,
-        height: height
+        height: height,
+        user: user
     }
     myLikes.push(fav)
     

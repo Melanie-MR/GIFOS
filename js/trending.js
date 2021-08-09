@@ -69,7 +69,7 @@ function trending(num) {
                                         <div class="user-trend">User: ${user}<span class="titleGtrend">Titulo: ${title}</span></div>
                                         <div id= "icons-layer-trending">
                                             <button class="icons-layer-trending" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                            <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                                            <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
                                             <button class="icons-layer-trending enlarge-button" onclick="clickEnlarge(${numSlides},${index})"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                         </div>
                                     </div>
@@ -175,7 +175,7 @@ function clickEnlarge(num, index) {
                                     <div><img src="${url}"  style= "width: 695px; height: 385px" alt="${title}"><h5 id= "titleModal">Titulo:${title}<br><span id="userModal">User:${user}</span></h5></div>
                                     <div class="modal-icon-layer">
                                         <button class="icons-layer-modal" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                        <button class="icons-layer-modal" onclick="clickLike('${url}', '${width}', '${title}', '${height}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>  
+                                        <button class="icons-layer-modal" onclick="clickLike('${url}', '${width}', '${title}', '${height}','${user}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>  
                                     </div>
                                 </div>`;
             slideButtons = `<a class="prev2 arrowsModal" onclick="plusSlideModal(-1)">&#10094;</a>
@@ -234,14 +234,15 @@ async function clickDownload(imageUrl) {
 
 //ClickLike Function ---> This is for save in LocalStorage fav object when user click.
 
-function clickLike(url, width, title, height) {
+function clickLike(url, width, title, height, user) {
     //console.log(width)
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
     const fav = {
         url: url,
         width: width,
         title: title,
-        height: height
+        height: height,
+        user: user
     }
     myLikes.push(fav)
     

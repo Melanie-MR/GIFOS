@@ -16,8 +16,11 @@ function myGifos() {
             
             const url = myG.url;
             const title = myG.title;
-            const user = myG.username;
-            const id = myG.id;
+            const user = myG.user;
+            const width = myG.width;
+            const height = myG.height;
+
+            //const id = myG.id;
 
             //To add strings
             
@@ -33,9 +36,9 @@ function myGifos() {
                                 <div id= "icons-layer">
                                     <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                     <button class="icons-layer" onclick="clickDelete('${url}', 'myGifs');myGifos()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
-                                    <button class="icons-layer enlarge-button" onclick="clickEnlarge()"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                    <button class="icons-layer enlarge-button" onclick="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
                                 </div>
-                                <div class="user-title">User: Melanie-MR<span class="titleG">Título: Gif Creado</span></div>
+                                <div class="user-title">User: '${user}'<span class="titleG">Título: Gif Creado</span></div>
                             </div>
                             
                             `;
@@ -62,14 +65,15 @@ function myGifos() {
 
 //ClickLike Function ---> This is for save in LocalStorage fav object when user click.
 
-function clickLike(url, width, title, height) {
+function clickLike(url, width, title, height, user) {
     //console.log(width)
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
     const fav = {
         url: url,
         width: width,
         title: title,
-        height: height
+        height: height,
+        user: user
     }
     myLikes.push(fav)
     
