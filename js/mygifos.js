@@ -28,11 +28,12 @@ function myGifos() {
                             
                             <img 
                             class="item galeryMeasure"
+                            ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"
                             src="${url}" 
                             alt="${title}"
                            
                             > 
-                            <div class="img-layer">
+                            <div class="img-layer" ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')">
                                 <div id= "icons-layer">
                                     <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                     <button class="icons-layer" onclick="clickDelete('${url}', 'myGifs');myGifos()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
@@ -78,7 +79,6 @@ function clickLike(url, width, title, height, user) {
     myLikes.push(fav)
     
     localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
-    favorites();
 }
 // Download Gif
 async function clickDownload(imageUrl) {

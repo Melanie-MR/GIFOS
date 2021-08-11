@@ -18,7 +18,7 @@ const preview = document.getElementById("preview");
 const stop = document.getElementById("stop");
 const repeat = document.getElementById("repeat-gif");
 const timer =  document.getElementById("timer");
-const layer = document.getElementByClassName("img-layer-gifo");
+const layer = document.getElementsByClassName("img-layer-gifo");
 const uploadMessage = document.querySelector(".uploadMessage");
 const uploadMessageDone = document.querySelector(".upload-message-done");
 
@@ -211,7 +211,7 @@ function getGifDetails (id) {
 
         let buttonEl = document.getElementById("icons-layer-gifo");
         let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                      <button class="icons-layer-gifo" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}'); favorites()"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
+                      <button class="icons-layer-gifo" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}');"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
                       <button class="icons-layer-gifo" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Me Gusta"></button>
                       `;             
         buttonEl.innerHTML = buttons;

@@ -34,11 +34,12 @@ function favorites() {
                             
                             <img 
                             class="item galeryMeasure"
+                            ontouchend="handleTouchEnd('${url}', '${width}', '${title}', '${height}', '${user}')"
                             src="${url}" 
                             alt="${title}"
                             
                             > 
-                            <div class="img-layer">
+                            <div class="img-layer" ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')">
                                 <div id= "icons-layer">
                                     <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                     <button class="icons-layer" onclick="clickDelete('${url}', 'myLikesKey');favorites()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>

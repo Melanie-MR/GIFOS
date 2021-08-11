@@ -115,11 +115,12 @@ function search(query) {
                 `
                     <img 
                         class="item galeryMeasure"
+                        ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"
                         src="${url}" 
                         alt="${title}"
                         
                     >
-                    <div class="img-layer">
+                    <div class="img-layer" ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')">
                         <div id= "icons-layer">
                             <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                             <button class="icons-layer" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}' )"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
@@ -272,3 +273,17 @@ function swapStyle() {
 };
 
 
+function clickLike(url, width, title, height, user) {
+    //console.log(width)
+    let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
+    const fav = {
+        url: url,
+        width: width,
+        title: title,
+        height: height,
+        user: user
+    }
+    myLikes.push(fav)
+    
+    localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
+};

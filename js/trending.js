@@ -62,10 +62,10 @@ function trending(num) {
             
             //To add strings
             
-            resultsTrending += `<div class="mySlides fade" ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')">
+            resultsTrending += `<div class="mySlides fade" ontouchend="handleTouchEnd('${url}', '${width}', '${title}', '${height}', '${user}')">
                                     <img src="${url}" class= "styleCard" alt="${title}">
                                     
-                                    <div class="img-layer-trending">
+                                    <div class="img-layer-trending" ontouchend="handleTouchEnd('${url}', '${width}', '${title}', '${height}', '${user}')">
                                         <div class="user-trend">User: ${user}<span class="titleGtrend">Titulo: ${title}</span></div>
                                         <div id= "icons-layer-trending">
                                             <button class="icons-layer-trending" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
@@ -234,7 +234,7 @@ async function clickDownload(imageUrl) {
 
 //ClickLike Function ---> This is for save in LocalStorage fav object when user click.
 
-function clickLike(url, width, title, height, user) {
+/*function clickLike(url, width, title, height, user) {
     //console.log(width)
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
     const fav = {
@@ -247,15 +247,13 @@ function clickLike(url, width, title, height, user) {
     myLikes.push(fav)
     
     localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
-    favorites();
-};
+};*/
 
 //Responsive
-if (window.matchMedia("(max-width: 615px)").matches) {
+
     const sliderImages = document.querySelector(".slideshow-container");
-    //document.addEventListener('touchstart', handleTouchStart, false);        
-    //document.addEventListener('touchmove', handleTouchMove, false);
-    //sliderImages.addEventListener('touchend', handleTouchEnd, false);
+    document.addEventListener('touchstart', handleTouchStart, false);        
+    sliderImages.addEventListener('touchmove', handleTouchMove, false);
 
     var xDown = null;                                                        
     var yDown = null;
@@ -273,79 +271,48 @@ if (window.matchMedia("(max-width: 615px)").matches) {
         yDown = firstTouch.clientY;                                      
     };      
 
-    function handleTouchEnd(evt) {
-        const imgUrl = evt.srcElement.src;
-        clickBiggerPic(imgUrl);
-        console.log("end", evt);
-    };      
-    console.log('La pantalla tiene max 615 píxeles de ancho');
-   
-}else {
-    console.log('Entre al else'); 
-}
-/*if (window.matchMedia("(max-width: 615px)").matches) {
-    console.log('La pantalla tiene al menos 400 píxeles de ancho');
-    
-    function showTrending(slideIndex) {
-        let trendingGif = document.querySelectorAll(".mySlides");
-        
-        for (let i = 0; i < trendingGif.length; i++) {
-            trendingGif[i].style.display = "none";
+    function handleTouchMove(evt) {
+        if ( ! xDown || ! yDown ) {
+            return;
         }
-        //To show 1 gif at a time
-        trendingGif[slideIndex].style.display = "flex"; 
-        slideIndex++;
-        console.log('algo');
+    
+        var xUp = evt.touches[0].clientX;                                    
+        var yUp = evt.touches[0].clientY;
+    
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+    
+        if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) { //movimiento horizontal
+            if ( xDiff > 0 ) { // X mayor
+                //left swipe 
+                plusSlides(1)
+            } else {
+                //right swipe 
+                plusSlides(-1)
+            }                       
+        } 
+        //reset values 
+        xDown = null;
+        yDown = null;                                             
+    };     
+
+    function handleTouchEnd(url, width, title, height, user) {
+        if ( ! xDown || ! yDown ) {
+            return;
+        }
+
+        var xUp = event.changedTouches[0].clientX;                                    
+        var yUp = event.changedTouches[0].clientY;
+    
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        console.log("iniciales", xDown, yDown)
+        console.log("finales", xUp, yUp)
+        if (xDiff <=0.1 &&  yDiff <=0.1){
+            clickBiggerPic(url, width, title, height, user);
+        }
     }
 
-    function plusSlides(steps) {
-        document.addEventListener('swiped-left', function(e) {
-            console.log(e.target); // the element that was swiped
-        });
-        document.addEventListener('swiped-right', function(e) {
-            console.log(e.target); // the element that was swiped
-        });
-        let trendingGif = document.querySelectorAll(".mySlides");
-        slideIndex += steps; // => slideIndex = slideIndex + n;
-        if (slideIndex > (trendingGif.length - 3)) {
-            slideIndex = 0;
-        }
-        if (slideIndex < 0) {
-            slideIndex = trendingGif.length - 3;
-        }
-        showTrending(slideIndex);
-    }
-       
-    /*function plusSlides(steps) {
-        document.addEventListener('swiped-left', function(e) {
-            console.log(e.target); // the element that was swiped
-        });
-        document.addEventListener('swiped-right', function(e) {
-            console.log(e.target); // the element that was swiped
-        });
-        let trendingGif = document.querySelectorAll(".mySlides");
-        slideIndex += steps; // => slideIndex = slideIndex + n;
-        if (slideIndex > (trendingGif.length - 3)) {
-            slideIndex = 0;
-        }
-        if (slideIndex < 0) {
-            slideIndex = trendingGif.length - 3;
-        }
-        /*console.log('bueno');
-        const arrowsTrend = document.getElementsByClassName('arrowsTrend');
-        let trendingGif = document.querySelectorAll(".mySlides");
-        slideIndex += steps; // => slideIndex = slideIndex + n;
-        if (slideIndex > (trendingGif.length - 3)) {
-            slideIndex = 0;
-        }
-        if (slideIndex < 0) {
-            slideIndex = trendingGif.length - 3;
-        }
-        showTrending(slideIndex);
-        //arrowsTrend.style= "display:none";
-        //console.log('algo2');
-    }
-    
- 
-}*/
+
 
