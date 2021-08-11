@@ -55,6 +55,9 @@
   }
   #icons{
     justify-content: center;
+    :hover{
+      color: none;
+    }
   }
   .copyright{
     margin: 0;

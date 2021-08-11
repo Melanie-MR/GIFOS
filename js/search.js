@@ -10,7 +10,7 @@ const moreButton = document.querySelector('#button-more');
 const listAutoDiv = document.querySelector('.autocomplete');
 
 const offset = 12;
-var pagenum = 0;
+let pagenum = 0;
 let listHTML = '';
 moreButton.style.display = 'none';
 //To clear input
@@ -47,25 +47,30 @@ function suggestions(term) {
     fetch (path_suggestions).then(function (res) { 
         return res.json();
     }).then(function(json){
-      
-        json.data.forEach(function(obj) {
-            console.log(obj.name);
-            listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</li>`;;
-            
-        });
-        listAuto.innerHTML = listHTML;
-        listAuto.style = "display: auto;";
+        if (json.meta.status == 200) {
+        
+            json.data.forEach(function(obj) {
+                console.log(obj.name);
+                listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</li>`;;
+                
+            });
+            listAuto.innerHTML = listHTML;
+            listAuto.style = "display: auto;";
 
-        if (listHTML == '') {
+            if (listHTML == '') {
+                moreButton.style = 'display: none;';
+                listAutoDiv.style = 'display: none;';
+                searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
+        
+            } else {
+                listAutoDiv.style = 'display: auto;';
+                searchBar.style = "border-bottom-left-radius: 0; border-bottom-right-radius: 0;"           
+            }
+        } else {
             moreButton.style = 'display: none;';
             listAutoDiv.style = 'display: none;';
             searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
-    
-        } else {
-            listAutoDiv.style = 'display: auto;';
-            searchBar.style = "border-bottom-left-radius: 0; border-bottom-right-radius: 0;"           
         }
-
     }).catch(function(err) {
         console.log(err.message);
     });
@@ -84,8 +89,8 @@ searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const q = searchInput.value;
     //Código para actualizar un elemento segun la búsqueda
-    
-    
+    resultsEl.innerHTML = '';
+    pagenum = 0;
     search(q);
 });
 
@@ -96,7 +101,6 @@ function search(query) {
         return res.json();
     }).then(function(json){
         let resultsHTML = '';
-    
         json.data.forEach(function(obj) {
     
 
@@ -126,25 +130,29 @@ function search(query) {
                    
                `;
         });
-            listAuto.style = "display: none;";
-            searchBar.style = 'height: 40px;';
-            listAutoDiv.style = 'display: none;';
+        listAuto.style = "display: none;";
+        searchBar.style = 'height: 40px;';
+        listAutoDiv.style = 'display: none;';
+        const resultsHeader = document.querySelector('#header-results');
+        resultsHeader.innerHTML = `
+                            <hr class="gray-line">
+                            <h3 id="search-font">${query}</h3> 
+                           `;
 
         if (resultsHTML == ''){
-            resultsHTML = '<p>INTENTA DE NUEVO</p>';
+            resultsHTML = `<h2>Intenta con otra búsqueda</h2>
+                            <img id="icon-try-again" src="assets/icon-busqueda-sin-resultado.svg" alt="Intenta de nuevo">`;
             resultsEl.innerHTML = '';
             moreButton.style = 'display: none;'
+            resultsHeader.style = 'display: none;'
+            resultsEl.style = "display:auto;"
             
         } else {
             moreButton.style = 'display: block;'
             const trendingHeader = document.querySelector('.trending__header');
-            trendingHeader.style= "display: none;"
-            //se borra al darle enter, corregir. 
-            resultsEl.innerHTML= `<div id="header-results">
-                                <hr class="gray-line">
-                                <h3 id="search-font">${query}</h3> 
-                                </div>`;
-            resultsEl.style = "display:auto;"                   
+            trendingHeader.style= "display: none;"             
+            resultsEl.style = "display:auto;"     
+            resultsHeader.style = 'display: auto;'              
         }
     
         
@@ -174,7 +182,7 @@ function next() {
 //CORREGIR
 let y = 5
 function autocompleteSearch (y){
-    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${y}&limit=5&offset=3`
+    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${y}&limit=3`
     
     fetch (path_autocomplete).then(function (res) { 
         return res.json();
@@ -185,7 +193,7 @@ function autocompleteSearch (y){
         //console.log(json);
         json.data.forEach(function(obj) {
             console.log(obj.name);
-            listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</li>`;
+            listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search lup"></i> ${obj.name}</li>`;
             
         });
         listAuto.innerHTML = listHTML;

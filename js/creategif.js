@@ -18,7 +18,7 @@ const preview = document.getElementById("preview");
 const stop = document.getElementById("stop");
 const repeat = document.getElementById("repeat-gif");
 const timer =  document.getElementById("timer");
-const layer = document.getElementsByClassName("img-layer-gifo");
+const layer = document.getElementByClassName("img-layer-gifo");
 const uploadMessage = document.querySelector(".uploadMessage");
 const uploadMessageDone = document.querySelector(".upload-message-done");
 

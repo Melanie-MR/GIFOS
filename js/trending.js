@@ -62,7 +62,7 @@ function trending(num) {
             
             //To add strings
             
-            resultsTrending += `<div class="mySlides fade">
+            resultsTrending += `<div class="mySlides fade" ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')">
                                     <img src="${url}" class= "styleCard" alt="${title}">
                                     
                                     <div class="img-layer-trending">
@@ -172,7 +172,7 @@ function clickEnlarge(num, index) {
             //To add strings
             
             resultsTrending += `<div class="mySlidesModal">
-                                    <div><img src="${url}"  style= "width: 695px; height: 385px" alt="${title}"><h5 id= "titleModal">Titulo:${title}<br><span id="userModal">User:${user}</span></h5></div>
+                                    <div><img class="imgSize" src="${url}" alt="${title}"><h5 id= "titleModal">Titulo:${title}<br><span id="userModal">User:${user}</span></h5></div>
                                     <div class="modal-icon-layer">
                                         <button class="icons-layer-modal" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
                                         <button class="icons-layer-modal" onclick="clickLike('${url}', '${width}', '${title}', '${height}','${user}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>  
@@ -248,10 +248,41 @@ function clickLike(url, width, title, height, user) {
     
     localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
     favorites();
+};
+
+//Responsive
+if (window.matchMedia("(max-width: 615px)").matches) {
+    const sliderImages = document.querySelector(".slideshow-container");
+    //document.addEventListener('touchstart', handleTouchStart, false);        
+    //document.addEventListener('touchmove', handleTouchMove, false);
+    //sliderImages.addEventListener('touchend', handleTouchEnd, false);
+
+    var xDown = null;                                                        
+    var yDown = null;
+
+
+    function getTouches(evt) {
+        return evt.touches ||             // browser API
+            evt.originalEvent.touches; // jQuery
+    }      
+
+    function handleTouchStart(evt) {
+        console.log("start", evt);
+        const firstTouch = getTouches(evt)[0];                                      
+        xDown = firstTouch.clientX;                                      
+        yDown = firstTouch.clientY;                                      
+    };      
+
+    function handleTouchEnd(evt) {
+        const imgUrl = evt.srcElement.src;
+        clickBiggerPic(imgUrl);
+        console.log("end", evt);
+    };      
+    console.log('La pantalla tiene max 615 píxeles de ancho');
+   
+}else {
+    console.log('Entre al else'); 
 }
-
-/*Responsive*/
-
 /*if (window.matchMedia("(max-width: 615px)").matches) {
     console.log('La pantalla tiene al menos 400 píxeles de ancho');
     
