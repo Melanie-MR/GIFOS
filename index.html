@@ -45,9 +45,9 @@
                 <img class="container__photo" src="assets/ilustra_header.svg" alt="Family Image">
             </div>
             <form autocomplete="off" class="search"  id="search-form">
-                <input  type="text" class="search__text" id="search-input" placeholder="Busca GIFOS y más">
+                <input  type="text" class="search__text" id="search-input" placeholder="Busca GIFOS y más"><span id="second__search"><button type="submit" class="submit"><i id= "sec__search" class="fas fa-search"></i></button></span>
                 <button type="submit" class="button" id="button__search"><img src="assets/icon-search.svg" alt="Buscar"></button>
-                <button class="button" id="button__exs"><img src="assets/close.svg" alt="Cerrar"></button> 
+                <button class="button" id="button__exs"><img id="exs__size" src="assets/close.svg" alt="Cerrar"></button> 
             </form>
             
             <!--GIFOS autocomplete-->
@@ -60,7 +60,7 @@
         <!--Trending-->
         <div class="trending__header">
             <h3 id="trending-font">Trending:</h3>
-            <h4 id="trending-topics">Reactions, Entertainment, Sports, Stickers, Artists</h4>
+            <h4 id="trending-topics">Reactions, Entertainment,<span id="break__mobile">Sports, Stickers, Artists</span></h4>
         </div>
 
         <!--Gray line + Title-->
@@ -72,12 +72,6 @@
         <div class="results" id="results">    
         </div>
         <button id="button-more" onclick="next();">VER MAS</button>
-          
-        <!--Trending
-        <div class="trending__header">
-            <h3 id="trending-font">Trending:</h3>
-            <h4 id="trending-topics">Reactions, Entertainment, Sports, Stickers, Artists</h4>
-        </div>-->
 
         <!--Trending and slider-->
         <section class="trending">

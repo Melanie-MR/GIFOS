@@ -9,12 +9,19 @@ const clearButton = document.querySelector('#button__exs');
 const moreButton = document.querySelector('#button-more');
 const listAutoDiv = document.querySelector('.autocomplete');
 const trendingHeader = document.querySelectorAll('.trending__header');
-
+const tryAgain = document.querySelectorAll('.tryAgain');
+const buttonSearch = document.querySelector('#button__search');
+const buttonExs = document.querySelector('#button__exs');
+const secondSearchButt = document.getElementById('second__search');
 
 const offset = 12;
 let pagenum = 0;
 let listHTML = '';
 moreButton.style.display = 'none';
+secondSearchButt.style.display = 'none';
+buttonExs.style.display = 'none';
+buttonSearch.style.display = 'block';
+
 //To clear input
 clearButton.addEventListener('click', (e) => {
     searchInput.value = '';
@@ -25,14 +32,19 @@ clearButton.addEventListener('click', (e) => {
     resultsEl.style = 'display:none;';
     resultsEl.innerHTML= '';
     moreButton.style = 'display:none;';
-    
+    buttonSearch.style = 'display: block;';
+    buttonExs.style = 'display: none;';
+    secondSearchButt.style.display = 'none';
 });
 
 //Event Listener to autocomplete
 searchInput.addEventListener('input', (e) => {
     e.preventDefault();
     const term = searchInput.value;
+    buttonExs.style.display = 'block';
     
+    buttonSearch.style = 'display: none;';
+    secondSearchButt.style.display = 'block';
     listHTML = '';
     autocompleteSearch(term);
     suggestions(term);
@@ -58,18 +70,25 @@ function suggestions(term) {
             });
             listAuto.innerHTML = listHTML;
             listAuto.style = "display: auto;";
+            
 
             if (listHTML == '') {
                 moreButton.style = 'display: none;';
+                buttonSearch.style = 'display: none;';
+                secondSearchButt = 'display: block';
                 listAutoDiv.style = 'display: none;';
                 searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
         
             } else {
+                //buttonSearch.style = 'display: block;';
+                buttonSearch.style = "display: none;";
                 listAutoDiv.style = 'display: auto;';
-                searchBar.style = "border-bottom-left-radius: 0; border-bottom-right-radius: 0;"           
+                searchBar.style = "border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: lightgray; "  
+                secondSearchButt = 'display: block';         
             }
         } else {
             moreButton.style = 'display: none;';
+            buttonExs.style = 'display: none;';
             listAutoDiv.style = 'display: none;';
             searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
         }
@@ -80,6 +99,7 @@ function suggestions(term) {
 
 function fill(searchTerm) {
     searchInput.value = searchTerm;
+    buttonSearch.style = 'display: none;';
     listAuto.style = "display: none;";
     listAutoDiv.style = 'display: none;';
     searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
@@ -92,7 +112,9 @@ searchForm.addEventListener('submit', function(e) {
     const q = searchInput.value;
     //To update an element according with the search
     resultsEl.innerHTML = '';
+    buttonSearch.style = "display: none;";
     pagenum = 0;
+    buttonSearch.style = 'display: block;';
     search(q);
 });
 
