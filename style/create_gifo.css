@@ -303,12 +303,32 @@ form {
   font-weight: 400;
   color: black;
   margin-left: 10px;
+  text-transform: capitalize;
+}
+
+#tryAgain {
+  color: #5ED7C6;
+}
+
+.tryAgain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 55px;
+  margin-top: -10px;
+}
+
+#icon-try-again {
+  width: 150px;
+  height: 150px;
 }
 
 #list-auto {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  text-transform: capitalize;
 }
 
 #header-results {
@@ -321,7 +341,8 @@ form {
   font-size: 35px;
   text-align: center;
   line-height: 30px;
-  margin-top: 5%;
+  margin-top: 80px;
+  text-transform: capitalize;
 }
 
 .button {
@@ -438,6 +459,7 @@ form {
   border: 1px solid #9CAFC3;
   width: 338px;
   height: 0.1px;
+  margin-top: 70px;
 }
 
 #button-more {
@@ -933,9 +955,8 @@ form {
 
 .camera-display {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: row;
-  margin-left: 8%;
 }
 
 .create-gifo-container {
@@ -975,23 +996,23 @@ video {
 #num-bar-container {
   display: flex;
   flex-direction: column;
-  margin-left: 40px;
 }
 
 .numbers-container {
   display: flex;
   flex-direction: row;
   width: 45%;
-  margin-left: 16%;
   margin-bottom: 5%;
   margin-top: -3%;
+  justify-content: center;
+  margin-left: 28%;
 }
 
 .num-repeat-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-left: 30%;
+  margin-left: -4%;
 }
 
 .button-number {
@@ -1042,7 +1063,8 @@ video {
   display: block;
   font-size: 15px;
   letter-spacing: 0;
-  margin-right: 10%;
+  margin-right: 7%;
+  margin-top: -18px;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   color: #572EE5;
@@ -1052,7 +1074,8 @@ video {
   font-size: 13px;
   letter-spacing: 0;
   display: none;
-  margin-right: 10%;
+  margin-right: 7%;
+  margin-top: -18px;
 }
 
 #repeat-gif:hover {
@@ -1151,11 +1174,11 @@ video {
   width: 480px;
   height: 320px;
   justify-content: center;
-  align-items: center;
+  align-content: center;
   background-color: #572EE5;
   opacity: 0.7;
   margin-left: -796px;
-  margin-top: 2.8%;
+  margin-top: 35px;
 }
 
 .progress-icon {
@@ -1170,7 +1193,7 @@ video {
   background-color: #572EE5;
   opacity: 0.7;
   margin-left: -796px;
-  margin-top: 2.8%;
+  margin-top: 35px;
 }
 
 .progress-icon {

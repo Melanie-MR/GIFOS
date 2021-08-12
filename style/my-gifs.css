@@ -303,12 +303,32 @@ form {
   font-weight: 400;
   color: black;
   margin-left: 10px;
+  text-transform: capitalize;
+}
+
+#tryAgain {
+  color: #5ED7C6;
+}
+
+.tryAgain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 55px;
+  margin-top: -10px;
+}
+
+#icon-try-again {
+  width: 150px;
+  height: 150px;
 }
 
 #list-auto {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  text-transform: capitalize;
 }
 
 #header-results {
@@ -321,7 +341,8 @@ form {
   font-size: 35px;
   text-align: center;
   line-height: 30px;
-  margin-top: 5%;
+  margin-top: 80px;
+  text-transform: capitalize;
 }
 
 .button {
@@ -438,6 +459,7 @@ form {
   border: 1px solid #9CAFC3;
   width: 338px;
   height: 0.1px;
+  margin-top: 70px;
 }
 
 #button-more {
@@ -933,7 +955,7 @@ form {
   color: #572EE5;
   font-size: 15px;
   text-align: center;
-  margin-top: 8%;
+  margin-top: 110px;
 }
 
 #default-msg {
@@ -945,6 +967,7 @@ form {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   margin-bottom: 5%;
 }
 

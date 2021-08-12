@@ -28,9 +28,8 @@
 }
 .camera-display{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: row;
-    margin-left: 8%;
 }
 .create-gifo-container{
     border: 1.5px solid $purple-color;
@@ -65,21 +64,21 @@ video{
 #num-bar-container{
     display: flex;
     flex-direction: column;
-    margin-left: 40px;  
 } 
 .numbers-container{
     display: flex;
     flex-direction: row;
     width: 45%;
-    margin-left: 16%;
     margin-bottom: 5%;
     margin-top: -3%;
+    justify-content: center;
+    margin-left: 28%;
 }
 .num-repeat-container{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 30%;
+    margin-left: -4%;
 }
 
 .button-number{
@@ -128,7 +127,8 @@ video{
     display: block; 
     font-size: 15px;
     letter-spacing: 0;
-    margin-right: 10%;
+    margin-right: 7%;
+    margin-top: -18px;
     font-family: $font-montserrat;
     font-weight: bold;
     color:$purple-color;
@@ -137,7 +137,8 @@ video{
     font-size: 13px;
     letter-spacing: 0;
     display: none; 
-    margin-right: 10%;
+    margin-right: 7%;
+    margin-top: -18px;
     &:hover{
         text-decoration: underline $aqua-font-color 3px;
     }
@@ -228,11 +229,11 @@ video{
     width: 480px;
     height: 320px;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     background-color: #572EE5;
     opacity: 0.7;
     margin-left: -796px;
-    margin-top: 2.8%;
+    margin-top:35px;
 }
 .progress-icon{
     display: flex;
@@ -246,7 +247,7 @@ video{
     background-color: #572EE5;
     opacity: 0.7;
     margin-left: -796px;
-    margin-top: 2.8%;
+    margin-top: 35px;
 }
 
 .progress-icon{
@@ -264,6 +265,7 @@ video{
    margin-left: 85%;
    margin-bottom: 20%;
    margin-top: 3px;
+   
 }
 .icons-layer-gifo{
     display: flex;

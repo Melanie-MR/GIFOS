@@ -64,13 +64,32 @@ form{
     font-weight: 400;
     color: $black-font-color;
     margin-left: 10px;
+    text-transform: capitalize;
     
 }
 
+//Error Msg
+#tryAgain{
+    color: $aqua-font-color;
+
+}
+.tryAgain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 55px;
+    margin-top: -10px;
+}
+#icon-try-again{
+    width: 150px; 
+    height: 150px;
+}
 #list-auto{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    text-transform: capitalize;
 }
 #header-results{
     display: flex;
@@ -81,7 +100,8 @@ form{
     font-size: 35px;
     text-align: center;
     line-height: 30px;
-    margin-top: 5%;
+    margin-top: 80px;
+    text-transform: capitalize;
 }
 
 //Search button
@@ -199,6 +219,7 @@ form{
     border: 1px solid #9CAFC3;
     width: 338px;
     height: 0.1px;
+    margin-top: 70px;
     
 }
 ///VER MAS button

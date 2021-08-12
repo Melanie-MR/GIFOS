@@ -22,6 +22,7 @@ const layer = document.getElementsByClassName("img-layer-gifo");
 const uploadMessage = document.querySelector(".uploadMessage");
 const uploadMessageDone = document.querySelector(".upload-message-done");
 
+
 //Object RECORDER. This is global to have access in all the listeners. 
 let recorder;
 //To manage timer
@@ -135,6 +136,7 @@ function stopRecordingCallback() {
   record.style = 'display: none';
   repeat.style = 'display: flex';
   upload.style = 'display: block';
+  
   // This is the format of the new data required as a body of the post request. 
   let form = new FormData();
   form.append("file", recorder.getBlob(), "myGif.gif");
@@ -149,6 +151,7 @@ function stopRecordingCallback() {
     three.classList.remove("button-number");
     three.classList.add("button-number-selected");
     uploadMessage.style.display = 'flex';
+    document.querySelector(".camera-display").style = 'margin-left: -20%;'
 
     uploadGif(form);
   });
@@ -210,9 +213,9 @@ function getGifDetails (id) {
         const user = data.data.username;
 
         let buttonEl = document.getElementById("icons-layer-gifo");
-        let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                      <button class="icons-layer-gifo" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}');"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
-                      <button class="icons-layer-gifo" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" alt="Me Gusta"></button>
+        let buttons = `<button class="icons-layer-gifo" onclick="clickDownload('${url}')"><img src="assets/icon-download-hover.svg" onmouseleave="this.src='assets/icon-download.svg'" onmouseover="this.src='assets/icon-download-hover.svg'" alt="Descargar"></button>
+                      <button class="icons-layer-gifo" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}'); "><img src="assets/icon-fav.svg" onmouseleave="this.src='assets/icon-fav.svg'" onmouseover="this.src='assets/icon-fav-hover.svg'" alt="Me Gusta"></button>
+                      <button class="icons-layer-gifo" onclick="copyToClipboard('${url}')"><img src="assets/icon-link-normal.svg" onmouseleave="this.src='assets/icon-link-normal.svg'" onmouseover="this.src='assets/icon-link-hover.svg'" alt="Copiar Link"></button>
                       `;             
         buttonEl.innerHTML = buttons;
 

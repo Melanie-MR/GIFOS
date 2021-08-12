@@ -8,6 +8,8 @@ const searchBar = document.querySelector('.search');
 const clearButton = document.querySelector('#button__exs');
 const moreButton = document.querySelector('#button-more');
 const listAutoDiv = document.querySelector('.autocomplete');
+const trendingHeader = document.querySelectorAll('.trending__header');
+
 
 const offset = 12;
 let pagenum = 0;
@@ -88,7 +90,7 @@ function fill(searchTerm) {
 searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const q = searchInput.value;
-    //Código para actualizar un elemento segun la búsqueda
+    //To update an element according with the search
     resultsEl.innerHTML = '';
     pagenum = 0;
     search(q);
@@ -122,9 +124,9 @@ function search(query) {
                     >
                     <div class="img-layer" ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')">
                         <div id= "icons-layer">
-                            <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                            <button class="icons-layer" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}' )"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
-                            <button class="icons-layer enlarge-button" onclick="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                            <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download-hover.svg" onmouseleave="this.src='assets/icon-download.svg'" onmouseover="this.src='assets/icon-download-hover.svg'" alt="Descargar"></button>
+                            <button class="icons-layer" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}' )"><img src="assets/icon-fav.svg" onmouseleave="this.src='assets/icon-fav.svg'" onmouseover="this.src='assets/icon-fav-hover.svg'" alt="Me Gusta"></button>
+                            <button class="icons-layer enlarge-button" onclick="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-max-normal.svg" onmouseleave="this.src='assets/icon-max-normal.svg'" onmouseover="this.src='assets/icon-max-hover.svg'" alt="Maximizar"></button>
                         </div>
                         <div class="user-title">User:${user}<span class="titleG">Título:${title}</span></div>
                     </div>
@@ -141,34 +143,32 @@ function search(query) {
                            `;
 
         if (resultsHTML == ''){
-            resultsHTML = `<h2>Intenta con otra búsqueda</h2>
-                            <img id="icon-try-again" src="assets/icon-busqueda-sin-resultado.svg" alt="Intenta de nuevo">`;
+            resultsHTML = `<div class="tryAgain">
+                                <img id="icon-try-again" src="assets/icon-busqueda-sin-resultado.svg" alt="Intenta de nuevo">
+                                <h2 id="tryAgain">Intenta con otra búsqueda.</h2>
+                            </div>
+                            `;
+
             resultsEl.innerHTML = '';
             moreButton.style = 'display: none;'
-            resultsHeader.style = 'display: none;'
+
+            resultsHeader.style = 'display: auto;'
             resultsEl.style = "display:auto;"
             
         } else {
             moreButton.style = 'display: block;'
-            const trendingHeader = document.querySelector('.trending__header');
+            //const trendingHeader = document.querySelector('.trending__header');
             trendingHeader.style= "display: none;"             
             resultsEl.style = "display:auto;"     
             resultsHeader.style = 'display: auto;'              
         }
     
-        
-        //cambiar boton de lugar para que no se duplique afuera de results.
         resultsEl.innerHTML += resultsHTML; //to add to html
-        
         
     }).catch(function(err) {
         resultsEl.style = 'display:none;';
         console.log(err.message);
         moreButton.style = 'display: none;';
-        //resultsEl.innerHTML= `<div id="header-results">
-                          //      <hr class="gray-line">
-                           //     <h3 id="search-font">Algo paso!!! no panic!</h3> 
-                            //    </div>`;
     });
     
 } 
@@ -179,8 +179,6 @@ function next() {
     search(q);
 }
 
-///Autocomplete search. No se vacia cuando le doy x, y agrega de dos en dos, termina dando una sugerencia muy grande. 
-//CORREGIR
 let y = 5
 function autocompleteSearch (y){
     const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${y}&limit=3`
@@ -191,7 +189,6 @@ function autocompleteSearch (y){
         
         console.log(json);
         
-        //console.log(json);
         json.data.forEach(function(obj) {
             console.log(obj.name);
             listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search lup"></i> ${obj.name}</li>`;
@@ -272,7 +269,7 @@ function swapStyle() {
 
 };
 
-
+////ClickLike
 function clickLike(url, width, title, height, user) {
     //console.log(width)
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
@@ -287,3 +284,4 @@ function clickLike(url, width, title, height, user) {
     
     localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
 };
+
