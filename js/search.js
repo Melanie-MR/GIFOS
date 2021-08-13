@@ -8,10 +8,11 @@ const searchBar = document.querySelector('.search');
 const clearButton = document.querySelector('#button__exs');
 const moreButton = document.querySelector('#button-more');
 const listAutoDiv = document.querySelector('.autocomplete');
-const trendingHeader = document.querySelectorAll('.trending__header');
+const trendingHeader = document.querySelector('.trending__header');
 const buttonSearch = document.querySelector('#button__search');
 const buttonExs = document.querySelector('#button__exs');
 const secondSearchButt = document.getElementById('second__search');
+const resultsHeader = document.querySelector('#header-results');
 
 const offset = 12;
 let pagenum = 0;
@@ -23,32 +24,41 @@ buttonSearch.style.display = 'block';
 
 //To clear input
 clearButton.addEventListener('click', (e) => {
+    e.preventDefault();
     searchInput.value = '';
     listAuto.innerHTML = '';
     listHTML = '';
     listAuto.style = "display: none;";
+    listAutoDiv.style = 'display: none;';
     searchBar.style = 'height: 40px;';
     resultsEl.style = 'display:none;';
     resultsEl.innerHTML= '';
     moreButton.style = 'display:none;';
     buttonSearch.style = 'display: block;';
     buttonExs.style = 'display: none;';
-    secondSearchButt.style.display = 'none';
+    secondSearchButt.style.display = 'none'; 
+    trendingHeader.style = 'display: block;';
+    resultsHeader.style = 'display: none;';
 });
 
 //Event Listener to autocomplete
 searchInput.addEventListener('input', (e) => {
     e.preventDefault();
     const term = searchInput.value;
-    buttonExs.style.display = 'block';
-    
-    buttonSearch.style = 'display: none;';
-    secondSearchButt.style.display = 'block';
     listHTML = '';
-    autocompleteSearch(term);
-    suggestions(term);
-    
-    
+    if (term == '') {
+        buttonExs.style.display = 'none';
+        buttonSearch.style = 'display: block;';
+        secondSearchButt.style.display = 'none';
+
+    } else {
+        buttonExs.style.display = 'block';
+        buttonSearch.style = 'display: none;';
+        secondSearchButt.style.display = 'block';
+        autocompleteSearch(term);
+        suggestions(term);    
+    }
+    console.log("Termino",term)    
 });
 
 function suggestions(term) {
@@ -98,11 +108,12 @@ function suggestions(term) {
 
 function fill(searchTerm) {
     searchInput.value = searchTerm;
+    resultsEl.innerHTML = '';
     buttonSearch.style = 'display: none;';
     listAuto.style = "display: none;";
     listAutoDiv.style = 'display: none;';
     searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
-
+    trendingHeader.style= "display: none;" 
     search(searchTerm);
 }
 
@@ -112,9 +123,9 @@ searchForm.addEventListener('submit', function(e) {
     const q = searchInput.value;
     //To update an element according with the search
     resultsEl.innerHTML = '';
-    buttonSearch.style = "display: none;";
+    //buttonSearch.style = "display: none;";
     pagenum = 0;
-    buttonSearch.style = 'display: block;';
+    trendingHeader.style= "display: none;" 
     search(q);
 });
 
@@ -185,8 +196,6 @@ function search(query) {
             resultsHTML.innerHTML = '';///
             const tryAgain = document.querySelectorAll('.tryAgain');
             tryAgain.style= "display: none;"
-    
-            const trendingHeader = document.querySelector('.trending__header');
             trendingHeader.style= "display: none;"             
             resultsEl.style = "display:auto;"     
             resultsHeader.style = 'display: auto;'              
