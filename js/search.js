@@ -17,6 +17,7 @@ const resultsHeader = document.querySelector('#header-results');
 const offset = 12;
 let pagenum = 0;
 let listHTML = '';
+let listHTMLauto = '';
 moreButton.style.display = 'none';
 secondSearchButt.style.display = 'none';
 buttonExs.style.display = 'none';
@@ -71,13 +72,13 @@ function suggestions(term) {
         return res.json();
     }).then(function(json){
         if (json.meta.status == 200) {
-        
+            listHTML= '';
             json.data.forEach(function(obj) {
                 console.log(obj.name);
                 listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search"></i> ${obj.name}</li>`;;
                 
             });
-            listAuto.innerHTML = listHTML;
+            listAuto.innerHTML = listHTMLauto + listHTML;
             listAuto.style = "display: auto;";
             
 
@@ -219,7 +220,7 @@ function next() {
 
 let y = 5
 function autocompleteSearch (y){
-    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${y}&limit=3`
+    const path_autocomplete = `https://api.giphy.com/v1/gifs/search/tags?api_key=${apiKey}&q=${y}&limit=2`
     
     fetch (path_autocomplete).then(function (res) { 
         return res.json();
@@ -227,12 +228,13 @@ function autocompleteSearch (y){
         
         console.log(json);
         
+        listHTMLauto = '';
         json.data.forEach(function(obj) {
             console.log(obj.name);
-            listHTML += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search lup"></i> ${obj.name}</li>`;
+            listHTMLauto += `<li class= "autoList" onclick="fill('${obj.name}');"><i class="fas fa-search lup"></i> ${obj.name}</li>`;
             
         });
-        listAuto.innerHTML = listHTML;
+        listAuto.innerHTML = listHTMLauto + listHTML;
         listAuto.style = "display: auto;";
         
 
