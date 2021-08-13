@@ -23,8 +23,8 @@ function clickBiggerPic(url, width, title, height, user) {
   imageModal += `<div class="mySlidesModal">
                           <div><img src="${url}" class= "imgSize" alt="${title}"><h5 id= "titleModal">Titulo:${title}<br><span id="userModal">User:${user}</span></h5></div>
                           <div class="modal-icon-layer">
-                              <button class="icons-layer-modal" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                              <button class="icons-layer-modal" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>  
+                              <button class="icons-layer-modal" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" onmouseleave="this.src='assets/icon-download.svg'" onmouseover="this.src='assets/icon-download-hover.svg'" alt="Descargar"></button>
+                              <button class="icons-layer-modal" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-fav.svg" onmouseleave="this.src='assets/icon-fav.svg'" onmouseover="this.src='assets/icon-fav-hover.svg'" alt="Me Gusta"></button>  
                           </div>
                   </div>`;
       

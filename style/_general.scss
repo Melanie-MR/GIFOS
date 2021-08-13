@@ -2,9 +2,6 @@ html{
     box-sizing: border-box;
     font-size: 62.5%;
 }
-/**{
-    box-sizing: inherit;
-}*/
 
 body{
     display: inline;
@@ -12,7 +9,6 @@ body{
     min-width: 375px;
     margin: 0;
     padding: 0;
-    //box-sizing: border-box;
     background-color: $background-color;
 
 }

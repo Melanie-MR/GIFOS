@@ -68,9 +68,9 @@ function trending(num) {
                                     <div class="img-layer-trending" ontouchend="handleTouchEnd('${url}', '${width}', '${title}', '${height}', '${user}')">
                                         <div class="user-trend">User: ${user}<span class="titleGtrend">Titulo: ${title}</span></div>
                                         <div id= "icons-layer-trending">
-                                            <button class="icons-layer-trending" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                            <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>
-                                            <button class="icons-layer-trending enlarge-button" onclick="clickEnlarge(${numSlides},${index})"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                            <button class="icons-layer-trending" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" onmouseleave="this.src='assets/icon-download.svg'" onmouseover="this.src='assets/icon-download-hover.svg'" alt="Descargar"></button>
+                                            <button class="icons-layer-trending" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-fav.svg" onmouseleave="this.src='assets/icon-fav.svg'" onmouseover="this.src='assets/icon-fav-hover.svg'" alt="Me Gusta"></button>
+                                            <button class="icons-layer-trending enlarge-button" onclick="clickEnlarge(${numSlides},${index})"><img src="assets/icon-max-normal.svg" onmouseleave="this.src='assets/icon-max-normal.svg'" onmouseover="this.src='assets/icon-max-hover.svg'" alt="Maximizar"></button>
                                         </div>
                                     </div>
                                     
@@ -105,14 +105,6 @@ function clickDelete(url, key) {
     //To update the array after delete elements
     localStorage.setItem(key, JSON.stringify(myData));
 }
-
-
-
-
-
-
-
-
 
 
 ////MODAL
@@ -174,8 +166,8 @@ function clickEnlarge(num, index) {
             resultsTrending += `<div class="mySlidesModal">
                                     <div><img class="imgSize" src="${url}" alt="${title}"><h5 id= "titleModal">Titulo:${title}<br><span id="userModal">User:${user}</span></h5></div>
                                     <div class="modal-icon-layer">
-                                        <button class="icons-layer-modal" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                        <button class="icons-layer-modal" onclick="clickLike('${url}', '${width}', '${title}', '${height}','${user}')"><img src="assets/icon-fav.svg" alt="Me Gusta"></button>  
+                                        <button class="icons-layer-modal" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" onmouseleave="this.src='assets/icon-download.svg'" onmouseover="this.src='assets/icon-download-hover.svg'" alt="Descargar"></button>
+                                        <button class="icons-layer-modal" onclick="clickLike('${url}', '${width}', '${title}', '${height}','${user}')"><img src="assets/icon-fav.svg" onmouseleave="this.src='assets/icon-fav.svg'" onmouseover="this.src='assets/icon-fav-hover.svg'" alt="Me Gusta"></button>  
                                     </div>
                                 </div>`;
             slideButtons = `<a class="prev2 arrowsModal" onclick="plusSlideModal(-1)">&#10094;</a>

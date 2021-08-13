@@ -12,6 +12,8 @@ const trendingHeader = document.querySelectorAll('.trending__header');
 const buttonSearch = document.querySelector('#button__search');
 const buttonExs = document.querySelector('#button__exs');
 const secondSearchButt = document.getElementById('second__search');
+const tryAgain = document.querySelectorAll('.tryAgain');
+            
 
 const offset = 12;
 let pagenum = 0;
@@ -34,6 +36,8 @@ clearButton.addEventListener('click', (e) => {
     buttonSearch.style = 'display: block;';
     buttonExs.style = 'display: none;';
     secondSearchButt.style.display = 'none';
+    const tryAgain = document.querySelectorAll('.tryAgain');
+    tryAgain.style = 'display: none;';
 });
 
 //Event Listener to autocomplete
@@ -72,6 +76,8 @@ function suggestions(term) {
             
 
             if (listHTML == '') {
+                const tryAgain = document.querySelectorAll('.tryAgain');
+                tryAgain.style = 'display: flex;'
                 moreButton.style = 'display: none;';
                 buttonSearch.style = 'display: none;';
                 secondSearchButt = 'display: block';
@@ -79,13 +85,16 @@ function suggestions(term) {
                 searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
         
             } else {
-        
+                const tryAgain = document.querySelectorAll('.tryAgain');
+                tryAgain.style = 'display: none;'
                 buttonSearch.style = "display: none;";
                 listAutoDiv.style = 'display: auto;';
                 searchBar.style = "border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: lightgray; "  
                 secondSearchButt = 'display: block';         
             }
         } else {
+            const tryAgain = document.querySelectorAll('.tryAgain');
+            tryAgain.style = 'display: none;'
             moreButton.style = 'display: none;';
             buttonExs.style = 'display: none;';
             listAutoDiv.style = 'display: none;';
@@ -102,7 +111,8 @@ function fill(searchTerm) {
     listAuto.style = "display: none;";
     listAutoDiv.style = 'display: none;';
     searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
-
+    const tryAgain = document.querySelectorAll('.tryAgain');
+    tryAgain.style = 'display: none;'
     search(searchTerm);
 }
 
@@ -112,6 +122,8 @@ searchForm.addEventListener('submit', function(e) {
     const q = searchInput.value;
     //To update an element according with the search
     resultsEl.innerHTML = '';
+    const tryAgain = document.querySelectorAll('.tryAgain');
+    tryAgain.style = 'display: none;'
     buttonSearch.style = "display: none;";
     pagenum = 0;
     buttonSearch.style = 'display: block;';
@@ -146,7 +158,7 @@ function search(query) {
                     >
                     <div class="img-layer" ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')">
                         <div id= "icons-layer">
-                            <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" onmouseleave="this.src='assets/icon-download.svg'" onmouseover="this.src='assets/icon-download-hover.svg'" alt="Descargar"></button>
+                            <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download-hover.svg" onmouseleave="this.src='assets/icon-download.svg'" onmouseover="this.src='assets/icon-download-hover.svg'" alt="Descargar"></button>
                             <button class="icons-layer" onclick="clickLike('${url}', '${width}', '${title}', '${height}', '${user}' )"><img src="assets/icon-fav.svg" onmouseleave="this.src='assets/icon-fav.svg'" onmouseover="this.src='assets/icon-fav-hover.svg'" alt="Me Gusta"></button>
                             <button class="icons-layer enlarge-button" onclick="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-max-normal.svg" onmouseleave="this.src='assets/icon-max-normal.svg'" onmouseover="this.src='assets/icon-max-hover.svg'" alt="Maximizar"></button>
                         </div>
@@ -159,6 +171,7 @@ function search(query) {
         listAuto.style = "display: none;";
         searchBar.style = 'height: 40px;';
         listAutoDiv.style = 'display: none;';
+        tryAgain.style = 'display: none;'
         const resultsHeader = document.querySelector('#header-results');
         resultsHeader.innerHTML = `
                             <hr class="gray-line">
@@ -167,11 +180,7 @@ function search(query) {
 
 
         if (resultsHTML == ''){
-            resultsHTML = `<div class="tryAgain">
-                                <img id="icon-try-again" src="assets/icon-busqueda-sin-resultado.svg" alt="Intenta de nuevo">
-                                <h2 id="tryAgain">Intenta con otra búsqueda.</h2>
-                            </div>
-                            `;
+            tryAgain.style = 'display: flex;'
 
             resultsEl.innerHTML = '';
             moreButton.style = 'display: none;'
@@ -182,9 +191,8 @@ function search(query) {
             
         } else {
             moreButton.style = 'display: block;'
-            resultsHTML.innerHTML = '';///
-            const tryAgain = document.querySelectorAll('.tryAgain');
-            tryAgain.style= "display: none;"
+            resultsHTML.innerHTML = '';
+            tryAgain.style = 'display: none;'
     
             const trendingHeader = document.querySelector('.trending__header');
             trendingHeader.style= "display: none;"             
@@ -198,6 +206,7 @@ function search(query) {
         resultsEl.style = 'display:none;';
         console.log(err.message);
         moreButton.style = 'display: none;';
+        tryAgain.style = 'display: flex;'
     });
     
 } 
@@ -229,6 +238,7 @@ function autocompleteSearch (y){
 
     }).catch(function(err) {
         console.log(err.message);
+        tryAgain.style = 'display: flex;'
     });
 }
 

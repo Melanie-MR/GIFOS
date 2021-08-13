@@ -68,11 +68,11 @@ label{
   .wider{
     height: 500px; //this make the menu heighter.
   }
-  .header {
+  header {
     width: 100%;
     position: fixed;
     z-index: 1;
-  }
+    }
   .nav {
     display: flex;
     justify-content: space-between;

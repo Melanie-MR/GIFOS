@@ -4,9 +4,6 @@ html {
   font-size: 62.5%;
 }
 
-/**{
-    box-sizing: inherit;
-}*/
 body {
   display: inline;
   max-width: 1440px;
@@ -143,7 +140,7 @@ label {
   .wider {
     height: 500px;
   }
-  .header {
+  header {
     width: 100%;
     position: fixed;
     z-index: 1;
@@ -314,8 +311,10 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 200px;
   margin-bottom: 55px;
-  margin-top: -10px;
+  margin-top: -50px;
+  margin-left: 40%;
 }
 
 #icon-try-again {
@@ -642,10 +641,9 @@ form {
 
 @media only screen and (max-width: 615px) {
   .container_search {
-    margin-left: 5%;
     margin-top: 5%;
     max-width: 334px;
-    margin-left: 10%;
+    margin-left: 3%;
   }
   .container__photo {
     height: 130px;
@@ -668,6 +666,9 @@ form {
   .search {
     padding: 0;
   }
+  .search__text {
+    width: 260px;
+  }
   .title {
     margin-left: 5%;
     margin-top: 5%;
@@ -685,6 +686,9 @@ form {
   }
   .img-layer {
     display: none;
+  }
+  .tryAgain {
+    margin-left: 26%;
   }
   #titleModal {
     margin-left: 8%;
@@ -916,6 +920,9 @@ form {
   #break__mobile {
     display: block;
   }
+  .arrowsTrend {
+    display: none;
+  }
 }
 
 .footer-container {
@@ -1103,7 +1110,7 @@ form {
     display: none;
   }
   .title-mygifs {
-    margin-top: 15%;
+    margin-top: 77px;
   }
 }
 /*# sourceMappingURL=my-gifs.css.map */

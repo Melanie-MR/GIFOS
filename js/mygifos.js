@@ -35,9 +35,9 @@ function myGifos() {
                             > 
                             <div class="img-layer" ontouchend="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')">
                                 <div id= "icons-layer">
-                                    <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" alt="Descargar"></button>
-                                    <button class="icons-layer" onclick="clickDelete('${url}', 'myGifs');myGifos()"><img src="assets/icon-trash-normal.svg" alt="Eliminar"></button>
-                                    <button class="icons-layer enlarge-button" onclick="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-max-normal.svg" alt="Maximizar"></button>
+                                    <button class="icons-layer" onclick="clickDownload('${url}')"><img src="assets/icon-download.svg" onmouseleave="this.src='assets/icon-download.svg'" onmouseover="this.src='assets/icon-download-hover.svg'" alt="Descargar"></button>
+                                    <button class="icons-layer" onclick="clickDelete('${url}', 'myGifs');myGifos()"><img src="assets/icon-trash-normal.svg" onmouseleave="this.src='assets/icon-trash-normal.svg'" onmouseover="this.src='assets/icon-trash-hover.svg'" alt="Eliminar"></button>
+                                    <button class="icons-layer enlarge-button" onclick="clickBiggerPic('${url}', '${width}', '${title}', '${height}', '${user}')"><img src="assets/icon-max-normal.svg" onmouseleave="this.src='assets/icon-max-normal.svg'" onmouseover="this.src='assets/icon-max-hover.svg'" alt="Maximizar"></button>
                                 </div>
                                 <div class="user-title">User: '${user}'<span class="titleG">Título: Gif Creado</span></div>
                             </div>
