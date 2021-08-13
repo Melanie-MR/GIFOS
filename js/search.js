@@ -139,7 +139,6 @@ function search(query) {
         let resultsHTML = '';
         json.data.forEach(function(obj) {
     
-
             const url = obj.images.original.url;
             const width = obj.images.fixed_width.width;
             const height = obj.images.fixed_height.height;
