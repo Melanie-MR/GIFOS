@@ -4,6 +4,7 @@ let slideIndex = 0;
 let indexModal = 0;
 const numSlides = 60;
 trending(numSlides);
+trendingTopics();
 
 ////SLIDER TRENDING
 
@@ -224,22 +225,6 @@ async function clickDownload(imageUrl) {
     //showAlert('¡Descarga exitosa!');
 };
 
-//ClickLike Function ---> This is for save in LocalStorage fav object when user click.
-
-/*function clickLike(url, width, title, height, user) {
-    //console.log(width)
-    let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
-    const fav = {
-        url: url,
-        width: width,
-        title: title,
-        height: height,
-        user: user
-    }
-    myLikes.push(fav)
-    
-    localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
-};*/
 
 //Responsive
 
@@ -306,5 +291,22 @@ async function clickDownload(imageUrl) {
         }
     }
 
+function trendingTopics(){
+    const trendingTopics = document.getElementById("trending-topics");
+    const path_trentop = `https://api.giphy.com/v1/trending/searches?api_key=${apiKey}&limit=5`
+    fetch (path_trentop).then(function (res) { 
+        return res.json();
+    }).then(function(json){
 
+        let results = json.data;
+
+        let resultsTopics = `${results[0]}, ${results[1]}, <span id="break__mobile">${results[2]},  ${results[3]}, ${results[4]}</span>`;
+
+        trendingTopics.innerHTML = resultsTopics;
+
+    }).catch(function(err) {
+        console.log(err.message);
+    });
+  
+}
 

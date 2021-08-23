@@ -319,8 +319,14 @@ function clickLike(url, width, title, height, user) {
         height: height,
         user: user
     }
-    myLikes.push(fav)
+    const isElementUrl = (el) => el.url === url;
+
+    if (myLikes.some(isElementUrl)){
+        clickDelete(fav.url, 'myLikesKey');
+    } else {
+        myLikes.push(fav)
+        localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
+    }
     
-    localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
 };
 

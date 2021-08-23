@@ -70,6 +70,7 @@ function favorites() {
 
 //ClickLike Function ---> This is for save in LocalStorage fav object when user click.
 
+////ClickLike
 function clickLike(url, width, title, height, user) {
     //console.log(width)
     let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
@@ -80,12 +81,16 @@ function clickLike(url, width, title, height, user) {
         height: height,
         user: user
     }
-    myLikes.push(fav)
-    
-    localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
-    favorites();
-}
+    const isElementUrl = (el) => el.url === url;
 
+    if (myLikes.some(isElementUrl)){
+        clickDelete(fav.url, 'myLikesKey');
+    } else {
+        myLikes.push(fav)
+        localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
+    }
+    favorites();
+};
 // Download Gif
 async function clickDownload(imageUrl) {
 

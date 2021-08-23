@@ -257,8 +257,9 @@ async function clickDownload(imageUrl) {
 
 ////Like Gif
 
+////ClickLike
 function clickLike(url, width, title, height, user) {
-  
+  //console.log(width)
   let myLikes = JSON.parse(localStorage.getItem('myLikesKey'));
   const fav = {
       url: url,
@@ -267,11 +268,16 @@ function clickLike(url, width, title, height, user) {
       height: height,
       user: user
   }
-  myLikes.push(fav)
+  const isElementUrl = (el) => el.url === url;
+
+  if (myLikes.some(isElementUrl)){
+      clickDelete(fav.url, 'myLikesKey');
+  } else {
+      myLikes.push(fav)
+      localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
+  }
   
-  localStorage.setItem('myLikesKey', JSON.stringify(myLikes));
-  
-}
+};
 
 ////Copy Link GIF
 
