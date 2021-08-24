@@ -23,6 +23,14 @@ secondSearchButt.style.display = 'none';
 buttonExs.style.display = 'none';
 buttonSearch.style.display = 'block';
 
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const query = urlParams.get('q');
+if (query != null && query != ""){
+    fill(query);
+}
+
 //To clear input
 clearButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -115,6 +123,8 @@ function fill(searchTerm) {
     listAutoDiv.style = 'display: none;';
     searchBar.style = "border-bottom-left-radius: 50px; border-bottom-right-radius: 50px;"
     trendingHeader.style= "display: none;" 
+    buttonExs.style.display = 'block';
+    secondSearchButt.style.display = 'block';
     search(searchTerm);
 }
 

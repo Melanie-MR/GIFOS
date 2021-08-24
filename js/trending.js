@@ -300,7 +300,7 @@ function trendingTopics(){
 
         let results = json.data;
 
-        let resultsTopics = `${results[0]}, ${results[1]}, <span id="break__mobile">${results[2]},  ${results[3]}, ${results[4]}</span>`;
+        let resultsTopics = `<a style= "text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';" href="/?q=${results[0]}">${results[0]}</a>, <a style= "text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';" href="/?q=${results[1]}">${results[1]}</a>, <span id="break__mobile"><a style= "text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';" href="/?q=${results[2]}">${results[2]}</a>,  <a style= "text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';" href="/?q=${results[3]}">${results[3]}</a>, <a style= "text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';" href="/?q=${results[4]}">${results[4]}</a></span>`;
 
         trendingTopics.innerHTML = resultsTopics;
 
